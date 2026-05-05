@@ -125,25 +125,72 @@ El algoritmo premia en este orden:
 ```
 [Nombre del producto] [emoji coherente con Roure]
 [Oferta o precio visible]
-[WhatsApp: XXXXXXXXXX]
-[Hashtags: max 4-5, específicos del nicho]
+[CTA → tienda online: roure.tiendanegocio.com]
+[Hashtags: max 4-5, específicos del nicho + SEO]
 ```
+
+> ⚠️ CTA PRIORITARIO: La tienda online es el destino principal de todas las ventas.
+> Mencionar siempre roure.tiendanegocio.com en el caption o en el video.
+> WhatsApp (1153837478) es canal secundario — solo para consultas o cuando la clienta no pueda comprar sola.
 
 **Ejemplo:**
 ```
 Cardigan Osito Coquette 🧸
 $52.000 — con transferencia $41.600
-1153837478
-#comfyoutfits #cuteoutfits #pinterestoutfit #cozyvibes
+roure.tiendanegocio.com
+#cardigan #sweaterinvierno #modafemenina #comfyoutfits
+```
+
+### SEO en TikTok (OBLIGATORIO aplicar en cada video)
+
+TikTok indexa texto — tanto en captions como en el audio. Aplicar siempre:
+
+**En el caption:**
+
+- Incluir al menos 1 keyword de búsqueda real que use la clienta:
+  `sweater invierno`, `cardigan oversize`, `ropa coquette`, `outfit invierno argentina`, `moda femenina argentina`
+- Combinar keywords de búsqueda + hashtags de nicho (no genéricos)
+- Poner la keyword más importante primero, antes del precio
+
+**En el video (texto en pantalla o voz):**
+
+- Nombrar el producto claramente en los primeros 3 segundos
+- Si hay voz en off, decir el nombre del producto — TikTok lo indexa como audio
+
+**Estructura de caption con SEO:**
+```
+[Keyword de búsqueda + nombre del producto] [emoji]
+[Precio / oferta]
+[CTA → tienda]
+[2-3 hashtags de nicho] [1-2 hashtags SEO amplios]
+```
+
+**Ejemplo con SEO:**
+```
+Sweater oversize estrella — nuevo ingreso invierno 2026 🌟
+$XX.XXX — con transferencia $XX.XXX (20% OFF)
+roure.tiendanegocio.com
+#sweaterinvierno #modafemenina #comfyoutfits #outfitinvierno
 ```
 
 ### Hashtags Probados @missroure
 
-- #cuteoutfits ✅ (POST #T001, mayor reach)
-- #pinterestoutfit ✅ (múltiples posts)
+**Nicho (engagement):**
+
+- #cuteoutfits ✅
+- #pinterestoutfit ✅
 - #comfyoutfits ✅
 - #grwmoutfit ✅
-- #summeroutfit ✅
+- #cozyvibes ✅
+
+**SEO amplio (descubrimiento):**
+
+- #sweaterinvierno
+- #modafemenina
+- #outfitinvierno
+- #ropaargentina
+- #modaargentina
+- #cardiganoversize
 
 ---
 

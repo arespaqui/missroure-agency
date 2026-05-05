@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"hookEventName\": \"SessionStart\", \"additionalContext\": \"MANDATORY STARTUP PROTOCOL for Miss Roure Agency:\\n\\nBefore responding to ANY message, read in this exact order:\\n1. missroure-agency/README.md\\n2. missroure-agency/AGENTS.md\\n\\nThen follow AGENTS.md protocol:\\n- Read context/brand-context.md\\n- Read memory/wins.md\\n- Read memory/losses.md\\n- Activate the correct skill from skills/ based on the task\\n- Check stock in context/catalog-context.md before proposing any product\"}}'",
+            "statusMessage": "Loading Miss Roure Agency protocol..."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,9 +1,9 @@
 # SKILL: Instagram Curator
 
-version: 1.1
+version: 1.2
 last_updated: 2026-05-04
 updated_by: Ares Palomino
-changelog: v1.1 — Enriquecido con framework de carrusel de 6 slides (Carousel Growth Engine, agency-agents), estructura hook→problema→solución→CTA adaptada a Roure
+changelog: v1.2 — CTA tienda como prioridad absoluta, corrección de warnings markdown
 
 ---
 
@@ -55,7 +55,7 @@ Soy el curador de la estética visual y el contenido de @missroure en Instagram.
 ### ❌ Lo que NO funciona (EVITAR)
 
 - Flat lay simple sin producción → bajo engagement (3 likes vs 7 del staging)
-- Posts sin CTA claro
+- Posts sin CTA claro hacia la tienda
 - Collages estáticos sin contexto visual
 - Hashtags genéricos (#fashion, #style) — usar hashtags específicos del nicho
 
@@ -66,7 +66,7 @@ Soy el curador de la estética visual y el contenido de @missroure en Instagram.
 ### Tipos de Formato (por prioridad de engagement)
 
 | Formato | Engagement esperado | Cuándo usar |
-|---|---|---|
+| --- | --- | --- |
 | Carrusel staging romántico | ⭐⭐⭐ Alto | Lanzamiento de producto, drop |
 | Reel percha → modelo | ⭐⭐⭐ Alto | Producto nuevo, outfit completo |
 | Carrusel outfit del día | ⭐⭐ Medio | Contenido regular, lifestyle |
@@ -76,7 +76,7 @@ Soy el curador de la estética visual y el contenido de @missroure en Instagram.
 ### Pilares de Contenido Instagram (balancear semanalmente)
 
 | Pilar | % | Formatos |
-|---|---|---|
+| --- | --- | --- |
 | Producto | 35% | Carrusel staging, reel close-up |
 | Lifestyle | 30% | Reel GRWM, outfit real, day in my life |
 | Humanizado | 20% | Detrás del ingreso, el proceso de Roure, la persona detrás de la marca |
@@ -84,18 +84,18 @@ Soy el curador de la estética visual y el contenido de @missroure en Instagram.
 
 ### Estructura de Carrusel Ganador
 
-```
+```text
 Slide 1 — Hook visual: staging producido o outfit aspiracional completo
 Slide 2 — Modelo real usando la prenda en exterior cotidiano
 Slide 3 (opcional) — Detalle de producto: textura, tela, accesorio
 Slide 4 (opcional) — Múltiples colores disponibles
 ```
 
-### Framework de 6 Slides para Carrusel Viral (adaptado de Carousel Growth Engine — agency-agents)
+### Framework de 6 Slides para Carrusel Viral
 
-Para carruseles de producto en drops o lanzamientos importantes, usar esta estructura completa:
+Para carruseles de producto en drops o lanzamientos importantes:
 
-```
+```text
 Slide 1 — HOOK: imagen aspiracional que detiene el scroll
            → staging romántico con la prenda protagonista
 Slide 2 — PROBLEMA: el momento que la clienta reconoce
@@ -107,10 +107,10 @@ Slide 4 — SOLUCIÓN: la prenda como respuesta
 Slide 5 — FEATURE: los colores / talles / detalles
            → "Disponible en 4 colores. Quedate con el tuyo."
 Slide 6 — CTA: directo y suave
-           → precio + transferencia + link en bio o WhatsApp
+           → precio + 20% OFF transferencia + roure.tiendanegocio.com
 ```
 
-**Regla de coherencia visual** (extraída de Carousel Growth Engine): la Slide 1 establece la paleta y el mood. Las slides 2-6 deben referenciar esa misma estética — mismos tonos, mismo nivel de producción. Un carrusel con slides inconsistentes genera confusión visual y reduce guardados.
+**Regla de coherencia visual:** la Slide 1 establece la paleta y el mood. Las slides 2-6 deben referenciar esa misma estética — mismos tonos, mismo nivel de producción. Un carrusel con slides inconsistentes reduce guardados.
 
 ### Elementos de Staging Roure (usar combinados)
 
@@ -125,16 +125,21 @@ Slide 6 — CTA: directo y suave
 
 ### Fórmula de Caption Instagram
 
-```
+```text
 [Hook emocional — frase que conecta antes de vender]
 [Descripción del producto — suave, poética, no técnica]
 [Pregunta abierta para generar comentarios]
-[CTA claro — link en bio / WhatsApp]
+[CTA → roure.tiendanegocio.com]
 [Hashtags — 8 a 12, específicos del nicho]
 ```
 
+> ⚠️ CTA PRIORITARIO: Siempre dirigir a roure.tiendanegocio.com.
+> "Link en bio" solo si el link del perfil apunta directamente a la tienda.
+> El objetivo es que la clienta compre sola — no depender de WhatsApp para cerrar cada venta.
+
 **Ejemplo:**
-```
+
+```text
 Ese cardigan que ibas a comprar tarde o temprano — llegó 🌷
 
 El Cardigan Dolce es el básico de invierno que no sabías que necesitabas.
@@ -142,7 +147,7 @@ Tejido suave, caída perfecta, disponible en tres colores.
 
 ¿Cuál es tu favorito para esta temporada? 🤍
 
-🛍️ Link en bio para ver todos los colores disponibles.
+roure.tiendanegocio.com 🛍️
 
 #comfyoutfits #cozyvibes #cardigan #invierno2026 #modaargentina
 #romanticstyle #softgirl #outfitinspo
@@ -183,6 +188,7 @@ Tejido suave, caída perfecta, disponible en tres colores.
 ## Protocolo de Registro en memory/
 
 Después de cada publicación:
+
 1. Registrar en `memory/campaign-log.md` con URL y métricas iniciales
 2. Revisitar métricas a las 48-72h
 3. Si supera promedios → `memory/wins.md` con análisis de staging y copy

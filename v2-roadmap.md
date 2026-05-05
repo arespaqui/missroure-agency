@@ -1,8 +1,9 @@
 # Roadmap v2.0 — Miss Roure Brand Agency OS
 
-version: 0.1
+version: 0.2
 last_updated: 2026-05-04
 updated_by: Ares Palomino
+changelog: v0.2 — Agregado pendiente CLAUDE.md para arranque universal
 
 ---
 
@@ -18,21 +19,27 @@ El sistema actual usa archivos MD con contexto fijo. Esto genera dos riesgos:
 ## Opciones evaluadas para v2.0
 
 ### Opción A — Contexto dinámico por tarea
+
 El agente carga solo los archivos relevantes para la tarea puntual.
+
 - TikTok script → solo tiktok-strategist + wins TikTok
 - Calendario → solo editorial-calendar + commercial-calendar
 - **Pro**: contexto mínimo y específico, nunca fijo
 - **Con**: requiere protocolo claro de qué cargar cada vez; si falla, pierde aprendizaje
 
 ### Opción B — Memory como motor de evolución
+
 El sistema mejora porque wins.md y losses.md crecen con cada publicación.
+
 - El contexto "fijo" es solo la identidad de marca
 - Lo que cambia y evoluciona es la memoria acumulada
 - **Pro**: simple, sin desarrollo técnico adicional
 - **Con**: depende de que Damaris actualice la memoria regularmente
 
 ### Opción C — Arquitectura con agentes especializados (recomendada)
+
 Agentes separados construidos con Claude API:
+
 - Un agente por rol (TikTok, análisis, calendario, copy)
 - Cada uno tiene contexto mínimo propio
 - Se comunican entre sí para tareas complejas
@@ -45,10 +52,17 @@ Agentes separados construidos con Claude API:
 ## Decisión pendiente para v2.0
 
 Evaluar Opción C como arquitectura target. Requiere:
+
 - [ ] Definir qué agentes se construyen (mínimo: TikTok, Instagram, Growth, Editorial)
 - [ ] Diseñar cómo se pasan contexto entre agentes
 - [ ] Decidir dónde vive la memoria (base de datos vs archivos vs embeddings)
 - [ ] Definir la interfaz para Damaris (¿chat? ¿formulario? ¿WhatsApp bot?)
+
+---
+
+## Pendientes confirmados para v2.0
+
+- [ ] Crear `CLAUDE.md` en la raíz de `missroure-agency/` — fuerza el protocolo de arranque en cualquier agente compatible (Claude Code, Cursor, Windsurf) sin depender de hooks ni configuración manual
 
 ---
 
