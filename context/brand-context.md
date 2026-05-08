@@ -88,6 +88,20 @@ lo femenino: suave, romántico, auténtico.
 - **Uso estratégico de emojis**: 🩷 🧸 🌷 ✨
   Nunca en exceso, siempre reforzando el mensaje.
 
+### Voz humanizante — TikTok (voz oficial aprobada por la marca)
+
+- Hablar de **vos a vos** — nunca "les", nunca "ustedes"
+- **Apelativo oficial**: "Lindas" (reemplaza "Girlies")
+- **Cierre fijo**: "Bye, lindas. 🌷" — es firma de marca
+- **Emoji 🌷 al inicio** para enganchar en el primer frame
+- Intro máximo 3 segundos — arrancar directo al producto
+- Describir la prenda con detalle físico real: corte, cuello, material, sensación al tacto
+- Urgencia suave: "no te quedes sin el tuyo" — nunca agresiva
+- Anglicismos naturales del habla juvenil argentina: "comfy", "cute", "boom", "outfit" ✅
+
+**Copy modelo aprobado**:
+> 🌷 Lindas, volvieron nuestros sweaters más virales. Primero, el Sweater Star — es muy amplio, comfy y con un diseño de estrella que enamora. El Sweater Vienne, cuello bote que está en tendencia, cálido, con una sensación al tacto muy suavecita. Y el sweater a rayas que es un boom esta temporada — es más cortito y tiene cuello chomba, lo tenés disponible en varias combinaciones. Link en la bio, no te quedes sin el tuyo. Bye, lindas. 🌷
+
 ### Ejemplos de copies on-brand
 
 "Porque merecés sentirte linda hasta en tu día más tranquilo 🧸"
@@ -105,7 +119,7 @@ text
 ❌ "¡ÚLTIMA OPORTUNIDAD! ¡OFERTAZO!"
 ❌ Lenguaje agresivo de descuento o urgencia forzada
 ❌ Tono impersonal o corporativo
-❌ Anglicismos innecesarios que rompan el registro cálido en español
+✅ Anglicismos propios del habla juvenil argentina están permitidos cuando son naturales al registro (ej: "girlies", "outfit", "cute", "vibe") — evitar solo los que suenen forzados o corporativos
 ❌ Exceso de mayúsculas o signos de exclamación
 
 text

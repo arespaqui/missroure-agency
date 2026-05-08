@@ -175,22 +175,37 @@ roure.tiendanegocio.com
 
 ### Hashtags Probados @missroure
 
-**Nicho (engagement):**
+> ⚠️ REGLAS FIJAS:
+> - #missroure SIEMPRE en todos los videos, sin excepción
+> - Máximo 5 hashtags totales
+> - ~~#modafemenina~~ ❌ muy genérico — evitar
+> - ~~#pinterestoutfit~~ ❌ muy genérico — evitar
 
-- #cuteoutfits ✅
-- #pinterestoutfit ✅
+**Proceso aprobado para definir hashtags:**
+1. #missroure (fijo siempre)
+2. 1-2 hashtags SEO de temporada y producto específico
+3. Benchmarking real de competencia TikTok Argentina (ibaci.store, divine_markett)
+4. Hashtags de nicho del producto — no de estética general
+5. Evitar genéricos
+
+**Sets aprobados por categoría:**
+
+Sweaters / cardigans invierno:
+```
+#missroure #sweaterinvierno #cardigan #sweatermujer #comfystyle
+```
+
+**Pool de hashtags validados:**
+
+- #missroure ✅ (OBLIGATORIO)
+- #sweaterinvierno ✅
+- #outfitinvierno ✅
+- #cardigan ✅
+- #sweatermujer ✅
+- #comfystyle ✅
 - #comfyoutfits ✅
-- #grwmoutfit ✅
 - #cozyvibes ✅
-
-**SEO amplio (descubrimiento):**
-
-- #sweaterinvierno
-- #modafemenina
-- #outfitinvierno
-- #ropaargentina
-- #modaargentina
-- #cardiganoversize
+- #ropaargentina ✅
 
 ---
 
