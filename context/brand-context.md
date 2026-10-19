@@ -1,9 +1,15 @@
 # brand-context.md
 
-version: 1.1
-last_updated: 2026-05-04
-updated_by: Damaris Vasquez
-changelog: Handle actualizado a @missroure, tono ajustado, nueva frase de identidad
+> Aclaración de producto de la marca: el buzo se posiciona como comfy, informal y casual. Se conserva venta individual y se incorpora Pack Sweet CAT-028 (buzo + catsuit modal soft), ARS $56.250 del PDF. No forzar una propuesta formal/romántica ni trasladar margen individual al pack. [Detalle de campaña y pendientes](season-2026-10.md).
+
+> Prioridad comercial confirmada por la marca el 2026-10-16: vender el stock de [buzos](../inventory/sweatshirts.md), un modelo con tres variantes (Comfy, Off-shoulder y Tulip off-shoulder), junto con ofertas reales de verano e invierno en una campaña consolidada y un conjunto inicial, con ARS $7.000/día en total confirmados. [Fuente estratégica vigente](../metads/strategy/2026-10-source-of-truth.md). Referencias y precios actuales en el [catálogo del PDF](../inventory/catalog.md); planificación en el [brief vigente](season-2026-10.md). No trasladar unidades del modelo a cada variante ni usar falsa escasez ante el sobrestock declarado.
+
+> Actualización verificada 2026-10-16: la portada de https://roure.tiendanegocio.com/ anuncia envío gratis desde $100.000 y 20% OFF con transferencia. El umbral de $80.000 que aparece abajo es histórico; no utilizarlo en anuncios nuevos. Detalle de temporada y condiciones pendientes: [brief actual](season-2026-10.md).
+
+version: 1.2
+last_updated: 2026-06-05
+updated_by: Agent (sdd-apply)
+changelog: Unificación de envío gratis a $80.000 ARS y definición formal de disparadores coquette (voseo, lindas, bye lindas 🌷).
 
 ---
 
@@ -47,12 +53,12 @@ lo femenino: suave, romántico, auténtico.
 ## Información Comercial
 
 - **Modelo**: 100% digital, sin local físico, envíos a todo el país
-- **Ticket promedio**: ~$30.000 ARS (rango real: $12.000 — $58.000)
+- **Ticket promedio**: ~$80.000 ARS (AOV objetivo 2026, impulsado por combos y compras múltiples; rango real por prenda: $12.000 — $95.000)
 - **Producción**: Mixta — producción propia + importación
 - **Plataforma de tienda**: Tienda Negocio
 - **Descuentos activos**:
   - 20% OFF pagando con transferencia bancaria ← driver clave de conversión
-  - Envío gratis en compras desde $100.000 ARS
+  - Envío gratis en compras desde $80.000 ARS
   - 5% OFF comprando 2+ prendas de Paris Collection
 - **Métodos de pago**: Transferencia, efectivo y otros
 
@@ -98,6 +104,14 @@ lo femenino: suave, romántico, auténtico.
 - Describir la prenda con detalle físico real: corte, cuello, material, sensación al tacto
 - Urgencia suave: "no te quedes sin el tuyo" — nunca agresiva
 - Anglicismos naturales del habla juvenil argentina: "comfy", "cute", "boom", "outfit" ✅
+
+### Disparadores Coquette y Románticos (Triggers Obligatorios)
+
+Para fortalecer el posicionamiento estético de la marca y potenciar la conversión en redes, email y WhatsApp, todas las comunicaciones y copies deben estructurarse bajo los siguientes disparadores de identidad:
+- **Uso del Voseo (hablar de vos a vos)**: Generar una conexión directa, horizontal, íntima y cálida ("sentite linda", "encontrá tu outfit", "llevá lo que te define"). Evitar por completo el "tú" neutro o dirigirse impersonalmente al público en plural ("les", "ustedes"), a menos que sea un anuncio institucional o corporativo.
+- **Apelativo de Comunidad ("Lindas")**: Es el único término oficial y cariñoso para dirigirse a la audiencia ("Hola, lindas", "Lindas, miren este ingreso"). Sustituye apelativos previos como "Girlies".
+- **Firma y Cierre de Marca ("Bye, lindas. 🌷")**: Cierre identitario no negociable con emoji de tulipán que sella los videos, copies de redes y flujos automáticos de email y WhatsApp.
+- **Tono Coquette-Cottagecore**: Uso de adjetivos tiernos y descriptivos ("comfy", "cute", "suavecito", "delicado", "romántico") que refuercen la experiencia sensorial de las prendas.
 
 **Copy modelo aprobado**:
 > 🌷 Lindas, volvieron nuestros sweaters más virales. Primero, el Sweater Star — es muy amplio, comfy y con un diseño de estrella que enamora. El Sweater Vienne, cuello bote que está en tendencia, cálido, con una sensación al tacto muy suavecita. Y el sweater a rayas que es un boom esta temporada — es más cortito y tiene cuello chomba, lo tenés disponible en varias combinaciones. Link en la bio, no te quedes sin el tuyo. Bye, lindas. 🌷

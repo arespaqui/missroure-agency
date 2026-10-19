@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roure — Reporte de Contenido Mayo 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --rosa: #C4788A;
+    --rosa-osc: #9E3A5A;
+    --rosa-clar: #FFF0F5;
+    --rosa-mid: #E8B4C8;
+    --gris: #4A4A4A;
+    --gris-clar: #F5F5F5;
+    --verde: #2D8653;
+    --rojo: #C0392B;
+    --amarillo: #D4AC0D;
+    --blanco: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #FAF7F9; color: var(--gris); }
+
+  header {
+    background: linear-gradient(135deg, var(--rosa-osc) 0%, var(--rosa) 100%);
+    color: white; padding: 48px 40px 36px; text-align: center;
+  }
+  header .brand { font-size: 52px; font-weight: bold; letter-spacing: 8px; margin-bottom: 6px; }
+  header .tagline { font-style: italic; font-size: 15px; opacity: 0.85; margin-bottom: 20px; }
+  header .periodo { font-size: 13px; background: rgba(255,255,255,0.15); display: inline-block; padding: 6px 18px; border-radius: 20px; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+  /* CALLOUT */
+  .callout {
+    border-left: 5px solid var(--rosa-osc);
+    background: var(--rosa-clar);
+    padding: 18px 22px; border-radius: 0 8px 8px 0;
+    margin: 24px 0; font-style: italic; color: var(--rosa-osc); font-size: 16px;
+  }
+
+  /* SECTION */
+  .section { margin: 40px 0; }
+  .section-title {
+    font-size: 20px; font-weight: bold; color: var(--rosa-osc);
+    border-bottom: 2px solid var(--rosa-mid); padding-bottom: 8px; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .num {
+    background: var(--rosa-osc); color: white; width: 30px; height: 30px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 14px; flex-shrink: 0;
+  }
+
+  /* KPI GRID */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 20px 0; }
+  .kpi {
+    background: white; border-radius: 12px; padding: 20px 16px; text-align: center;
+    box-shadow: 0 2px 8px rgba(156,58,90,0.08);
+    border-top: 4px solid var(--rosa);
+  }
+  .kpi .val { font-size: 32px; font-weight: bold; color: var(--rosa-osc); line-height: 1; }
+  .kpi .lab { font-size: 11px; color: #888; margin-top: 6px; line-height: 1.3; }
+  .kpi .delta { font-size: 12px; font-weight: bold; margin-top: 8px; }
+  .kpi .delta.up { color: var(--verde); }
+  .kpi .delta.down { color: var(--rojo); }
+
+  /* CHART */
+  .chart-wrap {
+    background: white; border-radius: 12px; padding: 24px;
+    box-shadow: 0 2px 8px rgba(156,58,90,0.08); margin: 20px 0;
+  }
+  .chart-title { font-size: 14px; font-weight: bold; color: var(--gris); margin-bottom: 16px; }
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .charts-row { grid-template-columns: 1fr; } }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
+  th { background: var(--rosa-osc); color: white; padding: 10px 12px; text-align: left; font-size: 12px; }
+  td { padding: 9px 12px; border-bottom: 1px solid #F0E6EB; vertical-align: top; }
+  tr:nth-child(even) td { background: var(--rosa-clar); }
+  tr:hover td { background: #FFE8F0; }
+  .tag {
+    display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: bold;
+  }
+  .tag.verde { background: #D4EDDA; color: #155724; }
+  .tag.rojo  { background: #FDECEA; color: #721C24; }
+  .tag.amarillo { background: #FFF9C4; color: #856404; }
+  .tag.azul  { background: #D1ECF1; color: #0C5460; }
+
+  /* INSIGHT CARD */
+  .insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 20px 0; }
+  .insight-card {
+    background: white; border-radius: 10px; padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--rosa);
+  }
+  .insight-card.verde { border-left-color: #27AE60; }
+  .insight-card.rojo  { border-left-color: #E74C3C; }
+  .insight-card.azul  { border-left-color: #2980B9; }
+  .insight-card h4 { font-size: 13px; color: var(--rosa-osc); margin-bottom: 8px; }
+  .insight-card p  { font-size: 12px; color: #666; line-height: 1.5; }
+
+  /* BENCHMARK */
+  .bench-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 20px 0; }
+  .bench-card {
+    background: white; border-radius: 10px; padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .bench-card .account { font-weight: bold; color: var(--rosa-osc); font-size: 14px; margin-bottom: 4px; }
+  .bench-card .seg { font-size: 11px; color: #888; margin-bottom: 12px; }
+  .bench-card .hook { font-style: italic; font-size: 12px; color: #555; background: var(--rosa-clar); padding: 8px 10px; border-radius: 6px; margin-bottom: 10px; }
+  .bench-card .aplic { font-size: 12px; color: #333; }
+  .bench-card .aplic strong { color: var(--verde); }
+
+  /* PRIORIDADES */
+  .prior { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; margin: 20px 0; }
+  .prior-card {
+    border-radius: 10px; padding: 22px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .prior-card.p1 { background: #FFF0F0; border-top: 4px solid #E74C3C; }
+  .prior-card.p2 { background: #FFFBF0; border-top: 4px solid #F39C12; }
+  .prior-card.p3 { background: #F0FFF4; border-top: 4px solid #27AE60; }
+  .prior-card h3 { font-size: 15px; margin-bottom: 10px; }
+  .prior-card p  { font-size: 12px; color: #555; line-height: 1.6; }
+  .prior-card .formato { display: inline-block; margin-top: 10px; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; background: rgba(0,0,0,0.07); }
+
+  /* TRAFFIC */
+  .traffic-bar { margin: 10px 0; }
+  .traffic-bar .label { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 3px; }
+  .traffic-bar .bar { height: 10px; background: #F0E6EB; border-radius: 5px; overflow: hidden; }
+  .traffic-bar .fill { height: 100%; background: var(--rosa); border-radius: 5px; }
+
+  footer { text-align: center; padding: 32px; color: #aaa; font-size: 12px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">ROURE</div>
+  <div class="tagline">Romantic life starts in your closet</div>
+  <div class="periodo">📊 Reporte de Contenido · 27 abr – 24 may 2026 · Temporada Invierno 2026</div>
+</header>
+
+<div class="container">
+
+  <div class="callout">
+    "Roure no empuja, seduce. La conexión emocional primero; la compra es consecuencia."<br>
+    <span style="font-size:13px;opacity:0.8">Este mes el contenido empezó a funcionar. Los números lo confirman.</span>
+  </div>
+
+  <!-- 1. KPIs TIKTOK -->
+  <div class="section">
+    <div class="section-title"><span class="num">1</span> TikTok @missroure — KPIs del Periodo (25 abr – 22 may)</div>
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="val">15K</div>
+        <div class="lab">Visualizaciones de video</div>
+        <div class="delta up">▲ +410% vs anterior</div>
+      </div>
+      <div class="kpi">
+        <div class="val">868</div>
+        <div class="lab">Me gusta</div>
+        <div class="delta up">▲ +600% vs anterior</div>
+      </div>
+      <div class="kpi">
+        <div class="val">97</div>
+        <div class="lab">Veces compartido</div>
+        <div class="delta up">▲ +213% vs anterior</div>
+      </div>
+      <div class="kpi">
+        <div class="val">12</div>
+        <div class="lab">Comentarios</div>
+        <div class="delta up">▲ +12 (de 0)</div>
+      </div>
+      <div class="kpi">
+        <div class="val">+182</div>
+        <div class="lab">Seguidores netos</div>
+        <div class="delta up">▲ Crecimiento fuerte</div>
+      </div>
+      <div class="kpi">
+        <div class="val">600</div>
+        <div class="lab">Visitas al perfil</div>
+        <div class="delta up">▲ +380% vs anterior</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. FUENTES DE TRÁFICO -->
+  <div class="section">
+    <div class="section-title"><span class="num">2</span> Fuentes de Tráfico TikTok</div>
+    <div class="charts-row">
+      <div class="chart-wrap">
+        <div class="chart-title">Distribución de fuentes de tráfico</div>
+        <canvas id="chartTrafico" height="220"></canvas>
+      </div>
+      <div class="chart-wrap" style="display:flex;flex-direction:column;justify-content:center;">
+        <div class="chart-title">Análisis por fuente</div>
+        <div class="traffic-bar">
+          <div class="label"><span>Para Ti (FYP)</span><span><strong>76.1%</strong> 🟢</span></div>
+          <div class="bar"><div class="fill" style="width:76.1%;background:#27AE60;"></div></div>
+          <div style="font-size:11px;color:#888;margin-top:2px">El algoritmo distribuye activamente. Señal excelente.</div>
+        </div>
+        <div class="traffic-bar" style="margin-top:12px">
+          <div class="label"><span>Perfil personal</span><span><strong>17.5%</strong> 🔵</span></div>
+          <div class="bar"><div class="fill" style="width:17.5%;background:#2980B9;"></div></div>
+          <div style="font-size:11px;color:#888;margin-top:2px">Audiencia fiel que vuelve al perfil.</div>
+        </div>
+        <div class="traffic-bar" style="margin-top:12px">
+          <div class="label"><span>Buscar</span><span><strong>4.7%</strong> 🟡</span></div>
+          <div class="bar"><div class="fill" style="width:4.7%;background:#F39C12;"></div></div>
+          <div style="font-size:11px;color:#888;margin-top:2px">Oportunidad: mejorar hashtags y captions.</div>
+        </div>
+        <div class="traffic-bar" style="margin-top:12px">
+          <div class="label"><span>Sonido</span><span><strong>0.0%</strong> 🔴</span></div>
+          <div class="bar"><div class="fill" style="width:0%;background:#E74C3C;"></div></div>
+          <div style="font-size:11px;color:#888;margin-top:2px">⚠️ No se usa audio trending. Acción inmediata.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TOP CONTENIDO -->
+  <div class="section">
+    <div class="section-title"><span class="num">3</span> Top Contenido TikTok — ¿Qué funcionó y por qué?</div>
+    <div class="charts-row" style="margin-bottom:20px">
+      <div class="chart-wrap">
+        <div class="chart-title">Nuevos seguidores por video (top 5)</div>
+        <canvas id="chartSeg" height="220"></canvas>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Nuevos espectadores por video (top 5)</div>
+        <canvas id="chartEsp" height="220"></canvas>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <th>#</th><th>Hook / Título</th><th>Nuevos Seg.</th><th>Espectadores</th><th>Por qué funcionó</th><th>Diagnóstico</th>
+      </tr>
+      <tr>
+        <td><strong>1</strong></td>
+        <td><em>"Volvieron nuestros sweaters más virales"</em> — Sweater Estrella burdeo</td>
+        <td><strong>86</strong></td><td>1,845</td>
+        <td>Prenda con identidad visual fuerte (la estrella). Se reconoce en miniatura. Título evoca viralidad.</td>
+        <td><span class="tag verde">HÉROE DEL MES</span></td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td><em>"¿Hay algo mejor que el olor a hojas secas y el primer día que...?"</em></td>
+        <td><strong>69</strong></td><td>1,452</td>
+        <td>Hook emocional de temporada. Activa identidad de la clienta antes de mostrar el producto.</td>
+        <td><span class="tag amarillo">REPLICAR</span></td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td><em>"Reme Crop 3 x $24.000"</em></td>
+        <td><strong>55</strong></td><td>781</td>
+        <td>Precio directo + combo cantidad. Elimina fricción. La clienta calcula el valor antes de preguntar.</td>
+        <td><span class="tag amarillo">REPLICAR</span></td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td><em>"¿Ya tenés tu sweater favorito para invierno? El Sweater Vien..."</em></td>
+        <td><strong>47</strong></td><td>2,090</td>
+        <td>Mayor alcance del mes. Pregunta directa al problema de la clienta. El FYP lo amplificó al máximo.</td>
+        <td><span class="tag azul">ALTO ALCANCE</span></td>
+      </tr>
+      <tr>
+        <td><strong>5</strong></td>
+        <td><em>"Holi Miss, el Sweater Vienne disponible en 4 colores"</em></td>
+        <td><strong>14</strong></td><td>691</td>
+        <td>Hook informativo pasivo. Menor engagement. El contenido informativo solo no convierte igual.</td>
+        <td><span class="tag rojo">AJUSTAR HOOK</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 4. INSTAGRAM -->
+  <div class="section">
+    <div class="section-title"><span class="num">4</span> Instagram @missroure — Performance por Formato</div>
+    <div class="charts-row" style="margin-bottom:20px">
+      <div class="chart-wrap">
+        <div class="chart-title">Visualizaciones por formato (30 días)</div>
+        <canvas id="chartFormatos" height="220"></canvas>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-title">Top posts por cuentas alcanzadas (IG)</div>
+        <canvas id="chartIG" height="220"></canvas>
+      </div>
+    </div>
+    <div class="insights">
+      <div class="insight-card verde">
+        <h4>✅ Publicaciones: top formato</h4>
+        <p>~1,500 visualizaciones. Es el formato con más alcance del período. Priorizar carruseles de producto + lifestyle.</p>
+      </div>
+      <div class="insight-card">
+        <h4>📖 Historias: muy activas</h4>
+        <p>~1,200 visualizaciones. Segunda fuente de alcance. Refuerzan relación con seguidores. Mantener alta frecuencia.</p>
+      </div>
+      <div class="insight-card rojo">
+        <h4>⚠️ Reels: menor alcance</h4>
+        <p>571 visualizaciones siendo el formato más potenciado por el algoritmo. El problema está en el hook de los primeros 2 segundos + falta de audio trending.</p>
+      </div>
+      <div class="insight-card azul">
+        <h4>📊 Mix audiencia saludable</h4>
+        <p>65.5% seguidores / 34.5% no seguidores. Buena proporción llegando a cuentas nuevas. El contenido trasciende la burbuja.</p>
+      </div>
+    </div>
+    <table>
+      <tr><th>Contenido</th><th>Cuentas alcanzadas</th><th>Likes</th><th>Diagnóstico</th></tr>
+      <tr>
+        <td>"Encontraste el off-shoulder perfecto..."</td>
+        <td><strong>195</strong></td><td>8</td>
+        <td><span class="tag verde">Mejor alcance IG del período</span> — Hook + producto visible</td>
+      </tr>
+      <tr>
+        <td>"Amamos preparar cada paquete porque..."</td>
+        <td><strong>108</strong></td><td>3</td>
+        <td>Storytelling de marca — genera fidelidad más que alcance</td>
+      </tr>
+      <tr>
+        <td>"Volvieron nuestros sweaters más virales"</td>
+        <td><strong>90</strong></td><td>5</td>
+        <td>El Sweater Estrella funciona en ambas plataformas</td>
+      </tr>
+      <tr>
+        <td>"Restock Sweater Vienne + new Ingresos"</td>
+        <td>48</td><td>1</td>
+        <td><span class="tag rojo">Hook informativo pasivo</span> — probar hook emocional primero</td>
+      </tr>
+      <tr>
+        <td>"Aprecien los botones dorados en fo..."</td>
+        <td>41</td><td>7</td>
+        <td>Detalle de producto — likes relativamente altos para el alcance</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 5. BENCHMARK -->
+  <div class="section">
+    <div class="section-title"><span class="num">5</span> Benchmark — Qué Están Haciendo las Cuentas de Inspiración</div>
+    <div class="bench-grid">
+      <div class="bench-card">
+        <div class="account">@sugarspice.vn</div>
+        <div class="seg">171K seguidores · Vietnam · Ropa handmade romántica</div>
+        <div class="hook">"aren't clothes supposed to make u feel comfy?" — 805 likes</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> "¿Y si tu outfit del lunes empezara a sentirse como un abrazo?"</div>
+      </div>
+      <div class="bench-card">
+        <div class="account">@sugarspice.vn</div>
+        <div class="seg">171K seguidores · Reel visual puro</div>
+        <div class="hook">(sin copy — solo visual) — 1,400 likes</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> 1 reel/semana sin texto: prenda + luz natural + audio romántico</div>
+      </div>
+      <div class="bench-card">
+        <div class="account">@teddystudio.bkk</div>
+        <div class="seg">28.8K seguidores · Bangkok · Ropa cozy cute</div>
+        <div class="hook">"Loviebear Collection is almost sold out!" — 500 likes</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> "Últimas unidades del Cardigan Luna. No repone."</div>
+      </div>
+      <div class="bench-card">
+        <div class="account">@teddystudio.bkk</div>
+        <div class="seg">Flash Sale con hora exacta</div>
+        <div class="hook">"Flash Sale tonight 9PM + 20% extra" — 66 likes</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> Sale de 18 a 22hs con código + hora exacta en el caption</div>
+      </div>
+      <div class="bench-card">
+        <div class="account">@loveshackfancy</div>
+        <div class="seg">+1M seguidores · EE.UU. · Moda romántica premium</div>
+        <div class="hook">"Summer is our homecoming — where our story began..." — Storytelling</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> Contar el origen de Roure + nombrar prendas: "Sweater Estrella", "Cardigan Luna"</div>
+      </div>
+      <div class="bench-card">
+        <div class="account">@lulus</div>
+        <div class="seg">2.4M seguidores · EE.UU. · Moda accesible</div>
+        <div class="hook">"tap the link in our bio to shop" — en el 100% de los posts</div>
+        <div class="aplic"><strong>→ Para Roure:</strong> CTA al link en bio en absolutamente todos los posts. Sin excepción.</div>
+      </div>
+    </div>
+
+    <div class="chart-wrap" style="margin-top:20px">
+      <div class="chart-title">Engagement comparativo — Top posts de cuentas de inspiración vs Roure</div>
+      <canvas id="chartBench" height="160"></canvas>
+    </div>
+  </div>
+
+  <!-- 6. PRIORIDADES -->
+  <div class="section">
+    <div class="section-title"><span class="num">6</span> 3 Formatos a Priorizar Esta Semana — Con Justificación en Datos</div>
+    <div class="prior">
+      <div class="prior-card p1">
+        <h3>🎬 #1 — Reel con hook emocional</h3>
+        <p><strong>Justificación:</strong> el mejor video del mes en seguidores nuevos usó este formato. Sugar & Spice lo usa con 805 likes. Es el formato con más potencial de alcance nuevo en ambas plataformas.</p>
+        <p style="margin-top:10px"><strong>Cómo ejecutarlo:</strong> Vertical, 15-30 seg. Texto en pantalla en segundo 1 ("¿Y si...?"). Prenda aparece en segundo 3. Precio o nombre al final. Audio trending romántico.</p>
+        <span class="formato">TikTok + Instagram Reels</span>
+      </div>
+      <div class="prior-card p2">
+        <h3>📸 #2 — Carrusel "1 prenda, 3 outfits"</h3>
+        <p><strong>Justificación:</strong> es el formato con más guardados en todo el nicho de moda romántica (confirmado por benchmark). Los guardados son la métrica de intención de compra más fuerte. Aún no se midieron los de Roure.</p>
+        <p style="margin-top:10px"><strong>Cómo ejecutarlo:</strong> 5-6 slides. Slide 1: prenda con nombre. Slides 2-4: outfits distintos. Slide 5: precio + CTA. Caption con pregunta abierta.</p>
+        <span class="formato">Instagram Feed</span>
+      </div>
+      <div class="prior-card p3">
+        <h3>📦 #3 — Detrás de escena / preparando pedido</h3>
+        <p><strong>Justificación:</strong> "Amamos preparar cada paquete porque..." tuvo 108 cuentas alcanzadas en IG y 119 vistas en TikTok. Genera conexión emocional con la marca, no solo con el producto. Lulus lo formaliza como "Stylist Series".</p>
+        <p style="margin-top:10px"><strong>Cómo ejecutarlo:</strong> 10-20 seg. Sin guión. Sonido ambiente o audio trending chill. Mostrar el producto/paquete con cuidado. Caption: "Lo que ponemos en cada pedido..."</p>
+        <span class="formato">TikTok + Instagram Stories/Reels</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. CONSULTAS DE BÚSQUEDA -->
+  <div class="section">
+    <div class="section-title"><span class="num">7</span> Consultas de Búsqueda que Llevaron a Roure (TikTok)</div>
+    <div class="insights">
+      <div class="insight-card">
+        <h4>🔍 "sweater invierno" / "Chompa de osos cafe"</h4>
+        <p>Hay demanda activa de sweaters de invierno. El contenido está alineado. Usar estas palabras exactas en los captions.</p>
+      </div>
+      <div class="insight-card">
+        <h4>🔍 "conjunto algodón con lycra flores"</h4>
+        <p>Búsqueda de conjunto específico. Si Roure tiene algo similar, crear contenido con esas palabras exactas en el caption.</p>
+      </div>
+      <div class="insight-card">
+        <h4>🔍 "off shoulder peru 2026"</h4>
+        <p>La audiencia busca off-shoulder por geografía y año. El post de off-shoulder fue el #1 en alcance de IG (195 cuentas). Hay oportunidad aquí.</p>
+      </div>
+      <div class="insight-card">
+        <h4>🔍 "bibi ropa"</h4>
+        <p>Búsqueda de otra marca. Roure aparece en el radar de quien busca marcas de indumentaria joven. Señal de que el SEO orgánico está funcionando.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Reporte generado con Claude · Cowork Mode · Mayo 2026<br>
+  missroure · roure.tiendanegocio.com · @missroure
+</footer>
+
+<script>
+const rosaOsc = '#9E3A5A';
+const rosa    = '#C4788A';
+const rosaCl  = '#E8B4C8';
+const verde   = '#27AE60';
+const amarillo= '#F39C12';
+const azul    = '#2980B9';
+const gris    = '#BDC3C7';
+
+// Chart 1: Tráfico
+new Chart(document.getElementById('chartTrafico'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Para Ti (FYP) 76.1%', 'Perfil personal 17.5%', 'Buscar 4.7%', 'Siguiendo 1.7%'],
+    datasets: [{ data: [76.1, 17.5, 4.7, 1.7], backgroundColor: [verde, azul, amarillo, gris], borderWidth: 2, borderColor: '#fff' }]
+  },
+  options: { plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }, cutout: '60%' }
+});
+
+// Chart 2: Seguidores nuevos por video
+new Chart(document.getElementById('chartSeg'), {
+  type: 'bar',
+  data: {
+    labels: ['Sweater Estrella', 'Olor hojas secas', 'Reme Crop 3x', 'Tu sweater invierno?', 'Sweater 4 colores'],
+    datasets: [{ label: 'Nuevos seguidores', data: [86, 69, 55, 47, 14], backgroundColor: [rosaOsc, rosa, rosaCl, '#D4A0B0', '#E8C8D0'], borderRadius: 6 }]
+  },
+  options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } }, indexAxis: 'y' }
+});
+
+// Chart 3: Espectadores nuevos
+new Chart(document.getElementById('chartEsp'), {
+  type: 'bar',
+  data: {
+    labels: ['Tu sweater invierno?', 'Sweater Estrella', 'Olor hojas secas', 'Reme Crop 3x', 'Sweater 4 colores'],
+    datasets: [{ label: 'Espectadores nuevos', data: [2090, 1845, 1452, 781, 691], backgroundColor: [verde, '#2ECC71', '#58D68D', '#82E0AA', '#A9DFBF'], borderRadius: 6 }]
+  },
+  options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } }, indexAxis: 'y' }
+});
+
+// Chart 4: Formatos Instagram
+new Chart(document.getElementById('chartFormatos'), {
+  type: 'bar',
+  data: {
+    labels: ['Publicaciones', 'Historias', 'Reels'],
+    datasets: [{ label: 'Visualizaciones', data: [1500, 1200, 571], backgroundColor: [verde, azul, '#E74C3C'], borderRadius: 8 }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true } },
+    indexAxis: 'x'
+  }
+});
+
+// Chart 5: Top posts IG
+new Chart(document.getElementById('chartIG'), {
+  type: 'bar',
+  data: {
+    labels: ['Off-shoulder', 'Preparando pedido', 'Sweater viral', 'Restock', 'Botones dorados'],
+    datasets: [{ label: 'Cuentas alcanzadas', data: [195, 108, 90, 48, 41], backgroundColor: [rosaOsc, rosa, rosaCl, '#D4A0B0', '#E8C8D0'], borderRadius: 6 }]
+  },
+  options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } }, indexAxis: 'y' }
+});
+
+// Chart 6: Benchmark
+new Chart(document.getElementById('chartBench'), {
+  type: 'bar',
+  data: {
+    labels: ['SugarSpice reel visual', 'SugarSpice pregunta emoc.', 'SugarSpice colores', 'Teddystudio sold out', 'LoveShack musa', '@missroure Sweater Estrella', '@missroure hook hojas secas'],
+    datasets: [{
+      label: 'Likes / engagement',
+      data: [1400, 805, 803, 500, 17, 86, 69],
+      backgroundColor: [azul, azul, azul, '#8E44AD', '#C0392B', rosaOsc, rosa],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.raw} likes` } }
+    },
+    scales: { y: { beginAtZero: true } }
+  }
+});
+</script>
+</body>
+</html>

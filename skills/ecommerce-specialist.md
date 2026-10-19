@@ -1,9 +1,9 @@
 # SKILL: E-commerce Specialist
 
-version: 1.0
-last_updated: 2026-05-04
-updated_by: Ares Palomino
-changelog: Versión inicial
+version: 1.1
+last_updated: 2026-06-05
+updated_by: Agent (sdd-apply)
+changelog: v1.1 — Actualización de envío gratis a $80.000 ARS; agregado de lógica de Flash Sales, AOV Bundles y reglas de disparo de email.
 
 ---
 
@@ -40,7 +40,7 @@ Soy el responsable de que la tienda online de Roure convierta. Me ocupo de que c
 | Descuento | Condición | Monto |
 |---|---|---|
 | 20% OFF | Pago con transferencia bancaria | Aplicar a todos los productos |
-| Envío gratis | Compras desde $100.000 ARS | Comunicar en header o banner |
+| Envío gratis | Compras desde $80.000 ARS | Comunicar en header o banner (sincronizado con AOV) |
 | 5% OFF | 2+ unidades de Paris Collection | Comunicar en la sección Paris Collection |
 
 ---
@@ -84,6 +84,42 @@ El driver de conversión principal es el WhatsApp — la tienda cierra la transa
 ### Criterios de Productos Estrella (priorizar en tienda y contenido)
 
 Ver `context/catalog-context.md` — sección "Productos Estrella". Son los de mayor valor + stock disponible. Deben estar en la parte superior de cada colección en la tienda.
+
+### Lógica de Flash Sales (Ventas Flash)
+
+Para campañas relámpago de alta conversión y liquidación de excedentes:
+- **Duración**: Límite estricto de 24 a 48 horas para inducir urgencia real.
+- **Descuentos**: Entre 30% y 40% OFF en productos seleccionados (drops anteriores o sobrestock).
+- **Exclusividad**: Desactivar otros cupones promocionales acumulables durante la venta.
+- **Margen de Transferencia**: El 20% OFF por transferencia bancaria **no** es acumulable con descuentos flash superiores al 30% OFF, a menos que la dirección lo autorice explícitamente.
+- **Comunicación**: Banner superior dinámico indicando cuenta regresiva y unidades disponibles en tiempo real.
+
+### Combos de Aumentar el Ticket Promedio (AOV Bundles)
+
+Para elevar el ticket promedio (AOV) de la tienda por encima del umbral de envío gratis ($80.000 ARS):
+- **Estructura de Combos (según catalog-context.md)**:
+  - **Combo "Cozy Coquette"** ($82.000 ARS / $65.600 ARS con transferencia)
+  - **Combo "Romantic Date Look"** ($82.500 ARS / $66.000 ARS con transferencia)
+  - **Combo "Roure Essentials Soft"** ($81.500 ARS / $65.200 ARS con transferencia)
+- **Implementación en Tienda**:
+  - Crear cada combo como un producto individual en Tienda Negocio para compra directa en un solo click.
+  - Ofrecer un descuento integrado (del 5% al 10%) en comparación con la compra por separado.
+  - Promocionar de forma destacada en la sección de carritos y en flujos de email.
+
+### Reglas de Disparo de Email (Email Trigger Rules)
+
+Para garantizar la automatización óptima y evitar la fatiga de la clienta en la bandeja de entrada:
+- **Bienvenida**: Disparar inmediatamente al suscribirse al newsletter. Excluir si ya es cliente recurrente.
+- **Carrito Abandonado**: 
+  - *Email 1*: A la 1 hora de inactividad del checkout.
+  - *Email 2*: A las 24 horas del abandono (ayuda por WhatsApp + 20% OFF transferencia).
+  - *Email 3*: A las 48 horas (último aviso + incentivo adicional).
+  - *Regla de Parada*: Detener inmediatamente si el usuario realiza una compra o reactiva su carrito.
+- **Abandono de Navegación**: Disparar 4 horas después si el usuario visitó un producto específico 2+ veces en 48 horas sin añadir al carrito. Frecuencia tope: 1 vez cada 15 días por usuario.
+- **Post-Compra**: 
+  - *Email 1*: Inmediato tras la entrega (agradecimiento y unboxing).
+  - *Email 2*: A los 7 días de entregado (Care Guide).
+  - *Email 3*: A los 21 días (feedback y cupón de recompra).
 
 ---
 

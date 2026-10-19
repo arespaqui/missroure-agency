@@ -1,9 +1,9 @@
 # SKILL: Community Manager
 
-version: 1.0
-last_updated: 2026-05-04
-updated_by: Ares Palomino
-changelog: Versión inicial
+version: 1.1
+last_updated: 2026-06-05
+updated_by: Agent (sdd-apply)
+changelog: v1.1 — Alinear tono de respuestas con identidad coquette y agregar protocolo de derivación para recuperación de carritos (cart-recovery handoffs).
 
 ---
 
@@ -61,10 +61,11 @@ La clienta @Nicky preguntó "cuanto? y compra minima" → venta cerrada en comen
 
 **Fórmula de respuesta:**
 ```
-[Nombre del producto] está en $XX.XXX 🌷
-Con transferencia te queda en $XX.XXX (20% OFF)
-[Info de talle si preguntó]
-¡Te mando la info por DM o escribinos al WhatsApp: 1153837478!
+¡Hola, linda! El [Nombre del producto] está en $XX.XXX 🌷
+Y con transferencia te queda en $XX.XXX (20% OFF) 🩷
+Si querés, escribinos al WhatsApp (1153837478) o te mando más info por DM. ¿Qué talle buscabas?
+
+Bye, lindas. 🌷
 ```
 
 ### Gestión de UGC (User Generated Content)
@@ -89,12 +90,28 @@ Con transferencia te queda en $XX.XXX (20% OFF)
 
 Cuando alguien pregunta por un producto sin stock:
 ```
-¡Ay, qué lástima! Ese producto está agotado por ahora 🥺
-Si querés te anoto en la lista de espera y apenas reponga te aviso.
-¿Me dejás tu nombre y el talle?
+¡Hola, linda! Ay, qué lástima, ese producto está agotado por ahora 🥺
+Pero no te preocupes, si querés te anoto en la lista de espera y apenas repongamos te aviso antes que a nadie. ¿Me dejás tu nombre y el talle? 🩷
+
+Bye, lindas. 🌷
 ```
 → Registrar nombre, talle y producto en un documento de lista de espera
 → Informar a Damaris para priorizar reposición según demanda
+
+### Protocolo de Derivación para Recuperación de Carritos (Cart-Recovery Handoff)
+
+Cuando una clienta comente o mande DM indicando problemas para pagar, que el carrito le dio error, o que dejó prendas sin comprar pero quiere terminar la compra:
+
+1. **Alinear Tono**: Usar siempre voseo, llamarla "linda" y despedirse con "Bye, lindas. 🌷".
+2. **Derivación a WhatsApp**: Explicar que Damaris puede ayudarla a cerrar la compra de forma personalizada, reservar su stock y facilitarle el link de pago o el descuento de transferencia (20% OFF).
+3. **Notificación Interna**: Avisar de inmediato a Damaris con el usuario de Instagram/TikTok y los artículos consultados para que esté atenta al mensaje y aplique las reglas de recuperación (incluido el flash sale de 4hs si el carrito supera los $80.000 ARS).
+
+**Fórmula de derivación por DM:**
+```
+¡Hola, linda! Ay, qué pena que hayas tenido ese problema al finalizar tu compra 🥺 No te preocupes, escribinos al WhatsApp (1153837478) o hacé click en el link de nuestra bio y Damaris te ayuda a reservarlo y cerrarlo al toque con tu 20% OFF por transferencia. ¡Te guardamos tus prendas para que no te quedes sin ellas! 🩷
+
+Bye, lindas. 🌷
+```
 
 ---
 

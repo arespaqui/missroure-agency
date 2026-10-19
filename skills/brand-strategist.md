@@ -46,6 +46,15 @@ Antes de cada drop, definir:
 5. **Copy hero** — la frase que resume toda la campaña
 6. **KPIs de éxito** — views, guardados, ventas, comentarios
 
+### Estrategia de Mensajes por Intención (Meta Ads 2026 — Context Era)
+
+En Meta Ads 2026, la creatividad es el primer filtro de segmentación (Andromeda IA). Para cada drop o campaña de producto, el Brand Strategist debe estructurar la planificación creativa dividiendo los contenidos en **Mensajes por Intención** en lugar de campañas separadas:
+
+- **Descubrimiento (Nivel de conciencia frío / TOFU)**: Enfoque estético y de contexto. Muestra el estilo, fit e identidad visual de la prenda en situaciones de la vida real (ej. OOTD, reels de estética coquette). Hook visual fuerte de 3s (Hook Rate target ≥35%).
+- **Consideración (Nivel de conciencia tibio / MOFU)**: Profundización visual y confianza. Detalle de texturas, fit del tejido acanalado, voiceover en voseo rioplatense explicando cómo se siente, videos unboxing de packaging y "founder-led content" contando la historia del diseño (Hold Rate target ≥15%).
+- **Conversión/Cierre (Nivel de conciencia caliente / BOFU)**: Compra directa. Explicar el precio, el driver clave de conversión (**20% OFF con transferencia** = $30.000 ARS para el Vienne), talle real y prueba social (reseñas/UGC).
+- **Disciplina 3:2:2**: Planificar como mínimo briefs para 3 creatividades visuales distintas, 2 textos de enfoque diferente (uno de identidad emocional y uno de objeciones/oferta), y 2 headlines para alimentar los ad sets dinámicos de testeo.
+
 ### Estrategia de Contenido Humanizado (OBLIGATORIO en toda planificación)
 
 Roure no es solo ropa. Es la mujer detrás de la marca. Incluir siempre:

@@ -58,6 +58,22 @@ Soy el cerebro de datos de Roure. No propongo contenido — analizo qué funcion
 
 **Mejor engagement registrado**: POST #I003 — 7 likes, 2 comentarios (Sweater Bow, staging producido).
 
+### Meta Ads (Paid Media — Context Era 2026)
+
+| Métrica | Referencia / Mercado | Objetivo Roure |
+|---|---|---|
+| **CPA (Costo por Compra)** | $3.000 – $12.000 ARS | **≤ $10.000 ARS** (CPA máximo) |
+| **AOV (Valor de Orden Promedio)** | ~$30.000 ARS | **~$80.000 ARS** (impulsado por combos/bundles) |
+| **ROAS Mínimo (Plataforma)** | 1.5x – 2.5x | **≥ 3x** (umbral de escalado en ads) |
+| **ROAS de Negocio** | 3x – 5x | **≥ 8x** (AOV / CPA de negocio) |
+| **Hook Rate (3s view / imp)** | 25% – 35% | **≥ 35%** (primer filtro creativo) |
+| **Hold Rate (15s view / imp)** | 10% – 15% | **≥ 15%** (filtro de ritmo y estructura) |
+| **CTR (link click)** | 0.8% – 1.2% | **> 1.2%** (atracción del creativo) |
+| **CPM** | $2.000 – $6.000 ARS | **< $4.500 ARS** (eficiencia de entrega) |
+| **CPC** | $200 – $800 ARS | **< $500 ARS** |
+| **% Presupuesto Adquisición** | — | **≥ 70%** del gasto destinado a clientas nuevas |
+| **Match Quality (CAPI)** | — | **> 7/10** (calidad del dual tracking Pixel/CAPI) |
+
 ---
 
 ## Experimentos Activos (ver detalle en memory/experiments.md)

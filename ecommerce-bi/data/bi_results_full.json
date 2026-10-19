@@ -1,0 +1,3435 @@
+{
+  "mode": "full",
+  "analysis_ids": null,
+  "platform": "tiendanegocio",
+  "summary": {
+    "total_revenue": 3056977.65,
+    "total_orders": 53,
+    "unique_customers": 47,
+    "avg_ticket": 57678.82,
+    "date_min": "2026-05-17",
+    "date_max": "2026-07-18",
+    "trends": {
+      "revenue": null,
+      "orders": null,
+      "customers": null,
+      "ticket": null
+    },
+    "total_rows": 106,
+    "platform": "tiendanegocio"
+  },
+  "analyses": {
+    "1": {
+      "number": 1,
+      "name": "Market Basket Analysis",
+      "category": "Producto",
+      "data": {
+        "total_orders": 53,
+        "multi_product_orders": 25,
+        "multi_product_pct": 47.2,
+        "pairs": [
+          {
+            "items": [
+              "Boche para pelo perlitas.",
+              "Sweater Noamy"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Maxi Sweater Star",
+              "Mini Skort lace"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga Larga Lace (Negro)",
+              "Manga Larga Lace (Rosa bebe)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Broche para cabello haditas.",
+              "Manga larga Clau (Negro)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Corset Blair  (M)",
+              "Set hebillas"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Beige)",
+              "Tapado Moscú  (XL)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Mini Sastrera Adri (Camel)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Sweater Teddy"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Camel)",
+              "Sweater Teddy"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Camel)",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Sweater Teddy",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Oxford Paris"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Panty media corazón"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Skort Valen"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Tote bag + osito incluido"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Oxford Paris",
+              "Panty media corazón"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Oxford Paris",
+              "Skort Valen"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Oxford Paris",
+              "Tote bag + osito incluido"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Panty media corazón",
+              "Skort Valen"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Panty media corazón",
+              "Tote bag + osito incluido"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Skort Valen",
+              "Tote bag + osito incluido"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Catsuit Paris Sof (Negro)",
+              "Maxi cardigan Aurora"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Bouquette",
+              "Set Academy = Sweater academy + Mini sastrera Adri (1) (Negro)"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 53.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "GEGE 🧸",
+              "Maxi Sweater Star"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "GEGE 🧸",
+              "Mini Skort lace"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Maxi Sweater Star",
+              "Musculosa Lace"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Mini Skort lace",
+              "Musculosa Lace"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Cardigan Blair",
+              "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Manga larga Abby"
+            ],
+            "support": 1.89,
+            "confidence": 100.0,
+            "lift": 26.5,
+            "count": 1
+          }
+        ],
+        "trios": [
+          {
+            "items": [
+              "Chomba polka dots",
+              "Mini Sastrera Adri (Camel)",
+              "Sweater Teddy"
+            ],
+            "support": 1.89,
+            "lift": 2809.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Mini Sastrera Adri (Camel)",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 2809.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Sweater Teddy",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 2809.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Camel)",
+              "Sweater Teddy",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 2809.0,
+            "count": 1
+          },
+          {
+            "items": [
+              "GEGE 🧸",
+              "Maxi Sweater Star",
+              "Mini Skort lace"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Maxi Sweater Star",
+              "Mini Skort lace",
+              "Musculosa Lace"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Manga larga Abby",
+              "Mini Sastrera Adri (Camel)"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Manga larga Abby",
+              "Sweater Teddy"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Manga larga Abby",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Abby",
+              "Mini Sastrera Adri (Camel)",
+              "Sweater Teddy"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Abby",
+              "Mini Sastrera Adri (Camel)",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Manga larga Abby",
+              "Sweater Teddy",
+              "Tapado Bella (Ivory)"
+            ],
+            "support": 1.89,
+            "lift": 1404.5,
+            "count": 1
+          },
+          {
+            "items": [
+              "Boche para pelo perlitas.",
+              "Sweater Noamy",
+              "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))"
+            ],
+            "support": 1.89,
+            "lift": 936.33,
+            "count": 1
+          },
+          {
+            "items": [
+              "GEGE 🧸",
+              "Maxi Sweater Star",
+              "Musculosa Lace"
+            ],
+            "support": 1.89,
+            "lift": 702.25,
+            "count": 1
+          },
+          {
+            "items": [
+              "GEGE 🧸",
+              "Mini Skort lace",
+              "Musculosa Lace"
+            ],
+            "support": 1.89,
+            "lift": 702.25,
+            "count": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "2": {
+      "number": 2,
+      "name": "Afinidad entre categorías",
+      "category": "Producto",
+      "data": {
+        "pairs": [
+          {
+            "categories": [
+              "Corset",
+              "Set"
+            ],
+            "support": 1.89,
+            "lift": 17.67,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Mini",
+              "Tapado"
+            ],
+            "support": 3.77,
+            "lift": 8.83,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Bufanda",
+              "Gege Bear"
+            ],
+            "support": 1.89,
+            "lift": 7.57,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Broche",
+              "Manga"
+            ],
+            "support": 1.89,
+            "lift": 7.57,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Musculosa",
+              "Short"
+            ],
+            "support": 3.77,
+            "lift": 4.42,
+            "count": 2
+          },
+          {
+            "categories": [
+              "GEGE 🧸",
+              "Mini"
+            ],
+            "support": 1.89,
+            "lift": 4.42,
+            "count": 1
+          },
+          {
+            "categories": [
+              "GEGE 🧸",
+              "Musculosa"
+            ],
+            "support": 1.89,
+            "lift": 4.42,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Cardigan",
+              "GEGE 🧸"
+            ],
+            "support": 1.89,
+            "lift": 4.42,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Cardigan",
+              "Orejeras"
+            ],
+            "support": 1.89,
+            "lift": 4.42,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Bufanda",
+              "Mini"
+            ],
+            "support": 5.66,
+            "lift": 3.79,
+            "count": 3
+          },
+          {
+            "categories": [
+              "Manga",
+              "Short"
+            ],
+            "support": 3.77,
+            "lift": 3.79,
+            "count": 2
+          },
+          {
+            "categories": [
+              "GEGE 🧸",
+              "Maxi"
+            ],
+            "support": 1.89,
+            "lift": 3.79,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Bufanda",
+              "Orejeras"
+            ],
+            "support": 1.89,
+            "lift": 3.79,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Bufanda",
+              "Tapado"
+            ],
+            "support": 1.89,
+            "lift": 3.79,
+            "count": 1
+          },
+          {
+            "categories": [
+              "Mini",
+              "Musculosa"
+            ],
+            "support": 3.77,
+            "lift": 2.94,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Maxi",
+              "Mini"
+            ],
+            "support": 3.77,
+            "lift": 2.52,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Manga",
+              "Mini"
+            ],
+            "support": 3.77,
+            "lift": 2.52,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Manga",
+              "Musculosa"
+            ],
+            "support": 3.77,
+            "lift": 2.52,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Bufanda",
+              "Maxi"
+            ],
+            "support": 3.77,
+            "lift": 2.16,
+            "count": 2
+          },
+          {
+            "categories": [
+              "Boche",
+              "Sweater"
+            ],
+            "support": 1.89,
+            "lift": 1.56,
+            "count": 1
+          }
+        ],
+        "distribution": [
+          {
+            "category": "Sweater",
+            "revenue": 1437050
+          },
+          {
+            "category": "Maxi",
+            "revenue": 337500
+          },
+          {
+            "category": "Cardigan",
+            "revenue": 327500
+          },
+          {
+            "category": "Manga",
+            "revenue": 153750
+          },
+          {
+            "category": "Mini",
+            "revenue": 147500
+          },
+          {
+            "category": "Set",
+            "revenue": 142000
+          },
+          {
+            "category": "Tapado",
+            "revenue": 137500
+          },
+          {
+            "category": "Bufanda",
+            "revenue": 128400
+          },
+          {
+            "category": "Musculosa",
+            "revenue": 103000
+          },
+          {
+            "category": "Short",
+            "revenue": 62500
+          },
+          {
+            "category": "Tote",
+            "revenue": 50000
+          },
+          {
+            "category": "Chomba",
+            "revenue": 37500
+          },
+          {
+            "category": "Orejeras",
+            "revenue": 33000
+          },
+          {
+            "category": "Oxford",
+            "revenue": 32500
+          },
+          {
+            "category": "Corset",
+            "revenue": 29000
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "3": {
+      "number": 3,
+      "name": "Ranking de productos",
+      "category": "Producto",
+      "data": {
+        "products": [
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+            "revenue": 280000,
+            "units": 7,
+            "orders": 7,
+            "avg_price": 40000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Negro) (Talle único (S/M/L))",
+            "revenue": 190000,
+            "units": 5,
+            "orders": 5,
+            "avg_price": 38000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+            "revenue": 150000,
+            "units": 4,
+            "orders": 4,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Natural Crudo)",
+            "revenue": 120000,
+            "units": 3,
+            "orders": 3,
+            "avg_price": 40000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))",
+            "revenue": 112500,
+            "units": 3,
+            "orders": 3,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Maxi cardigan Juliette (Beige claro) (Unico: Abarca (S/M/L))",
+            "revenue": 85000,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 42500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+            "revenue": 85000,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 42500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Maxi cardigan Juliette (Vison) (Unico: Abarca (S/M/L))",
+            "revenue": 82500,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 41250.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Marron claro)",
+            "revenue": 80000,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 40000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Natural)",
+            "revenue": 80000,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 40000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Tapado Moscú  (XL) (Gris)",
+            "revenue": 75000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 75000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Set Academy = Sweater academy + Mini sastrera Adri (1) (Negro) (XL)",
+            "revenue": 67500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 67500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Set Chérie = Sweater Naomy + Oxford Paris (Negro) (Rosa) (Talle Unico Abarca( S/M/L))",
+            "revenue": 62500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 62500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Tapado Bella (Ivory) (S)",
+            "revenue": 62500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 62500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Bufanda Nube xxl (Bordó)",
+            "revenue": 56250,
+            "units": 3,
+            "orders": 3,
+            "avg_price": 18750.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Cardigan Dolce (Crema)",
+            "revenue": 55000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 55000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Mini Sastrera Adri (Negro) (M)",
+            "revenue": 50000,
+            "units": 2,
+            "orders": 2,
+            "avg_price": 25000.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Tote bag + osito incluido  (Chocolate)",
+            "revenue": 50000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 50000.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Cardigan Blair (Chocolate)",
+            "revenue": 47500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 47500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Cardigan Blair (Negro)",
+            "revenue": 47500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 47500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Musculosa Briana (Bordó cherry)",
+            "revenue": 45000,
+            "units": 3,
+            "orders": 3,
+            "avg_price": 15000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Roma (Rosa) (Unico (S/M/L))",
+            "revenue": 45000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 45000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Maxi cardigan Aurora (Negro)",
+            "revenue": 42500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 42500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Maxi Sweater Star (Borravino)",
+            "revenue": 42500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 42500.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Sweater Teddy (Chocolate)",
+            "revenue": 40000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 40000.0,
+            "trend_pct": 0.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Violeta) (Talle único (S/M/L))",
+            "revenue": 40000,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 40000.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Naomy (Bordó)",
+            "revenue": 37500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Chomba polka dots (Chocolate)",
+            "revenue": 37500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne (Negro)",
+            "revenue": 37500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Borravino) (Talle único (S/M/L))",
+            "revenue": 37500,
+            "units": 1,
+            "orders": 1,
+            "avg_price": 37500.0,
+            "trend_pct": 100.0
+          }
+        ],
+        "total_products": 75,
+        "status": "ok"
+      }
+    },
+    "4": {
+      "number": 4,
+      "name": "Productos ancla",
+      "category": "Producto",
+      "data": {
+        "anchors": [
+          {
+            "product": "Bufanda Nube xxl (Bordó)",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Gege Bear - Rubor Princess en relieve. (Tono 03)",
+                "count": 1
+              },
+              {
+                "product": "Gege Bear - Base cushion  (Tono 01)",
+                "count": 1
+              },
+              {
+                "product": "Tote bag + osito incluido  (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Oxford Paris (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Manga larga Paris (Chocolate)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Maxi cardigan Juliette (Vison) (Unico: Abarca (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Mini Sastrera Adri (Negro) (M)",
+                "count": 1
+              },
+              {
+                "product": "Bufanda Nube xxl (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Maxi cardigan Aurora (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Catsuit Paris Sof (Negro) (M)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Short culotte Lace (Negro)",
+            "multi_order_count": 3,
+            "top_companions": [
+              {
+                "product": "Short culotte Lace (Blanco)",
+                "count": 1
+              },
+              {
+                "product": "Tote bag + osito incluido  (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Oxford Paris (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Manga larga Paris (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Mini Sastrera Adri (Negro) (M)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Boche para pelo perlitas. (Ancho)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Noamy (Bordó)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Naomy (Gris)",
+                "count": 1
+              },
+              {
+                "product": "Mini Sastrera Clhoé (Negro) (L)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Bufanda Nube xxl (Marrón)",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Orejeras 🐻 (Marrón)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne (Chocolate claro)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne (Negro)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Maxi cardigan Juliette (Vison) (Unico: Abarca (S/M/L))",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Bufanda Nube xxl (Bordó)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Cardigan Bruma (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Cardigan Blair (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Cardigan Blair (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Maxi cardigan Juliette (Beige claro) (Unico: Abarca (S/M/L))",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Short culotte Lace (Blanco)",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Short culotte Lace (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Briana (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Briana (Bordó cherry)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Maxi cardigan Juliette (Beige claro) (Unico: Abarca (S/M/L))",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Marron claro)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Musculosa Briana (Bordó cherry)",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Chomba polka dots (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Mini Sastrera Adri (Camel) (S)",
+                "count": 1
+              },
+              {
+                "product": "Manga larga Abby (Azul oscuro)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Teddy (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Tapado Bella (Ivory) (S)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Mini Sastrera Adri (Negro) (M)",
+            "multi_order_count": 2,
+            "top_companions": [
+              {
+                "product": "Tote bag + osito incluido  (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Oxford Paris (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Manga larga Paris (Chocolate)",
+                "count": 1
+              },
+              {
+                "product": "Short culotte Lace (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Panty media corazón  (Negro)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Negro) (Talle único (S/M/L))",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Manga larga Abby (Negro)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Manga larga Abby (Negro)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Negro) (Talle único (S/M/L))",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Boche para pelo perlitas. (Ancho)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Sweater Noamy (Bordó)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sweater Noamy (Bordó)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Boche para pelo perlitas. (Ancho)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Mini Skort lace  (Negro)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Maxi Sweater Star (Borravino)",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Lace (Vino)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Mini Skort lace  (Negro)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Maxi Sweater Star (Borravino)",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Lace (Vino)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Mini Skort lace  (Negro)",
+                "count": 1
+              },
+              {
+                "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+                "count": 1
+              },
+              {
+                "product": "Maxi Sweater Star (Borravino)",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Lace (Vino)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Maxi Sweater Star (Borravino)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Mini Skort lace  (Negro)",
+                "count": 1
+              },
+              {
+                "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Musculosa Lace (Vino)",
+                "count": 1
+              }
+            ]
+          },
+          {
+            "product": "Musculosa Lace (Vino)",
+            "multi_order_count": 1,
+            "top_companions": [
+              {
+                "product": "Mini Skort lace  (Negro)",
+                "count": 1
+              },
+              {
+                "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+                "count": 1
+              },
+              {
+                "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+                "count": 1
+              },
+              {
+                "product": "Maxi Sweater Star (Borravino)",
+                "count": 1
+              }
+            ]
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "5": {
+      "number": 5,
+      "name": "Long tail 80/20",
+      "category": "Producto",
+      "data": {
+        "total_products": 75,
+        "products_80_pct": 40,
+        "pct_products_80": 53.3,
+        "total_revenue": 3258550,
+        "pareto_data": [
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+            "revenue": 280000,
+            "pct_of_total": 8.59,
+            "cumulative_pct": 8.59
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Negro) (Talle único (S/M/L))",
+            "revenue": 190000,
+            "pct_of_total": 5.83,
+            "cumulative_pct": 14.42
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+            "revenue": 150000,
+            "pct_of_total": 4.6,
+            "cumulative_pct": 19.03
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Natural Crudo)",
+            "revenue": 120000,
+            "pct_of_total": 3.68,
+            "cumulative_pct": 22.71
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Natural crudo) (Talle único (S/M/L))",
+            "revenue": 112500,
+            "pct_of_total": 3.45,
+            "cumulative_pct": 26.16
+          },
+          {
+            "product": "Maxi cardigan Juliette (Beige claro) (Unico: Abarca (S/M/L))",
+            "revenue": 85000,
+            "pct_of_total": 2.61,
+            "cumulative_pct": 28.77
+          },
+          {
+            "product": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+            "revenue": 85000,
+            "pct_of_total": 2.61,
+            "cumulative_pct": 31.38
+          },
+          {
+            "product": "Maxi cardigan Juliette (Vison) (Unico: Abarca (S/M/L))",
+            "revenue": 82500,
+            "pct_of_total": 2.53,
+            "cumulative_pct": 33.91
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Marron claro)",
+            "revenue": 80000,
+            "pct_of_total": 2.46,
+            "cumulative_pct": 36.37
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Natural)",
+            "revenue": 80000,
+            "pct_of_total": 2.46,
+            "cumulative_pct": 38.82
+          },
+          {
+            "product": "Tapado Moscú  (XL) (Gris)",
+            "revenue": 75000,
+            "pct_of_total": 2.3,
+            "cumulative_pct": 41.12
+          },
+          {
+            "product": "Set Academy = Sweater academy + Mini sastrera Adri (1) (Negro) (XL)",
+            "revenue": 67500,
+            "pct_of_total": 2.07,
+            "cumulative_pct": 43.19
+          },
+          {
+            "product": "Set Chérie = Sweater Naomy + Oxford Paris (Negro) (Rosa) (Talle Unico Abarca( S/M/L))",
+            "revenue": 62500,
+            "pct_of_total": 1.92,
+            "cumulative_pct": 45.11
+          },
+          {
+            "product": "Tapado Bella (Ivory) (S)",
+            "revenue": 62500,
+            "pct_of_total": 1.92,
+            "cumulative_pct": 47.03
+          },
+          {
+            "product": "Bufanda Nube xxl (Bordó)",
+            "revenue": 56250,
+            "pct_of_total": 1.73,
+            "cumulative_pct": 48.76
+          },
+          {
+            "product": "Cardigan Dolce (Crema)",
+            "revenue": 55000,
+            "pct_of_total": 1.69,
+            "cumulative_pct": 50.44
+          },
+          {
+            "product": "Mini Sastrera Adri (Negro) (M)",
+            "revenue": 50000,
+            "pct_of_total": 1.53,
+            "cumulative_pct": 51.98
+          },
+          {
+            "product": "Tote bag + osito incluido  (Chocolate)",
+            "revenue": 50000,
+            "pct_of_total": 1.53,
+            "cumulative_pct": 53.51
+          },
+          {
+            "product": "Cardigan Blair (Chocolate)",
+            "revenue": 47500,
+            "pct_of_total": 1.46,
+            "cumulative_pct": 54.97
+          },
+          {
+            "product": "Cardigan Blair (Negro)",
+            "revenue": 47500,
+            "pct_of_total": 1.46,
+            "cumulative_pct": 56.43
+          },
+          {
+            "product": "Musculosa Briana (Bordó cherry)",
+            "revenue": 45000,
+            "pct_of_total": 1.38,
+            "cumulative_pct": 57.81
+          },
+          {
+            "product": "Sweater Roma (Rosa) (Unico (S/M/L))",
+            "revenue": 45000,
+            "pct_of_total": 1.38,
+            "cumulative_pct": 59.19
+          },
+          {
+            "product": "Maxi cardigan Aurora (Negro)",
+            "revenue": 42500,
+            "pct_of_total": 1.3,
+            "cumulative_pct": 60.49
+          },
+          {
+            "product": "Maxi Sweater Star (Borravino)",
+            "revenue": 42500,
+            "pct_of_total": 1.3,
+            "cumulative_pct": 61.8
+          },
+          {
+            "product": "Sweater Teddy (Chocolate)",
+            "revenue": 40000,
+            "pct_of_total": 1.23,
+            "cumulative_pct": 63.03
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Violeta) (Talle único (S/M/L))",
+            "revenue": 40000,
+            "pct_of_total": 1.23,
+            "cumulative_pct": 64.25
+          },
+          {
+            "product": "Sweater Naomy (Bordó)",
+            "revenue": 37500,
+            "pct_of_total": 1.15,
+            "cumulative_pct": 65.4
+          },
+          {
+            "product": "Chomba polka dots (Chocolate)",
+            "revenue": 37500,
+            "pct_of_total": 1.15,
+            "cumulative_pct": 66.56
+          },
+          {
+            "product": "Sweater Vienne (Negro)",
+            "revenue": 37500,
+            "pct_of_total": 1.15,
+            "cumulative_pct": 67.71
+          },
+          {
+            "product": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Borravino) (Talle único (S/M/L))",
+            "revenue": 37500,
+            "pct_of_total": 1.15,
+            "cumulative_pct": 68.86
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "6": {
+      "number": 6,
+      "name": "Productos con alta tasa de cancelación",
+      "category": "Producto",
+      "data": {
+        "overall_cancel_rate": 0.0,
+        "flagged_products": [],
+        "total_products_analyzed": 75,
+        "status": "ok"
+      }
+    },
+    "7": {
+      "number": 7,
+      "name": "Segmentación RFM",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 47,
+        "segments": [
+          {
+            "segment": "Potential Loyal",
+            "count": 10,
+            "avg_recency": 11.0,
+            "avg_frequency": 1.0,
+            "avg_monetary": 64896.50549999999,
+            "pct": 21.3
+          },
+          {
+            "segment": "Other",
+            "count": 8,
+            "avg_recency": 13.375,
+            "avg_frequency": 1.0,
+            "avg_monetary": 42942.45125,
+            "pct": 17.0
+          },
+          {
+            "segment": "At Risk",
+            "count": 8,
+            "avg_recency": 37.25,
+            "avg_frequency": 1.0,
+            "avg_monetary": 44426.63875,
+            "pct": 17.0
+          },
+          {
+            "segment": "Loyal",
+            "count": 6,
+            "avg_recency": 14.833333333333334,
+            "avg_frequency": 1.3333333333333333,
+            "avg_monetary": 88000.68333333333,
+            "pct": 12.8
+          },
+          {
+            "segment": "Champions",
+            "count": 6,
+            "avg_recency": 7.833333333333333,
+            "avg_frequency": 1.6666666666666667,
+            "avg_monetary": 129520.71833333334,
+            "pct": 12.8
+          },
+          {
+            "segment": "Need Attention",
+            "count": 4,
+            "avg_recency": 33.25,
+            "avg_frequency": 1.0,
+            "avg_monetary": 52438.51625,
+            "pct": 8.5
+          },
+          {
+            "segment": "About to Sleep",
+            "count": 2,
+            "avg_recency": 29.0,
+            "avg_frequency": 1.0,
+            "avg_monetary": 38821.86,
+            "pct": 4.3
+          },
+          {
+            "segment": "Hibernating",
+            "count": 2,
+            "avg_recency": 38.0,
+            "avg_frequency": 1.0,
+            "avg_monetary": 36261.667499999996,
+            "pct": 4.3
+          },
+          {
+            "segment": "Lost",
+            "count": 1,
+            "avg_recency": 39.0,
+            "avg_frequency": 1.0,
+            "avg_monetary": 44010.345,
+            "pct": 2.1
+          }
+        ],
+        "rfm_stats": {
+          "avg_recency": 20.4,
+          "avg_frequency": 1.13,
+          "avg_monetary": 65042.08
+        },
+        "status": "ok"
+      }
+    },
+    "8": {
+      "number": 8,
+      "name": "Customer Lifetime Value",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 47,
+        "avg_clv": 477050.77,
+        "median_clv": 136632.0,
+        "avg_aov": 58826.65,
+        "avg_orders": 1.13,
+        "avg_lifespan_days": 2.6,
+        "quartiles": [
+          {
+            "clv_quartile": "Low",
+            "count": 12,
+            "avg_clv": 101777.2425,
+            "avg_aov": 33925.7475,
+            "avg_orders": 1.0
+          },
+          {
+            "clv_quartile": "Medium",
+            "count": 12,
+            "avg_clv": 125587.995,
+            "avg_aov": 41862.665,
+            "avg_orders": 1.0
+          },
+          {
+            "clv_quartile": "High",
+            "count": 11,
+            "avg_clv": 184423.51090909092,
+            "avg_aov": 61474.50363636364,
+            "avg_orders": 1.0
+          },
+          {
+            "clv_quartile": "Very High",
+            "count": 12,
+            "avg_clv": 1472028.7307366154,
+            "avg_aov": 98264.34034722223,
+            "avg_orders": 1.5
+          }
+        ],
+        "top_10": [
+          {
+            "email": "stellambelletrutti@gmail.com",
+            "total_revenue": 69465.86,
+            "order_count": 2,
+            "aov": 34732.93,
+            "clv_3y": 4754069.793749999
+          },
+          {
+            "email": "cuentaoficialrocionoeliafrias@gmail.com",
+            "total_revenue": 181730.45,
+            "order_count": 3,
+            "aov": 60576.81666666667,
+            "clv_3y": 4574594.086206897
+          },
+          {
+            "email": "sofiacurtoni@gmail.com",
+            "total_revenue": 134728.0,
+            "order_count": 2,
+            "aov": 67364.0,
+            "clv_3y": 2379470.322580645
+          },
+          {
+            "email": "kozachuksofia9@gmail.com",
+            "total_revenue": 80915.86,
+            "order_count": 2,
+            "aov": 40457.93,
+            "clv_3y": 2109592.064285714
+          },
+          {
+            "email": "carocomeron@gmail.com",
+            "total_revenue": 56833.165,
+            "order_count": 2,
+            "aov": 28416.5825,
+            "clv_3y": 1003747.0270161291
+          },
+          {
+            "email": "lucilaveraa781@gmail.com",
+            "total_revenue": 197500.0,
+            "order_count": 1,
+            "aov": 197500.0,
+            "clv_3y": 592500.0
+          },
+          {
+            "email": "abril.dundic@gmail.com",
+            "total_revenue": 151000.0,
+            "order_count": 1,
+            "aov": 151000.0,
+            "clv_3y": 453000.0
+          },
+          {
+            "email": "melinamilagrosbattista@gmail.com",
+            "total_revenue": 146259.075,
+            "order_count": 1,
+            "aov": 146259.075,
+            "clv_3y": 438777.22500000003
+          },
+          {
+            "email": "leii_lo_mas@hotmail.com",
+            "total_revenue": 126505.0,
+            "order_count": 1,
+            "aov": 126505.0,
+            "clv_3y": 379515.0
+          },
+          {
+            "email": "antonellanair95@gmail.com",
+            "total_revenue": 122255.0,
+            "order_count": 1,
+            "aov": 122255.0,
+            "clv_3y": 366765.0
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "9": {
+      "number": 9,
+      "name": "Análisis de cohortes",
+      "category": "Cliente",
+      "data": {
+        "cohort_matrix": [
+          {
+            "cohort": "2026-05",
+            "M+0": 100.0,
+            "M+1": 0.0,
+            "cohort_size": 1
+          },
+          {
+            "cohort": "2026-06",
+            "M+0": 100.0,
+            "M+1": 17.9,
+            "cohort_size": 28
+          },
+          {
+            "cohort": "2026-07",
+            "M+0": 100.0,
+            "M+1": 0.0,
+            "cohort_size": 18
+          }
+        ],
+        "avg_retention": {
+          "M+0": 100.0,
+          "M+1": 6.0
+        },
+        "total_cohorts": 3,
+        "status": "ok"
+      }
+    },
+    "10": {
+      "number": 10,
+      "name": "Tasa de recompra",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 47,
+        "repeat_customers": 5,
+        "repurchase_rate": 10.6,
+        "time_between_purchases": {
+          "median_days": 20.0,
+          "mean_days": 20.0,
+          "p25_days": 12.2,
+          "p75_days": 28.5
+        },
+        "order_distribution": [
+          {
+            "orders": 1,
+            "customers": 42
+          },
+          {
+            "orders": 2,
+            "customers": 4
+          },
+          {
+            "orders": 3,
+            "customers": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "39": {
+      "number": 39,
+      "name": "Producto gateway de retención",
+      "category": "Cliente",
+      "data": {
+        "global_repurchase_rate": 10.6,
+        "total_customers": 47,
+        "min_sample_size": 3,
+        "qualified_products": 4,
+        "products": [
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+            "first_purchase_customers": 3,
+            "repeaters": 1,
+            "retention_rate": 33.3,
+            "lift_vs_baseline": 3.14
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Negro) (Talle único (S/M/L))",
+            "first_purchase_customers": 5,
+            "repeaters": 0,
+            "retention_rate": 0.0,
+            "lift_vs_baseline": 0.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Natural Crudo)",
+            "first_purchase_customers": 3,
+            "repeaters": 0,
+            "retention_rate": 0.0,
+            "lift_vs_baseline": 0.0
+          },
+          {
+            "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+            "first_purchase_customers": 6,
+            "repeaters": 0,
+            "retention_rate": 0.0,
+            "lift_vs_baseline": 0.0
+          }
+        ],
+        "top_product": {
+          "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Bordo/Granate) (Talle único (S/M/L))",
+          "first_purchase_customers": 3,
+          "repeaters": 1,
+          "retention_rate": 33.3,
+          "lift_vs_baseline": 3.14
+        },
+        "bottom_product": {
+          "product_name": "Sweater Vienne — oversize off-shoulder que te hace ver increíble sin esfuerzo  (Talle único (S/M/L)) (Negro)",
+          "first_purchase_customers": 6,
+          "repeaters": 0,
+          "retention_rate": 0.0,
+          "lift_vs_baseline": 0.0
+        },
+        "status": "ok"
+      }
+    },
+    "11": {
+      "number": 11,
+      "name": "Evolución revenue mensual",
+      "category": "Revenue",
+      "data": {
+        "monthly": [
+          {
+            "month_str": "2026-05",
+            "revenue": 65013.96,
+            "orders": 1,
+            "avg_ticket": 65013.96,
+            "mom_pct": null,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-06",
+            "revenue": 1444624.69,
+            "orders": 29,
+            "avg_ticket": 49814.64,
+            "mom_pct": 2122.02,
+            "yoy_pct": null
+          },
+          {
+            "month_str": "2026-07",
+            "revenue": 1547339.0,
+            "orders": 23,
+            "avg_ticket": 67275.61,
+            "mom_pct": 7.11,
+            "yoy_pct": null
+          }
+        ],
+        "trend": "up",
+        "total_revenue": 3056977.65,
+        "total_orders": 53,
+        "status": "ok"
+      }
+    },
+    "12": {
+      "number": 12,
+      "name": "Ticket promedio",
+      "category": "Revenue",
+      "data": {
+        "overall_aov": 57678.82,
+        "median_aov": 42871.86,
+        "distribution": [
+          {
+            "range": "$10-20K",
+            "count": 2
+          },
+          {
+            "range": "$20-50K",
+            "count": 32
+          },
+          {
+            "range": "$50-100K",
+            "count": 13
+          },
+          {
+            "range": "$100-200K",
+            "count": 6
+          }
+        ],
+        "monthly_evolution": [
+          {
+            "month_str": "2026-05",
+            "aov": 65013.96
+          },
+          {
+            "month_str": "2026-06",
+            "aov": 49814.64
+          },
+          {
+            "month_str": "2026-07",
+            "aov": 67275.61
+          }
+        ],
+        "new_vs_returning": {
+          "new_aov": 60032.59,
+          "returning_aov": 39241.0
+        },
+        "status": "ok"
+      }
+    },
+    "13": {
+      "number": 13,
+      "name": "Revenue por categoría",
+      "category": "Revenue",
+      "data": {
+        "categories": [
+          {
+            "category": "Sweater",
+            "revenue": 1437050,
+            "units": 37,
+            "products": 18,
+            "pct": 44.1,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Maxi",
+            "revenue": 337500,
+            "units": 8,
+            "products": 5,
+            "pct": 10.4,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Cardigan",
+            "revenue": 327500,
+            "units": 8,
+            "products": 8,
+            "pct": 10.1,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Manga",
+            "revenue": 153750,
+            "units": 8,
+            "products": 8,
+            "pct": 4.7,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Mini",
+            "revenue": 147500,
+            "units": 6,
+            "products": 5,
+            "pct": 4.5,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Set",
+            "revenue": 142000,
+            "units": 3,
+            "products": 3,
+            "pct": 4.4,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Tapado",
+            "revenue": 137500,
+            "units": 2,
+            "products": 2,
+            "pct": 4.2,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Bufanda",
+            "revenue": 128400,
+            "units": 7,
+            "products": 4,
+            "pct": 3.9,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Musculosa",
+            "revenue": 103000,
+            "units": 7,
+            "products": 5,
+            "pct": 3.2,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Short",
+            "revenue": 62500,
+            "units": 5,
+            "products": 2,
+            "pct": 1.9,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Tote",
+            "revenue": 50000,
+            "units": 1,
+            "products": 1,
+            "pct": 1.5,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Chomba",
+            "revenue": 37500,
+            "units": 1,
+            "products": 1,
+            "pct": 1.2,
+            "trend_pct": 100.0
+          },
+          {
+            "category": "Orejeras",
+            "revenue": 33000,
+            "units": 2,
+            "products": 2,
+            "pct": 1.0,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Oxford",
+            "revenue": 32500,
+            "units": 1,
+            "products": 1,
+            "pct": 1.0,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Corset",
+            "revenue": 29000,
+            "units": 1,
+            "products": 1,
+            "pct": 0.9,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Catsuit",
+            "revenue": 25000,
+            "units": 1,
+            "products": 1,
+            "pct": 0.8,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Skort",
+            "revenue": 18750,
+            "units": 1,
+            "products": 1,
+            "pct": 0.6,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Gege Bear",
+            "revenue": 18000,
+            "units": 2,
+            "products": 2,
+            "pct": 0.6,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Panty",
+            "revenue": 12500,
+            "units": 1,
+            "products": 1,
+            "pct": 0.4,
+            "trend_pct": 0.0
+          },
+          {
+            "category": "Broche",
+            "revenue": 10000,
+            "units": 1,
+            "products": 1,
+            "pct": 0.3,
+            "trend_pct": 0.0
+          }
+        ],
+        "total_revenue": 3258550,
+        "status": "ok"
+      }
+    },
+    "14": {
+      "number": 14,
+      "name": "Impacto de descuentos",
+      "category": "Revenue",
+      "data": {
+        "comparison": {
+          "with_discount": {
+            "orders": 40,
+            "aov": 53144.72,
+            "revenue": 2125788.66,
+            "pct_orders": 75.5
+          },
+          "without_discount": {
+            "orders": 13,
+            "aov": 71629.92,
+            "revenue": 931188.99,
+            "pct_orders": 24.5
+          }
+        },
+        "top_coupons": [
+          {
+            "coupon": "MISSWINTER",
+            "uses": 4,
+            "revenue": 143495.98,
+            "aov": 35873.99
+          }
+        ],
+        "total_discount_amount": 494122.5,
+        "discount_by_payment_method": [
+          {
+            "payment_method": "Transferencia / Billetera Digital",
+            "orders": 42,
+            "orders_with_discount": 37,
+            "total_discount_amount": 444682.5,
+            "avg_order_total": 56691.41,
+            "pct_with_discount": 88.1
+          },
+          {
+            "payment_method": "Mercado Pago",
+            "orders": 7,
+            "orders_with_discount": 0,
+            "total_discount_amount": 0.0,
+            "avg_order_total": 56270.9,
+            "pct_with_discount": 0.0
+          },
+          {
+            "payment_method": "Transferencia",
+            "orders": 4,
+            "orders_with_discount": 3,
+            "total_discount_amount": 49440.0,
+            "avg_order_total": 70510.51,
+            "pct_with_discount": 75.0
+          }
+        ],
+        "promo_code_summary": {
+          "orders": 4,
+          "pct_of_orders": 7.5,
+          "revenue": 143495.98,
+          "aov": 35873.99,
+          "total_discount_amount_on_these_orders": 41562.5,
+          "overlap_with_payment_method_discount": 4
+        },
+        "status": "ok"
+      }
+    },
+    "15": {
+      "number": 15,
+      "name": "Heatmap por provincia",
+      "category": "Geográfico",
+      "data": {
+        "provinces": [
+          {
+            "state": "Buenos Aires",
+            "orders": 27,
+            "revenue": 1502982.3,
+            "aov": 55666.01,
+            "customers": 25,
+            "pct_revenue": 49.2
+          },
+          {
+            "state": "Ciudad Autónoma de Buenos Aires (CABA)",
+            "orders": 8,
+            "revenue": 470328.66,
+            "aov": 58791.08,
+            "customers": 8,
+            "pct_revenue": 15.4
+          },
+          {
+            "state": "La Rioja",
+            "orders": 1,
+            "revenue": 197500.0,
+            "aov": 197500.0,
+            "customers": 1,
+            "pct_revenue": 6.5
+          },
+          {
+            "state": "Mendoza",
+            "orders": 3,
+            "revenue": 181730.45,
+            "aov": 60576.82,
+            "customers": 1,
+            "pct_revenue": 5.9
+          },
+          {
+            "state": "Entre Ríos",
+            "orders": 2,
+            "revenue": 134728.0,
+            "aov": 67364.0,
+            "customers": 1,
+            "pct_revenue": 4.4
+          },
+          {
+            "state": "Santa Fe",
+            "orders": 2,
+            "revenue": 121537.08,
+            "aov": 60768.54,
+            "customers": 2,
+            "pct_revenue": 4.0
+          },
+          {
+            "state": "Río Negro",
+            "orders": 2,
+            "revenue": 109819.75,
+            "aov": 54909.88,
+            "customers": 2,
+            "pct_revenue": 3.6
+          },
+          {
+            "state": "Tierra del Fuego",
+            "orders": 2,
+            "revenue": 106263.96,
+            "aov": 53131.98,
+            "customers": 2,
+            "pct_revenue": 3.5
+          },
+          {
+            "state": "Chubut",
+            "orders": 1,
+            "revenue": 56941.0,
+            "aov": 56941.0,
+            "customers": 1,
+            "pct_revenue": 1.9
+          },
+          {
+            "state": "Salta",
+            "orders": 2,
+            "revenue": 56833.16,
+            "aov": 28416.58,
+            "customers": 1,
+            "pct_revenue": 1.9
+          },
+          {
+            "state": "Córdoba",
+            "orders": 1,
+            "revenue": 44010.34,
+            "aov": 44010.34,
+            "customers": 1,
+            "pct_revenue": 1.4
+          },
+          {
+            "state": "Catamarca",
+            "orders": 1,
+            "revenue": 37151.48,
+            "aov": 37151.48,
+            "customers": 1,
+            "pct_revenue": 1.2
+          },
+          {
+            "state": "Neuquén",
+            "orders": 1,
+            "revenue": 37151.48,
+            "aov": 37151.48,
+            "customers": 1,
+            "pct_revenue": 1.2
+          }
+        ],
+        "total_provinces": 13,
+        "status": "ok"
+      }
+    },
+    "16": {
+      "number": 16,
+      "name": "Costo de envío vs conversión",
+      "category": "Geográfico",
+      "data": {
+        "states": [
+          {
+            "state": "Buenos Aires",
+            "avg_shipping": 6147.49,
+            "order_count": 27,
+            "free_shipping_pct": 14.8,
+            "avg_total": 55666.01,
+            "flagged": false
+          },
+          {
+            "state": "Ciudad Autónoma de Buenos Aires (CABA)",
+            "avg_shipping": 6704.09,
+            "order_count": 8,
+            "free_shipping_pct": 12.5,
+            "avg_total": 58791.08,
+            "flagged": false
+          },
+          {
+            "state": "Mendoza",
+            "avg_shipping": 7339.32,
+            "order_count": 3,
+            "free_shipping_pct": 0.0,
+            "avg_total": 60576.82,
+            "flagged": false
+          },
+          {
+            "state": "Entre Ríos",
+            "avg_shipping": 6613.0,
+            "order_count": 2,
+            "free_shipping_pct": 50.0,
+            "avg_total": 67364.0,
+            "flagged": false
+          },
+          {
+            "state": "Salta",
+            "avg_shipping": 7416.58,
+            "order_count": 2,
+            "free_shipping_pct": 0.0,
+            "avg_total": 28416.58,
+            "flagged": false
+          },
+          {
+            "state": "Santa Fe",
+            "avg_shipping": 9537.08,
+            "order_count": 2,
+            "free_shipping_pct": 50.0,
+            "avg_total": 60768.54,
+            "flagged": false
+          },
+          {
+            "state": "Tierra del Fuego",
+            "avg_shipping": 6373.96,
+            "order_count": 2,
+            "free_shipping_pct": 50.0,
+            "avg_total": 53131.98,
+            "flagged": false
+          },
+          {
+            "state": "Río Negro",
+            "avg_shipping": 8549.88,
+            "order_count": 2,
+            "free_shipping_pct": 0.0,
+            "avg_total": 54909.88,
+            "flagged": false
+          },
+          {
+            "state": "Catamarca",
+            "avg_shipping": 7151.48,
+            "order_count": 1,
+            "free_shipping_pct": 0.0,
+            "avg_total": 37151.48,
+            "flagged": false
+          },
+          {
+            "state": "Córdoba",
+            "avg_shipping": 6510.34,
+            "order_count": 1,
+            "free_shipping_pct": 0.0,
+            "avg_total": 44010.34,
+            "flagged": false
+          },
+          {
+            "state": "Chubut",
+            "avg_shipping": 6941.0,
+            "order_count": 1,
+            "free_shipping_pct": 0.0,
+            "avg_total": 56941.0,
+            "flagged": false
+          },
+          {
+            "state": "Neuquén",
+            "avg_shipping": 7151.48,
+            "order_count": 1,
+            "free_shipping_pct": 0.0,
+            "avg_total": 37151.48,
+            "flagged": false
+          },
+          {
+            "state": "La Rioja",
+            "avg_shipping": null,
+            "order_count": 1,
+            "free_shipping_pct": 100.0,
+            "avg_total": 197500.0,
+            "flagged": false
+          }
+        ],
+        "overall_avg_shipping": 6648.87,
+        "overall_free_pct": 17.0,
+        "status": "ok"
+      }
+    },
+    "17": {
+      "number": 17,
+      "name": "Tasa de cancelación",
+      "category": "Operativo",
+      "data": {
+        "total_orders": 53,
+        "cancelled_orders": 0,
+        "cancel_rate": 0.0,
+        "monthly_trend": [
+          {
+            "month_str": "2026-05",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 1
+          },
+          {
+            "month_str": "2026-06",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 29
+          },
+          {
+            "month_str": "2026-07",
+            "rate": 0.0,
+            "cancelled": 0,
+            "total": 23
+          }
+        ],
+        "reasons": null,
+        "by_payment_method": [
+          {
+            "payment_method": "Mercado Pago",
+            "total": 7,
+            "cancelled": 0,
+            "rate": 0.0
+          },
+          {
+            "payment_method": "Transferencia / Billetera Digital",
+            "total": 42,
+            "cancelled": 0,
+            "rate": 0.0
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "18": {
+      "number": 18,
+      "name": "Mix de medios de pago",
+      "category": "Operativo",
+      "data": {
+        "payment_methods": [
+          {
+            "payment_method": "Transferencia / Billetera Digital",
+            "order_count": 42,
+            "revenue": 2381039.34,
+            "aov": 56691.41,
+            "pct_orders": 79.2,
+            "pct_revenue": 77.9
+          },
+          {
+            "payment_method": "Mercado Pago",
+            "order_count": 7,
+            "revenue": 393896.27,
+            "aov": 56270.9,
+            "pct_orders": 13.2,
+            "pct_revenue": 12.9
+          },
+          {
+            "payment_method": "Transferencia",
+            "order_count": 4,
+            "revenue": 282042.05,
+            "aov": 70510.51,
+            "pct_orders": 7.5,
+            "pct_revenue": 9.2
+          }
+        ],
+        "monthly_trend": [
+          {
+            "month_str": "2026-05",
+            "payment_method": "Transferencia",
+            "count": 1
+          },
+          {
+            "month_str": "2026-06",
+            "payment_method": "Mercado Pago",
+            "count": 5
+          },
+          {
+            "month_str": "2026-06",
+            "payment_method": "Transferencia",
+            "count": 3
+          },
+          {
+            "month_str": "2026-06",
+            "payment_method": "Transferencia / Billetera Digital",
+            "count": 21
+          },
+          {
+            "month_str": "2026-07",
+            "payment_method": "Mercado Pago",
+            "count": 2
+          },
+          {
+            "month_str": "2026-07",
+            "payment_method": "Transferencia / Billetera Digital",
+            "count": 21
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "19": {
+      "number": 19,
+      "name": "Oportunidades de bundling",
+      "category": "Estratégico",
+      "data": {
+        "bundles": [
+          {
+            "items": [
+              "Boche para pelo perlitas.",
+              "Sweater Noamy"
+            ],
+            "individual_total": 45500.0,
+            "bundle_price_10pct": 40950.0,
+            "bundle_price_15pct": 38675.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Maxi Sweater Star",
+              "Mini Skort lace"
+            ],
+            "individual_total": 65000.0,
+            "bundle_price_10pct": 58500.0,
+            "bundle_price_15pct": 55250.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Manga Larga Lace (Negro)",
+              "Manga Larga Lace (Rosa bebe)"
+            ],
+            "individual_total": 37500.0,
+            "bundle_price_10pct": 33750.0,
+            "bundle_price_15pct": 31875.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Broche para cabello haditas.",
+              "Manga larga Clau (Negro)"
+            ],
+            "individual_total": 33750.0,
+            "bundle_price_10pct": 30375.0,
+            "bundle_price_15pct": 28687.5,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Corset Blair  (M)",
+              "Set hebillas"
+            ],
+            "individual_total": 41000.0,
+            "bundle_price_10pct": 36900.0,
+            "bundle_price_15pct": 34850.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Beige)",
+              "Tapado Moscú  (XL)"
+            ],
+            "individual_total": 100000.0,
+            "bundle_price_10pct": 90000.0,
+            "bundle_price_15pct": 85000.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Mini Sastrera Adri (Camel)"
+            ],
+            "individual_total": 62500.0,
+            "bundle_price_10pct": 56250.0,
+            "bundle_price_15pct": 53125.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Sweater Teddy"
+            ],
+            "individual_total": 77500.0,
+            "bundle_price_10pct": 69750.0,
+            "bundle_price_15pct": 65875.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Chomba polka dots",
+              "Tapado Bella (Ivory)"
+            ],
+            "individual_total": 100000.0,
+            "bundle_price_10pct": 90000.0,
+            "bundle_price_15pct": 85000.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Camel)",
+              "Sweater Teddy"
+            ],
+            "individual_total": 65000.0,
+            "bundle_price_10pct": 58500.0,
+            "bundle_price_15pct": 55250.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Mini Sastrera Adri (Camel)",
+              "Tapado Bella (Ivory)"
+            ],
+            "individual_total": 87500.0,
+            "bundle_price_10pct": 78750.0,
+            "bundle_price_15pct": 74375.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Sweater Teddy",
+              "Tapado Bella (Ivory)"
+            ],
+            "individual_total": 102500.0,
+            "bundle_price_10pct": 92250.0,
+            "bundle_price_15pct": 87125.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Oxford Paris"
+            ],
+            "individual_total": 51250.0,
+            "bundle_price_10pct": 46125.0,
+            "bundle_price_15pct": 43562.5,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Panty media corazón"
+            ],
+            "individual_total": 31250.0,
+            "bundle_price_10pct": 28125.0,
+            "bundle_price_15pct": 26562.5,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          },
+          {
+            "items": [
+              "Manga larga Paris",
+              "Skort Valen"
+            ],
+            "individual_total": 37500.0,
+            "bundle_price_10pct": 33750.0,
+            "bundle_price_15pct": 31875.0,
+            "lift": 53.0,
+            "historical_copurchases": 1,
+            "support": 1.89
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "20": {
+      "number": 20,
+      "name": "Estacionalidad",
+      "category": "Estratégico",
+      "data": {
+        "by_month": [
+          {
+            "month": "May",
+            "revenue": 65013.96,
+            "orders": 1
+          },
+          {
+            "month": "Jun",
+            "revenue": 1444624.69,
+            "orders": 29
+          },
+          {
+            "month": "Jul",
+            "revenue": 1547339.0,
+            "orders": 23
+          }
+        ],
+        "by_day_of_week": [
+          {
+            "day": "Lunes",
+            "revenue": 443596.62,
+            "orders": 7
+          },
+          {
+            "day": "Martes",
+            "revenue": 213632.61,
+            "orders": 4
+          },
+          {
+            "day": "Miércoles",
+            "revenue": 535298.06,
+            "orders": 6
+          },
+          {
+            "day": "Jueves",
+            "revenue": 570635.84,
+            "orders": 10
+          },
+          {
+            "day": "Viernes",
+            "revenue": 588802.34,
+            "orders": 10
+          },
+          {
+            "day": "Sábado",
+            "revenue": 347468.56,
+            "orders": 9
+          },
+          {
+            "day": "Domingo",
+            "revenue": 357543.62,
+            "orders": 7
+          }
+        ],
+        "by_hour": null,
+        "peak_month": "Jul",
+        "low_month": "May",
+        "peak_day": "Jueves",
+        "status": "ok"
+      }
+    },
+    "21": {
+      "number": 21,
+      "name": "Afinidad entre colores",
+      "category": "Producto",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "22": {
+      "number": 22,
+      "name": "Afinidad entre talles",
+      "category": "Producto",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "23": {
+      "number": 23,
+      "name": "Análisis de SKU/variantes",
+      "category": "Producto",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "24": {
+      "number": 24,
+      "name": "Ciclo de vida del producto",
+      "category": "Producto",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "25": {
+      "number": 25,
+      "name": "Patrón de upgrade",
+      "category": "Cliente",
+      "data": {
+        "total_analyzed": 1,
+        "upgraders": 0,
+        "upgrader_pct": 0.0,
+        "downgraders": 1,
+        "avg_upgrade_pct": 0,
+        "top_upgraders": [],
+        "status": "ok"
+      }
+    },
+    "26": {
+      "number": 26,
+      "name": "Clientes VIP",
+      "category": "Cliente",
+      "data": {
+        "vip_count": 5,
+        "vip_pct": 10.6,
+        "vip_revenue": 811217.52,
+        "vip_revenue_pct": 26.5,
+        "avg_orders": 1.6,
+        "avg_aov": 124539.98,
+        "top_vips": [
+          {
+            "email": "lucilaveraa781@gmail.com",
+            "revenue": 197500.0,
+            "orders": 1,
+            "aov": 197500.0
+          },
+          {
+            "email": "cuentaoficialrocionoeliafrias@gmail.com",
+            "revenue": 181730.45,
+            "orders": 3,
+            "aov": 60576.82
+          },
+          {
+            "email": "abril.dundic@gmail.com",
+            "revenue": 151000.0,
+            "orders": 1,
+            "aov": 151000.0
+          },
+          {
+            "email": "melinamilagrosbattista@gmail.com",
+            "revenue": 146259.08,
+            "orders": 1,
+            "aov": 146259.08
+          },
+          {
+            "email": "sofiacurtoni@gmail.com",
+            "revenue": 134728.0,
+            "orders": 2,
+            "aov": 67364.0
+          }
+        ],
+        "favorite_products": [
+          {
+            "product": "Manga larga Paris (Chocolate)",
+            "count": 1
+          },
+          {
+            "product": "Musculosa Briana (Bordó cherry)",
+            "count": 1
+          },
+          {
+            "product": "Chomba polka dots (Chocolate)",
+            "count": 1
+          },
+          {
+            "product": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+            "count": 1
+          },
+          {
+            "product": "Cardigan Bruma (Negro)",
+            "count": 1
+          },
+          {
+            "product": "Manga larga Clau (Negro) (L/XL)",
+            "count": 1
+          },
+          {
+            "product": "GEGE 🧸 - Lip Glos  (Tono 04)",
+            "count": 1
+          },
+          {
+            "product": "Sweater Noamy (Bordó)",
+            "count": 1
+          }
+        ],
+        "top_states": [
+          {
+            "state": "Mendoza",
+            "count": 3
+          },
+          {
+            "state": "Entre Ríos",
+            "count": 2
+          },
+          {
+            "state": "Buenos Aires",
+            "count": 2
+          },
+          {
+            "state": "La Rioja",
+            "count": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "27": {
+      "number": 27,
+      "name": "Análisis de churn",
+      "category": "Cliente",
+      "data": {
+        "total_customers": 47,
+        "churned": 1,
+        "churn_rate": 2.1,
+        "active": 46,
+        "churn_threshold_days": 60,
+        "avg_purchase_interval": 21.0,
+        "last_products_churned": [
+          {
+            "product": "Sweater Rai (Rosa con choco)",
+            "count": 1
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "28": {
+      "number": 28,
+      "name": "Revenue por canal",
+      "category": "Revenue",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "29": {
+      "number": 29,
+      "name": "Análisis de precio",
+      "category": "Revenue",
+      "data": {
+        "min_price": 3800,
+        "max_price": 75000,
+        "mean_price": 30741.04,
+        "median_price": 37275.0,
+        "sweet_spots": [
+          {
+            "range": "$39,400-$42,960",
+            "volume": 25
+          },
+          {
+            "range": "$35,840-$39,400",
+            "volume": 22
+          },
+          {
+            "range": "$18,040-$21,600",
+            "volume": 12
+          },
+          {
+            "range": "$14,480-$18,040",
+            "volume": 10
+          },
+          {
+            "range": "$10,920-$14,480",
+            "volume": 10
+          }
+        ],
+        "total_items": 106,
+        "status": "ok"
+      }
+    },
+    "30": {
+      "number": 30,
+      "name": "Penetración por ciudad",
+      "category": "Geográfico",
+      "data": {
+        "top_cities": [
+          {
+            "city": "CIUDAD AUTONOMA BUENOS AIRES",
+            "orders": 5,
+            "revenue": 262159.58
+          },
+          {
+            "city": "LA RIOJA",
+            "orders": 1,
+            "revenue": 197500.0
+          },
+          {
+            "city": "RIVADAVIA",
+            "orders": 3,
+            "revenue": 181730.45
+          },
+          {
+            "city": "VILLA DOMINICO",
+            "orders": 2,
+            "revenue": 158544.0
+          },
+          {
+            "city": "PILAR",
+            "orders": 1,
+            "revenue": 151000.0
+          },
+          {
+            "city": "El Palomar",
+            "orders": 1,
+            "revenue": 146259.08
+          },
+          {
+            "city": "PARANA",
+            "orders": 2,
+            "revenue": 134728.0
+          },
+          {
+            "city": "Haedo",
+            "orders": 1,
+            "revenue": 126505.0
+          },
+          {
+            "city": "Devoto",
+            "orders": 1,
+            "revenue": 122255.0
+          },
+          {
+            "city": "VILLA BALLESTER",
+            "orders": 2,
+            "revenue": 105915.86
+          },
+          {
+            "city": "Cipolletti",
+            "orders": 1,
+            "revenue": 83104.75
+          },
+          {
+            "city": "ITUZAINGO",
+            "orders": 2,
+            "revenue": 80915.86
+          },
+          {
+            "city": "SANTA FE",
+            "orders": 1,
+            "revenue": 80000.0
+          },
+          {
+            "city": "TIGRE",
+            "orders": 2,
+            "revenue": 69465.86
+          },
+          {
+            "city": "USHUAIA",
+            "orders": 1,
+            "revenue": 65013.96
+          },
+          {
+            "city": "TEMPERLEY",
+            "orders": 1,
+            "revenue": 62971.86
+          },
+          {
+            "city": "WILDE",
+            "orders": 1,
+            "revenue": 61250.0
+          },
+          {
+            "city": "COMODORO RIVADAVIA",
+            "orders": 1,
+            "revenue": 56941.0
+          },
+          {
+            "city": "SALTA",
+            "orders": 2,
+            "revenue": 56833.16
+          },
+          {
+            "city": "BOULOGNE",
+            "orders": 1,
+            "revenue": 50371.86
+          }
+        ],
+        "total_cities": 41,
+        "status": "ok"
+      }
+    },
+    "31": {
+      "number": 31,
+      "name": "Medio de envío por zona",
+      "category": "Geográfico",
+      "data": {
+        "crosstab": [
+          {
+            "state": "Buenos Aires",
+            "Correo Argentino - Envío a domicilio": 5,
+            "Correo Argentino - Retiro por sucursal": 22
+          },
+          {
+            "state": "Ciudad Autónoma de Buenos Aires (CABA)",
+            "Correo Argentino - Envío a domicilio": 3,
+            "Correo Argentino - Retiro por sucursal": 5
+          },
+          {
+            "state": "Córdoba",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 1
+          },
+          {
+            "state": "Entre Ríos",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 2
+          },
+          {
+            "state": "Mendoza",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 3
+          },
+          {
+            "state": "Neuquén",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 1
+          },
+          {
+            "state": "Río Negro",
+            "Correo Argentino - Envío a domicilio": 1,
+            "Correo Argentino - Retiro por sucursal": 1
+          },
+          {
+            "state": "Salta",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 2
+          },
+          {
+            "state": "Santa Fe",
+            "Correo Argentino - Envío a domicilio": 1,
+            "Correo Argentino - Retiro por sucursal": 1
+          },
+          {
+            "state": "Tierra del Fuego",
+            "Correo Argentino - Envío a domicilio": 0,
+            "Correo Argentino - Retiro por sucursal": 2
+          }
+        ],
+        "methods": [
+          "Correo Argentino - Envío a domicilio",
+          "Correo Argentino - Retiro por sucursal"
+        ],
+        "status": "ok"
+      }
+    },
+    "32": {
+      "number": 32,
+      "name": "Tiempo de fulfillment",
+      "category": "Operativo",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "33": {
+      "number": 33,
+      "name": "Análisis de canal",
+      "category": "Operativo",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "34": {
+      "number": 34,
+      "name": "Eficiencia de envío gratis",
+      "category": "Operativo",
+      "data": {
+        "comparison": {
+          "free_shipping": {
+            "orders": 9,
+            "aov": 96360.0,
+            "revenue": 867240.0
+          },
+          "paid_shipping": {
+            "orders": 44,
+            "aov": 49766.76,
+            "revenue": 2189737.65
+          }
+        },
+        "retention": {
+          "free_avg_orders": 1.11,
+          "paid_avg_orders": 1.15
+        },
+        "status": "ok"
+      }
+    },
+    "35": {
+      "number": 35,
+      "name": "Forecast de ventas",
+      "category": "Estratégico",
+      "data": {
+        "status": "skipped",
+        "reason": "No data available for this analysis"
+      }
+    },
+    "36": {
+      "number": 36,
+      "name": "Recomendación de cross-sell",
+      "category": "Estratégico",
+      "data": {
+        "recommendations": [
+          {
+            "product": "Maxi cardigan Juliette (Bordó) (Unico: Abarca (S/M/L))",
+            "cross_sell": [
+              {
+                "product": "Cardigan Blair",
+                "lift": 26.5,
+                "support": 1.89
+              }
+            ]
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "37": {
+      "number": 37,
+      "name": "Análisis de pricing",
+      "category": "Estratégico",
+      "data": {
+        "categories": [
+          {
+            "category": "Sweater",
+            "avg_price": 38839.19,
+            "median_price": 37500.0,
+            "weighted_price": 38839.19,
+            "product_count": 18,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Cardigan",
+            "avg_price": 40937.5,
+            "median_price": 36250.0,
+            "weighted_price": 40937.5,
+            "product_count": 8,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Manga",
+            "avg_price": 19218.75,
+            "median_price": 18750.0,
+            "weighted_price": 19218.75,
+            "product_count": 8,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Maxi",
+            "avg_price": 42187.5,
+            "median_price": 42500.0,
+            "weighted_price": 42187.5,
+            "product_count": 5,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Mini",
+            "avg_price": 24583.33,
+            "median_price": 25000.0,
+            "weighted_price": 24583.33,
+            "product_count": 5,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Musculosa",
+            "avg_price": 14714.29,
+            "median_price": 15000.0,
+            "weighted_price": 14714.29,
+            "product_count": 5,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Bufanda",
+            "avg_price": 18342.86,
+            "median_price": 18750.0,
+            "weighted_price": 18342.86,
+            "product_count": 4,
+            "under_priced": [],
+            "over_priced": []
+          },
+          {
+            "category": "Short",
+            "avg_price": 12500.0,
+            "median_price": 12500.0,
+            "weighted_price": 12500.0,
+            "product_count": 2,
+            "under_priced": [],
+            "over_priced": []
+          }
+        ],
+        "status": "ok"
+      }
+    },
+    "38": {
+      "number": 38,
+      "name": "Identificación de nichos",
+      "category": "Estratégico",
+      "data": {
+        "clusters": [
+          {
+            "cluster": 3,
+            "size": 6,
+            "pct": 12.8,
+            "avg_spend": 144086.51,
+            "avg_orders": 1.0,
+            "avg_aov": 144086.51,
+            "avg_recency": 8.5,
+            "label": "High Value"
+          },
+          {
+            "cluster": 2,
+            "size": 5,
+            "pct": 10.6,
+            "avg_spend": 104734.67,
+            "avg_orders": 2.2,
+            "avg_aov": 46309.65,
+            "avg_recency": 9.4,
+            "label": "Medium-High"
+          },
+          {
+            "cluster": 0,
+            "size": 14,
+            "pct": 29.8,
+            "avg_spend": 49219.2,
+            "avg_orders": 1.0,
+            "avg_aov": 49219.2,
+            "avg_recency": 6.9,
+            "label": "Medium-Low"
+          },
+          {
+            "cluster": 1,
+            "size": 22,
+            "pct": 46.8,
+            "avg_spend": 44532.56,
+            "avg_orders": 1.0,
+            "avg_aov": 44532.56,
+            "avg_recency": 32.5,
+            "label": "Low Value"
+          }
+        ],
+        "total_customers": 47,
+        "status": "ok"
+      }
+    }
+  }
+}

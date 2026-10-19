@@ -1,0 +1,182 @@
+[
+  {
+    "source": "Roure_Informe_Contenido_Mayo2026.docx",
+    "destination": "reports/2026-05/Roure_Informe_Contenido_Mayo2026.docx",
+    "length": 22063,
+    "sha256": "DEB3BB558B568A1B3D6B10F9ACAE71715025CB130E07CB3694E3CDD95FD3E6F7"
+  },
+  {
+    "source": "Roure_Performance_Mayo2026.xlsx",
+    "destination": "reports/2026-05/Roure_Performance_Mayo2026.xlsx",
+    "length": 13456,
+    "sha256": "7F9557BB4D848906A226B22C74734487399B2775307A96603E0A65F2CB2EABF0"
+  },
+  {
+    "source": "Roure_Reporte_Mayo2026.html",
+    "destination": "reports/2026-05/Roure_Reporte_Mayo2026.html",
+    "length": 25031,
+    "sha256": "68C831A7F021B16D969495EA2807D115D05F698396CD2A66D2443BCD35900CE0"
+  },
+  {
+    "source": "Roure_Resumen_Ejecutivo_Mayo2026.md",
+    "destination": "reports/2026-05/Roure_Resumen_Ejecutivo_Mayo2026.md",
+    "length": 4903,
+    "sha256": "9D911D61EB5578B28DFD3AAA8EC629F86E7FD9130CB440B1EC09607B243D465A"
+  },
+  {
+    "source": "roure_informe_mayo2026.js",
+    "destination": "reports/scripts/roure_informe_mayo2026.js",
+    "length": 24707,
+    "sha256": "6590BC99919D243985DB756F93614775DD50DF197CF71F1AECA74EE8586BAE75"
+  },
+  {
+    "source": "sesion-2026-06-08.md",
+    "destination": "docs/sessions/sesion-2026-06-08.md",
+    "length": 7077,
+    "sha256": "08F5309360945339741C62F1CCBB68C7EF60E3BE3472D92D76A88CCFF5728B45"
+  },
+  {
+    "source": "campana-mundial-ads-guia.md",
+    "destination": "campaigns/2026-world-cup/campana-mundial-ads-guia.md",
+    "length": 6379,
+    "sha256": "3F8C7E27B46CCEFF1BAF82A88E16BF08F778EB1B89043314685CA0915928744A"
+  },
+  {
+    "source": "descripcion-sweater-mundial.html",
+    "destination": "campaigns/2026-world-cup/descripcion-sweater-mundial.html",
+    "length": 3304,
+    "sha256": "45CACC8F8495DBE1CF1706463E73F8591FA587087120AAAF0D55CD4ABA2DCA87"
+  },
+  {
+    "source": "sweater-argentina-descripcion.html",
+    "destination": "campaigns/2026-world-cup/sweater-argentina-descripcion.html",
+    "length": 2049,
+    "sha256": "426581D7ECEED4026057A6D49036955DCE71D7990946787AE96D12E0F903A490"
+  },
+  {
+    "source": "estrategia-creativos-vienne.html",
+    "destination": "campaigns/2026-vienne/estrategia-creativos-vienne.html",
+    "length": 55843,
+    "sha256": "8688DE6DF5D97B6B3755D2C12A53D4F56B74FC0B08FD78FEFAE78FE2B5E47D05"
+  },
+  {
+    "source": "roure_estructura_creativos_meta_ads.html",
+    "destination": "campaigns/meta-ads/roure_estructura_creativos_meta_ads.html",
+    "length": 65382,
+    "sha256": "F267A570D3128BFF902331F9EFEE54850BD33D5B87F8F11F360640ABE57DA621"
+  },
+  {
+    "source": "roure_creativos_meta_ads.pdf",
+    "destination": "campaigns/meta-ads/roure_creativos_meta_ads.pdf",
+    "length": 90600,
+    "sha256": "749F71D620775BDB0B7F335091618D37F191DF823831CB47F1190A575A051D2D"
+  },
+  {
+    "source": "analisis-competencia-lachanga-bonita.html",
+    "destination": "research/competitors/analisis-competencia-lachanga-bonita.html",
+    "length": 56554,
+    "sha256": "4F8C15703F485C040895EC320F4AA88FFCBE0AED63CC7485393C06C42C5E4B48"
+  },
+  {
+    "source": "kosmos-ad-library-report.html",
+    "destination": "research/competitors/kosmos-ad-library-report.html",
+    "length": 42347,
+    "sha256": "9FF63FFE185BFFA357909EA8875EF086DDA01ECDC85CA8AD34C2142B4949E507"
+  },
+  {
+    "source": "sm-sweaters-ad-library-report.html",
+    "destination": "research/competitors/sm-sweaters-ad-library-report.html",
+    "length": 37322,
+    "sha256": "786DFF7B8F0CF28E9A9FB5AE6341840090E5ECA209DE8E1A8432600DF3B16E78"
+  },
+  {
+    "source": "v2-roadmap.md",
+    "destination": "docs/roadmap/v2-roadmap.md",
+    "length": 2553,
+    "sha256": "EC2CA7B4108109AE76811735953ADB96F6929F36F30B0E5BEA69BF408A0E693D"
+  },
+  {
+    "source": "Videos/ads1HD_h264.mp4",
+    "destination": "assets/videos/ads1HD_h264.mp4",
+    "length": 12349842,
+    "sha256": "2AE83880DAEFF8010A20A9FEA5F3B538BA6BB28F3DC26DD9CD6EC89F0B12AE9C"
+  },
+  {
+    "source": "Videos/ads1HD.mp4",
+    "destination": "assets/videos/ads1HD.mp4",
+    "length": 7754713,
+    "sha256": "5762FA609BBDB5F607684CC32D5B202194B5C1A66C3F3E3AAE684051DB0F2148"
+  },
+  {
+    "source": "Videos/ads2HD_15s.mp4",
+    "destination": "assets/videos/ads2HD_15s.mp4",
+    "length": 3732674,
+    "sha256": "F01A1ED6DBA3AD2E24A7C011CCFF516D3781FAF5A26157FD52AA1B51CAF403A9"
+  },
+  {
+    "source": "Videos/ads2HD.mp4",
+    "destination": "assets/videos/ads2HD.mp4",
+    "length": 12085784,
+    "sha256": "8121D1503F389173A3EC59CBC18C31D2F75F2D8A3D3103B56F242DE58D66EB88"
+  },
+  {
+    "source": "Videos/ads3HD.mp4",
+    "destination": "assets/videos/ads3HD.mp4",
+    "length": 16012262,
+    "sha256": "05F5455D0E26BAF28CE084F131B993368B4556B5ABF4047E78CEF463E4E1898F"
+  },
+  {
+    "source": "Videos/ads4HD.mp4",
+    "destination": "assets/videos/ads4HD.mp4",
+    "length": 20371131,
+    "sha256": "8CFE3F492A0AFD9F88C16F2DAC3FFF05636CBC2978DDE74CEE682B6C532F88A4"
+  },
+  {
+    "source": "Videos/haul de invierno.mp4",
+    "destination": "assets/videos/haul de invierno.mp4",
+    "length": 26930252,
+    "sha256": "4FB6D75CE54FE2A9A39E189AA3F3B4D237AC3D1DF61E0429495AD3BE3BBA9270"
+  },
+  {
+    "source": "Videos/pack with me.mp4",
+    "destination": "assets/videos/pack with me.mp4",
+    "length": 74808143,
+    "sha256": "DE91156BCB3965E4EE6FEB59EBA026FBCCC8AE3349C2DAB63C6EBAB61561AD49"
+  },
+  {
+    "source": "creativos/sweater-mundial/Ponle_la_falda_a_la_202606272250 (1).jpeg",
+    "destination": "assets/creatives/sweater-mundial/Ponle_la_falda_a_la_202606272250 (1).jpeg",
+    "length": 2885734,
+    "sha256": "7A0761F03E71446B7E87D05E46C7D0013338A8AC0E59635F12B0623C1119A90F"
+  },
+  {
+    "source": "creativos/sweater-mundial/Ponle_la_falda_a_la_202606272250.jpeg",
+    "destination": "assets/creatives/sweater-mundial/Ponle_la_falda_a_la_202606272250.jpeg",
+    "length": 2562261,
+    "sha256": "E08F0A1DC3576FAC33C6EB711C110AA363C39A16931438602BCCD99FFB9BBD6A"
+  },
+  {
+    "source": "creativos/sweater-mundial/que_mire_hacia_el_lado_202606272250.jpeg",
+    "destination": "assets/creatives/sweater-mundial/que_mire_hacia_el_lado_202606272250.jpeg",
+    "length": 2463289,
+    "sha256": "8A74593ECDE0DCC6D3A56BCA617E225432D73DE0F3898287FE07AFCDCC99138B"
+  },
+  {
+    "source": "csv de meta ads/campaña de prueba.csv",
+    "destination": "data/meta-ads/campaña de prueba.csv",
+    "length": 552,
+    "sha256": "BA3F37237C067C061B2C1FAAF93813EC71A00336621979C5A8A004EE53C7CA9D"
+  },
+  {
+    "source": "docs(teoria)/Whitepaper Meta Ads 2026.docx",
+    "destination": "docs/theory/Whitepaper Meta Ads 2026.docx",
+    "length": 36122,
+    "sha256": "944DE8750A1939A94398830176A620D6E65FC64ACDC9316788FC682EF78983D3"
+  },
+  {
+    "source": "docs(teoria)/Whitepaper Meta Ads 2026.md",
+    "destination": "docs/theory/Whitepaper Meta Ads 2026.md",
+    "length": 25889,
+    "sha256": "2EEDC9BE2F05F317648DC9F5D3548B7670F4B4E058CB4AB38DF9A303EF2B0222"
+  }
+]

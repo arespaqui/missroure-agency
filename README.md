@@ -17,7 +17,7 @@ Un solo comando activa una agencia completa que conoce la marca, recuerda lo que
 
 ### Para Damaris
 
-- Cada vez que haya un nuevo ingreso de colección → actualizar `context/catalog-context.md`
+- Cada vez que haya un nuevo ingreso o cambio de stock → actualizar `inventory/`; usar `context/catalog-context.md` como referencia histórica hasta revalidarlo
 - Cada vez que un post funcione bien → pedirle al agente que registre en `memory/wins.md`
 - Cada vez que algo no funcione → pedirle que registre en `memory/losses.md`
 - Una vez por mes → pedirle al agente el reporte mensual de performance
@@ -26,42 +26,50 @@ Un solo comando activa una agencia completa que conoce la marca, recuerda lo que
 
 ## Estructura del Sistema
 
-```
+```text
 missroure-agency/
-│
-├── AGENTS.md                       ← Leer SIEMPRE primero
-├── README.md                       ← Esta guía
-│
-├── context/                        ← ADN permanente de la marca
-│   ├── brand-context.md            ← Identidad, tono, canales, colecciones
-│   ├── catalog-context.md          ← Catálogo completo con precios y stock
-│   ├── audience-context.md         ← Perfil de la clienta ideal
-│   ├── commercial-calendar.md      ← Fechas estratégicas del año
-│   └── competitive-landscape.md    ← Radar de competencia
-│
-├── skills/                         ← Un archivo por rol de agencia
-│   ├── brand-strategist.md         ← Posicionamiento, drops, campañas
-│   ├── tiktok-strategist.md        ← Videos, hooks, scripts TikTok
-│   ├── instagram-curator.md        ← Feed, reels, carruseles, estética IG
-│   ├── copywriter.md               ← Captions, copies, descripciones
-│   ├── ecommerce-specialist.md     ← Tienda, fichas de producto, conversión
-│   ├── growth-analyst.md           ← KPIs, experimentos, métricas
-│   ├── community-manager.md        ← UGC, respuestas, comunidad
-│   └── editorial-calendar.md       ← Planificación semanal/mensual
-│
-├── memory/                         ← Sistema de aprendizaje continuo
-│   ├── wins.md                     ← Lo que funcionó (con datos reales)
-│   ├── losses.md                   ← Lo que no funcionó
-│   ├── campaign-log.md             ← Registro cronológico de todo el contenido
-│   ├── content-performance.md      ← Métricas acumuladas por formato y canal
-│   └── experiments.md              ← Hipótesis activas y cerradas
-│
-└── templates/                      ← Estructuras reutilizables
-    ├── weekly-calendar-template.md ← Planificación semanal
-    ├── caption-template.md         ← Captions por canal y pilar
-    ├── campaign-brief-template.md  ← Brief de cada campaña o drop
-    └── product-description-template.md ← Descripciones para la tienda
+├── AGENTS.md                 # Instrucciones de entrada, sin cambio de ubicación
+├── README.md                 # Mapa y accesos rápidos
+├── inventory/                # Inventario operativo
+│   └── summer-offers.md      # Ofertas de verano y stock por variante
+├── context/                  # Marca, audiencia, catálogo histórico y temporada
+├── campaigns/                # Entregables históricos por campaña
+│   ├── 2026-vienne/
+│   ├── 2026-world-cup/
+│   └── meta-ads/
+├── reports/                  # Informes entregables
+│   ├── 2026-05/
+│   └── scripts/              # Generador histórico, no portable todavía
+├── research/competitors/     # Análisis de competencia
+├── assets/
+│   ├── videos/               # Videos originales
+│   └── creatives/            # Fotos y piezas originales
+├── data/meta-ads/             # Exportaciones CSV originales
+├── docs/
+│   ├── theory/               # Material de referencia
+│   ├── roadmap/
+│   ├── sessions/
+│   └── organization/         # Manifiesto de movimientos y trazabilidad
+├── metads/                   # Análisis, datos, guías y herramientas de Meta Ads
+├── ecommerce-bi/             # Análisis de e-commerce
+├── skills/                   # Roles de agencia
+├── memory/                   # Historial y aprendizajes
+├── templates/                # Plantillas reutilizables
+└── odd/                      # Seguimiento de trabajo
 ```
+
+### Estrategia vigente de esta campaña
+
+[Fuente de verdad estratégica y aplicación a Roure](metads/strategy/2026-10-source-of-truth.md), basada en el [informe completo aportado por la marca](docs/theory/informe_meta_ads_2026_roure_con_profesor_charlie.md). Una campaña de Ventas y un conjunto inicial: buzos protagonistas más estáticas de ofertas de verano/invierno; **ARS $7.000 diarios en total**. Esta definición reemplaza las recetas anteriores de cuatro campañas y umbrales fijos para este lanzamiento. No hay publicación ni gasto remoto autorizado.
+
+### Accesos rápidos
+- [Inventario y ofertas de verano](inventory/README.md).
+- [Temporada actual](context/season-2026-10.md).
+- [Análisis de Meta Ads](metads/season-2026-10-index.md).
+- [Informes de mayo](reports/2026-05/).
+- [Registro de organización](docs/organization/README.md).
+
+Las rutas históricas de `context/`, `skills/`, `memory/` y los módulos se conservan. Las carpetas ocultas de configuración no se movieron. Los precios antiguos no se trasladan al inventario actual como hechos confirmados.
 
 ---
 

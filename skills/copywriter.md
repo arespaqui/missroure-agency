@@ -1,9 +1,9 @@
 # SKILL: Copywriter
 
-version: 1.2
-last_updated: 2026-05-04
-updated_by: Ares Palomino
-changelog: v1.2 — Regla de humanización, anti-IA, CTA tienda como prioridad absoluta
+version: 1.3
+last_updated: 2026-06-05
+updated_by: Agent (sdd-apply)
+changelog: v1.3 — Agregados templates de email en voseo y estética coquette para flujos automáticos.
 
 ---
 
@@ -210,6 +210,90 @@ Con transferencia: $XX.XXX (20% OFF)
 - Empezar con el nombre si lo tenés
 - Dar info clara de precio, talle, stock
 - Cerrar con algo cálido: "Avisame si te surge alguna duda" 🌷
+
+### Meta Ads Sandbox (Método 3:2:2 — Requerimiento de Copy)
+
+Cuando escribas copy para campañas de anuncios pagos de Meta, tenés que crear **2 variaciones de Texto Principal (Primary Text)** y **2 variaciones de Título (Headline)** para cada producto testeado, de modo que el Growth Analyst pueda cargarlos en los anuncios dinámicos:
+
+1. **Texto Principal 1 (Emocional / Identidad)**: Enfocado en el estilo de vida, la estética coquette y la conexión emocional ("Sentite linda todos los días 🧸", "El look romántico que estabas buscando").
+2. **Texto Principal 2 (Racional / Objeciones)**: Enfocado en beneficios funcionales (abrigo, fit acanalado, suavidad) y la oferta comercial visible (20% OFF transferencia, envíos a todo el país).
+3. **Título 1 (Directo)**: Nombre del producto + Precio final con transferencia (ej. `Sweater Vienne — $30.000 🌷`).
+4. **Título 2 (Gancho de Beneficio/Curiosidad)**: El cuello bote en tendencia o frase corta de deseo (ej. `Suave como un abrazo 🧸` o `Llevátelo con 20% OFF ✨`).
+
+---
+
+### Email Marketing — Templates de Flujos
+
+#### 1. Welcome Flow (Bienvenida — Inmediato)
+**Asunto**: ¡Bienvenida a Roure, linda! 🌷
+
+> ¡Hola, linda! Qué alegría que estés acá. 🩷
+>
+> Roure nace para recordarte que la vida romántica empieza en tu placard ("Romantic life starts in your closet" ✨). Queremos acompañarte en cada día con prendas que no solo te hagan ver preciosa, sino que además sean súper suaves y cómodas.
+>
+> Como nos encanta tenerte en nuestra comunidad, te preparamos un regalito de bienvenida:
+> Usá el cupón **BIENVENIDASOFT** para llevarte un **10% OFF** en tu primera compra. 🎀
+>
+> Además, acordate que tenés un **20% OFF** acumulable pagando con transferencia bancaria y **envío gratis** en compras desde $80.000 ARS.
+>
+> Sentite cómoda, chusmeá la tienda y encontrá esa prenda especial que no te vas a querer sacar.
+>
+> Bye, lindas. 🌷
+
+#### 2. Abandoned Cart Flow (Recuperación de Carrito — 1 hora)
+**Asunto**: ¿Te olvidaste de algo, linda? 🧸
+
+> ¡Hola, linda!
+>
+> Pasábamos a recordarte que dejamos tus elegidos a salvo, pero te están extrañando mucho en el carrito... 🎀
+>
+> [Imagen / Lista de prendas seleccionadas]
+>
+> Son esas prendas ideales para armar un look comfy y tierno que vas a amar usar todos los días.
+>
+> Hacé click abajo para volver y completar tu orden de forma súper fácil. Acordate que si pagás por transferencia tenés un **20% OFF** automático.
+>
+> [Botón: Volver a mi carrito 🩷]
+>
+> Cualquier duda con los talles, escribinos al WhatsApp (1153837478) y te ayudamos al toque.
+>
+> Bye, lindas. 🌷
+
+#### 3. Browse Abandonment Flow (Abandono de Navegación — 4 horas)
+**Asunto**: Nos pareció que te gustó esto... 🌷
+
+> ¡Hola, linda!
+>
+> Vimos que estuviste mirando esto y no queríamos dejar de mostrártelo una vez más. Es tan lindo y suavecito que sabíamos que te iba a encantar. 🧸
+>
+> [Detalle / Foto de la prenda vista]
+>
+> Es la prenda perfecta para esos días donde querés sentirte abrigada y divina sin hacer ningún esfuerzo.
+>
+> Si querés ver más detalles de las medidas o cómo combinarlo, chusmealo en la tienda. ¡Quedan muy poquitos en stock!
+>
+> [Botón: Ver mi prenda favorita ✨]
+>
+> Bye, lindas. 🌷
+
+#### 4. Post-Purchase Flow (Care Guide — 7 días post-entrega)
+**Asunto**: Cómo mimar y cuidar tus prendas Roure 🎀
+
+> ¡Hola, linda!
+>
+> Tu pedido ya está con vos y esperamos que te haya encantado abrirlo tanto como a nosotros prepararlo. 🩷
+>
+> Para que tus tejidos y sweaters favoritos se mantengan tan suaves, tiernos y perfectos como el primer día, te dejamos algunos tips de cuidado muy simples:
+>
+> 1. **Lavado con amor**: Lavá tus prendas a mano con agua fría y jabón neutro. Evitá el lavarropas y los centrifugados fuertes para no dañar las fibras delicadas. 🫧
+> 2. **Secado plano**: Nunca cuelgues tus sweaters mojados de una percha, ya que el peso del agua los puede estirar. Secalos de forma horizontal sobre una toalla limpia a la sombra. 🧸
+> 3. **Guardado soft**: Te recomendamos doblar tus tejidos en vez de colgarlos para que conserven su forma original impecable.
+>
+> Cuidá tus prendas con el mismo amor con el que las elegiste.
+>
+> Cualquier duda que tengas, ya sabés que estamos a un WhatsApp de distancia.
+>
+> Bye, lindas. 🌷
 
 ---
 

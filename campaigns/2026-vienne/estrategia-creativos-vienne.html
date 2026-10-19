@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia Creativa — Sweater Vienne | Miss Roure</title>
+<style>
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --surface2: #f4f3ef;
+    --border: #e8e6e0;
+    --border-strong: #d0cdc4;
+    --text: #1a1916;
+    --text-muted: #6b6a64;
+    --text-faint: #9e9c94;
+    --tof: #185FA5;
+    --tof-bg: #E6F1FB;
+    --tof-text: #0C447C;
+    --mof: #BA7517;
+    --mof-bg: #FAEEDA;
+    --mof-text: #633806;
+    --bof: #3B6D11;
+    --bof-bg: #EAF3DE;
+    --bof-text: #27500A;
+    --danger: #A32D2D;
+    --danger-bg: #FCEBEB;
+    --danger-text: #501313;
+    --warn-bg: #FAEEDA;
+    --warn-text: #633806;
+    --accent: #993556;
+    --accent-bg: #FBEAF0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; font-size: 15px; line-height: 1.7; }
+
+  /* LAYOUT */
+  .page { max-width: 900px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* HEADER */
+  .header { padding: 56px 0 40px; border-bottom: 1px solid var(--border); margin-bottom: 48px; }
+  .header-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 12px; }
+  .header-title { font-size: 36px; font-weight: 600; color: var(--text); line-height: 1.2; margin-bottom: 12px; }
+  .header-sub { font-size: 16px; color: var(--text-muted); max-width: 600px; margin-bottom: 24px; }
+  .header-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+  .header-meta-item { font-size: 13px; color: var(--text-faint); }
+  .header-meta-item strong { color: var(--text-muted); font-weight: 500; }
+
+  /* SECTION */
+  .section { margin-bottom: 56px; }
+  .section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 8px; }
+  .section-title { font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .section-desc { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; max-width: 680px; }
+
+  /* FUNNEL STAGE LABELS */
+  .stage-header { display: flex; align-items: center; gap: 12px; margin: 40px 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .stage-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .stage-title { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+  .stage-desc { font-size: 13px; color: var(--text-muted); }
+  .tof-dot { background: var(--tof); }
+  .mof-dot { background: var(--mof); }
+  .bof-dot { background: var(--bof); }
+
+  /* CARDS */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+  .card-featured { border-color: #185FA5; border-width: 2px; }
+  .card-top { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+  .card-badges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 4px; }
+  .card-title { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .card-subtitle { font-size: 14px; color: var(--text-muted); }
+
+  /* BADGES */
+  .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 6px; letter-spacing: 0.03em; }
+  .badge-tof { background: var(--tof-bg); color: var(--tof-text); }
+  .badge-mof { background: var(--mof-bg); color: var(--mof-text); }
+  .badge-bof { background: var(--bof-bg); color: var(--bof-text); }
+  .badge-exist { background: var(--surface2); color: var(--text-muted); border: 1px solid var(--border); }
+  .badge-new { background: var(--accent-bg); color: var(--accent); }
+  .badge-urgent { background: var(--danger-bg); color: var(--danger-text); }
+  .badge-featured { background: var(--tof-bg); color: var(--tof-text); }
+
+  /* METRICS GRID */
+  .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 18px; }
+  .metric { background: var(--surface2); border-radius: 8px; padding: 12px 14px; }
+  .metric-label { font-size: 11px; color: var(--text-faint); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 500; }
+  .metric-value { font-size: 18px; font-weight: 600; color: var(--text); }
+  .metric-value.green { color: var(--bof); }
+  .metric-value.amber { color: var(--mof); }
+  .metric-value.red { color: var(--danger); }
+  .metric-sub { font-size: 11px; color: var(--text-faint); margin-top: 2px; }
+
+  /* HOOK BOX */
+  .hook { background: var(--surface2); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; border-left: 3px solid; }
+  .hook-tof { border-color: var(--tof); }
+  .hook-mof { border-color: var(--mof); }
+  .hook-bof { border-color: var(--bof); }
+  .hook-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+  .hook-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .hook-text strong { font-weight: 600; color: var(--text-muted); }
+
+  /* NARRATIVE TIMELINE */
+  .timeline { margin: 14px 0; }
+  .timeline-item { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-time { font-size: 12px; font-weight: 600; color: var(--text-faint); min-width: 50px; padding-top: 2px; }
+  .timeline-content { font-size: 14px; color: var(--text); flex: 1; }
+  .timeline-content strong { color: var(--text); font-weight: 600; }
+  .timeline-rationale { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+
+  /* CHECKLIST */
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--text); }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: ''; width: 16px; height: 16px; border: 1.5px solid var(--border-strong); border-radius: 4px; flex-shrink: 0; margin-top: 2px; }
+  .checklist-rationale { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  /* INSIGHT BOX */
+  .insight { background: var(--surface2); border-radius: 8px; padding: 14px 16px; margin-top: 14px; font-size: 13px; color: var(--text-muted); border-left: 3px solid var(--border-strong); line-height: 1.6; }
+  .insight strong { color: var(--text); font-weight: 600; }
+
+  /* WARNING / ALERT */
+  .alert { border-radius: 8px; padding: 14px 16px; margin: 14px 0; font-size: 13px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.6; }
+  .alert-warn { background: var(--warn-bg); color: var(--warn-text); }
+  .alert-danger { background: var(--danger-bg); color: var(--danger-text); }
+  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* SPEC TABLE */
+  .spec-table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 14px 0; }
+  .spec-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .spec-table td:first-child { color: var(--text-muted); font-weight: 500; width: 38%; }
+  .spec-table td:last-child { color: var(--text); }
+  .spec-table tr:last-child td { border-bottom: none; }
+
+  /* COPY VARIATIONS */
+  .copy-block { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+  .copy-block-label { font-size: 11px; font-weight: 600; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+  .copy-block-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .copy-block-why { font-size: 12px; color: var(--text-muted); margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border); }
+
+  /* PRIORITY ROADMAP */
+  .roadmap { margin-top: 16px; }
+  .roadmap-item { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .roadmap-item:last-child { border-bottom: none; }
+  .roadmap-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+  .dot-red { background: #E24B4A; }
+  .dot-amber { background: #BA7517; }
+  .dot-green { background: #3B6D11; }
+  .roadmap-week { font-size: 12px; font-weight: 600; color: var(--text-faint); min-width: 90px; padding-top: 2px; }
+  .roadmap-content { flex: 1; }
+  .roadmap-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .roadmap-desc { font-size: 13px; color: var(--text-muted); }
+  .roadmap-impact { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-top: 6px; background: var(--surface2); color: var(--text-muted); }
+
+  /* FUNNEL DIAGRAM */
+  .funnel-diagram { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--border); border-radius: 12px; overflow: hidden; margin: 20px 0; }
+  .funnel-col { background: var(--surface); padding: 20px; }
+  .funnel-col-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+  .funnel-col-tof .funnel-col-label { color: var(--tof); }
+  .funnel-col-mof .funnel-col-label { color: var(--mof); }
+  .funnel-col-bof .funnel-col-label { color: var(--bof); }
+  .funnel-col-metric { font-size: 22px; font-weight: 600; color: var(--text); }
+  .funnel-col-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .funnel-col-items { margin-top: 14px; }
+  .funnel-item { font-size: 12px; color: var(--text-muted); padding: 4px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .funnel-item:last-child { border-bottom: none; }
+  .funnel-item-badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; }
+
+  /* CREATIVE FRAMEWORK */
+  .framework-box { background: var(--surface2); border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .framework-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+  .framework-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+  /* FOOTER */
+  .footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 60px; }
+  .footer-note { font-size: 13px; color: var(--text-faint); }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* PRINT */
+  @media print {
+    body { font-size: 13px; }
+    .card { break-inside: avoid; }
+    .section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-eyebrow">Miss Roure — Meta Ads</div>
+    <h1 class="header-title">Estrategia Creativa<br>Sweater Vienne</h1>
+    <p class="header-sub">Mapa completo de creativos por etapa de funnel — desde captación en frío hasta conversión — con especificaciones de producción, copy frameworks y priorización por ROI potencial.</p>
+    <div class="header-meta">
+      <div class="header-meta-item"><strong>Producto:</strong> Sweater Vienne off-shoulder</div>
+      <div class="header-meta-item"><strong>Campaña:</strong> ASC activa — $6.000 ARS/día</div>
+      <div class="header-meta-item"><strong>Documento:</strong> Junio 2026</div>
+      <div class="header-meta-item"><strong>Gasto total analizado:</strong> $50.386 ARS</div>
+    </div>
+  </div>
+
+  <!-- DIAGNÓSTICO -->
+  <div class="section">
+    <div class="section-eyebrow">Diagnóstico base</div>
+    <h2 class="section-title">El problema real no es el creativo — es el funnel roto</h2>
+    <p class="section-desc">Antes de producir cualquier creativo nuevo, entender qué dice la data actual sobre dónde se rompe la cadena de valor.</p>
+
+    <div class="funnel-diagram">
+      <div class="funnel-col funnel-col-tof">
+        <div class="funnel-col-label">Top of funnel</div>
+        <div class="funnel-col-metric">16.929</div>
+        <div class="funnel-col-sub">Impresiones totales</div>
+        <div class="funnel-col-items" style="margin-top:12px;">
+          <div class="funnel-item">Ad 1 CTR <span class="funnel-item-badge" style="background:var(--bof-bg);color:var(--bof-text);">7.64%</span></div>
+          <div class="funnel-item">Ad 3 CTR <span class="funnel-item-badge" style="background:var(--bof-bg);color:var(--bof-text);">7.74%</span></div>
+          <div class="funnel-item">Ad 2 CTR <span class="funnel-item-badge" style="background:var(--warn-bg);color:var(--warn-text);">4.45%</span></div>
+        </div>
+      </div>
+      <div class="funnel-col funnel-col-mof">
+        <div class="funnel-col-label">Middle of funnel</div>
+        <div class="funnel-col-metric">277</div>
+        <div class="funnel-col-sub">Add to cart</div>
+        <div class="funnel-col-items" style="margin-top:12px;">
+          <div class="funnel-item">Conversión ATC <span class="funnel-item-badge" style="background:var(--warn-bg);color:var(--warn-text);">~1.6%</span></div>
+          <div class="funnel-item">Cobertura pixel <span class="funnel-item-badge" style="background:var(--danger-bg);color:var(--danger-text);">0%</span></div>
+          <div class="funnel-item">Score CAPI <span class="funnel-item-badge" style="background:var(--danger-bg);color:var(--danger-text);">6.1/10</span></div>
+        </div>
+      </div>
+      <div class="funnel-col funnel-col-bof">
+        <div class="funnel-col-label">Bottom of funnel</div>
+        <div class="funnel-col-metric">4</div>
+        <div class="funnel-col-sub">Compras atribuidas</div>
+        <div class="funnel-col-items" style="margin-top:12px;">
+          <div class="funnel-item">ATC → Compra <span class="funnel-item-badge" style="background:var(--danger-bg);color:var(--danger-text);">1.4%</span></div>
+          <div class="funnel-item">ROAS Ad2 copy <span class="funnel-item-badge" style="background:var(--bof-bg);color:var(--bof-text);">14.34x</span></div>
+          <div class="funnel-item">ROAS Ad1 <span class="funnel-item-badge" style="background:var(--warn-bg);color:var(--warn-text);">2.97x</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert alert-danger">
+      <span class="alert-icon">⚠</span>
+      <div>
+        <strong>La fuga crítica:</strong> 277 add to cart vs 4 compras = tasa de abandono del 98.5%. El benchmark de la industria fashion en Argentina es 70-80% de abandono de carrito. Tu fuga está 18-28 puntos por encima del promedio. <strong>Dos causas simultáneas:</strong> (1) pixel roto que no trackea purchases con email/fbc del comprador — Meta no puede atribuir ni optimizar; (2) ausencia de creativos MOF que generen confianza suficiente para pagar. Los nuevos creativos atacan la causa 2. La causa 1 requiere arreglar el payload de Tienda Negocio.
+      </div>
+    </div>
+
+    <div class="insight">
+      <strong>Framework de diagnóstico — Creative Effectiveness Score (CES):</strong> Un ad de alto CTR con bajo ROAS indica que el creativo es bueno para captar atención (TOF) pero el sistema de conversión falla después. El Ad 1 tiene CTR 7.64% y ROAS 2.97x — excelente para atraer, débil para cerrar. El Ad 2 UGC tiene CTR 4.45% y ROAS 14.34x — menos gente para, pero quien para, compra. Esto confirma que el problema no es de demanda sino de conversión post-clic.
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- TOP OF FUNNEL -->
+  <div class="section">
+    <div class="stage-header">
+      <span class="stage-dot tof-dot"></span>
+      <div>
+        <div class="stage-title" style="color:var(--tof);">Top of funnel — Awareness y captación</div>
+        <div class="stage-desc">Objetivo: interrumpir el scroll, generar primer contacto con la marca. Métricas clave: CTR, CPM, Reach. No optimizar por conversión en este stage.</div>
+      </div>
+    </div>
+
+    <!-- AD 1 EXISTENTE -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-exist">Activo</span>
+        <span class="badge badge-tof">TOF</span>
+      </div>
+      <div class="card-title">Ad 1 — Showcase Aesthetic Emocional</div>
+      <div class="card-subtitle">Anchor creativo del funnel. No modificar bajo ningún concepto.</div>
+
+      <div class="metrics" style="margin-top:16px;">
+        <div class="metric"><div class="metric-label">CTR</div><div class="metric-value green">7.64%</div><div class="metric-sub">Top 10% industria</div></div>
+        <div class="metric"><div class="metric-label">Gasto</div><div class="metric-value">$24.329</div><div class="metric-sub">ARS</div></div>
+        <div class="metric"><div class="metric-label">Impresiones</div><div class="metric-value">12.285</div></div>
+        <div class="metric"><div class="metric-label">ROAS</div><div class="metric-value amber">2.97x</div><div class="metric-sub">Limitado por pixel</div></div>
+        <div class="metric"><div class="metric-label">Compras</div><div class="metric-value">2</div><div class="metric-sub">Atribuidas</div></div>
+      </div>
+
+      <div class="hook hook-tof">
+        <div class="hook-label">Por qué funciona en TOF</div>
+        <div class="hook-text">
+          El creativo opera sobre el principio de <strong>Pattern Interrupt</strong>: en un feed saturado de personas y texto, un video de producto limpio con estética cuidada detiene el scroll por contraste visual. El CTR 7.64% está en el top 10% de benchmarks de moda en Meta para Argentina — esto confirma que el hook inicial (los primeros 3 segundos) es efectivo. No editar, no duplicar con variaciones, no usar el mismo video para otro ad set. Cada intervención rompe el aprendizaje del algoritmo.
+        </div>
+      </div>
+
+      <div class="alert alert-warn">
+        <span class="alert-icon">!</span>
+        <div>El ROAS de 2.97x parece bajo para el gasto, pero está artificialmente deprimido por el pixel roto (0% de cobertura de email en eventos Purchase). El verdadero ROAS es desconocido hasta arreglar el CAPI. No pausar este ad por ROAS bajo — el CTR confirma que el creativo funciona.</div>
+      </div>
+    </div>
+
+    <!-- ESTÁTICA B — ESCASEZ -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-urgent">Urgente</span>
+        <span class="badge badge-new">Producir esta semana</span>
+        <span class="badge badge-tof">TOF</span>
+      </div>
+      <div class="card-title">Estática B — Escasez real sobre frame del Ad 1</div>
+      <div class="card-subtitle">Reutiliza el mejor frame visual del Ad 1 con texto superpuesto de urgencia. Producción: 30 minutos en Canva.</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Formato</td><td>1080×1920 (feed + stories + reels)</td></tr>
+        <tr><td>Base visual</td><td>Frame 3–5 del Ad 1 — el momento de mayor impacto visual del sweater</td></tr>
+        <tr><td>Herramienta</td><td>Canva o CapCut — sin edición compleja</td></tr>
+        <tr><td>Tiempo de producción</td><td>30–45 minutos</td></tr>
+        <tr><td>Placement óptimo</td><td>Feed Instagram + Stories — no Audience Network</td></tr>
+      </table>
+
+      <div class="hook hook-tof">
+        <div class="hook-label">Variación A — copy de escasez pura</div>
+        <div class="hook-text">"Se agotó en 3 semanas. Volvió con stock limitado 🤍"</div>
+        <div class="hook-text" style="margin-top:8px;font-size:12px;color:var(--text-muted);">Funciona porque la escasez es real y verificable — no es false scarcity. Meta puede penalizar urgencia falsa si genera denuncias.</div>
+      </div>
+
+      <div class="hook hook-tof" style="margin-top:10px;">
+        <div class="hook-label">Variación B — copy de vuelta + colores</div>
+        <div class="hook-text">"Volvió el Vienne 🤍 — 4 colores, stock limitado. El que más se fue en días." </div>
+      </div>
+
+      <div class="hook hook-tof" style="margin-top:10px;">
+        <div class="hook-label">Variación C — copy FOMO con pregunta</div>
+        <div class="hook-text">"¿El color que querías sigue disponible? 👇 Stock muy limitado."</div>
+        <div class="hook-text" style="margin-top:8px;font-size:12px;color:var(--text-muted);">La pregunta genera click para responderla — mecanismo de engagement activo en lugar de pasivo.</div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>Texto en tipografía limpia, no ornamental — contrastar con la estética del video base para generar tensión visual</div>
+            <div class="checklist-rationale">El contraste entre el video estético y el texto directo amplifica el message interrupt</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Badge "Stock limitado" en esquina superior — pequeño, no invasivo</div>
+            <div class="checklist-rationale">La escasez visual periférica activa ansiedad de decisión sin dominar el frame</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Testear las 3 variaciones de copy como ads separados dentro del mismo ad set</div>
+            <div class="checklist-rationale">Con $6k/día tenés suficiente presupuesto para que el algoritmo elija el ganador en 5-7 días</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No agregar más texto que el copy principal — el visual del Ad 1 hace el trabajo</div>
+            <div class="checklist-rationale">Sobrecargar de texto el frame destruye el CTR — el ojo deja de saber adónde ir</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="insight">
+        <strong>Por qué la escasez real funciona en Meta:</strong> El algoritmo de Meta optimiza por señales de engagement y conversión. Un ad con urgencia genuina tiende a generar clicks más rápidos (menor tiempo de decisión) lo que baja el CPC y mejora el Quality Ranking. Además, el behavioral economics de Kahneman confirma que loss aversion (miedo a perder algo disponible) es 2x más motivador que el deseo de ganancia — "volvió con stock limitado" activa los dos: el alivio de que volvió y el miedo de que se acabe.
+      </div>
+    </div>
+
+    <!-- ESTÁTICA A — COLORES -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-new">Producir al subir a $7k</span>
+        <span class="badge badge-tof">TOF</span>
+      </div>
+      <div class="card-title">Estática A — Grid de colores / paleta completa</div>
+      <div class="card-subtitle">Ángulo de variedad. Muestra los 4 colores disponibles en igual protagonismo. Activa el proceso de selección antes de llegar a la tienda.</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Formato</td><td>1080×1080 (feed cuadrado) + versión 1080×1350 (4:5 portrait)</td></tr>
+        <tr><td>Composición</td><td>Grid 2×2 — un color por cuadrante, fondo neutro en cada uno</td></tr>
+        <tr><td>Fondo</td><td>Blanco roto (#FAFAF8) o lino — nunca blanco puro, se ve frío</td></tr>
+        <tr><td>Tipografía</td><td>Sans-serif limpia — nombre del producto + "4 colores disponibles"</td></tr>
+        <tr><td>Herramienta</td><td>Canva con plantilla de grid</td></tr>
+      </table>
+
+      <div class="hook hook-tof">
+        <div class="hook-label">Copy variaciones para el texto del ad (no en la imagen)</div>
+        <div class="hook-text">
+          A: "¿Cuál es tu color de invierno? El Sweater Vienne en los 4 tonos que más pedían 🤍 Stock limitado."<br><br>
+          B: "Natural, bordó, chocolate, crema — el Vienne volvió. ¿Con cuál te quedás?"<br><br>
+          C: "Oversize, off-shoulder, 4 colores, talle único S/M/L. El sweater que se agotó volvió con stock 🧶"
+        </div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>Cada cuadrante con el sweater doblado o sostenido en el mismo ángulo — consistencia visual</div>
+            <div class="checklist-rationale">La consistencia de ángulo hace que el ojo compare colores, no composiciones — decisión más rápida</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No mezclar colores de diferentes sweaters — solo los colores del Vienne</div>
+            <div class="checklist-rationale">La claridad de producto es crítica para audiencia fría que no conoce el catálogo</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No poner precio en esta estática — este ad es TOF, el precio va en BOF</div>
+            <div class="checklist-rationale">Mostrar precio en TOF a audiencia fría activa la evaluación racional antes de que haya deseo — corta el proceso de compra</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="insight">
+        <strong>Framework Choice Architecture (Thaler):</strong> Mostrar las 4 opciones simultáneamente activa el proceso de selección en el usuario antes de que llegue a la tienda. Cuando llega, ya tomó la decisión mental de cuál quiere — el checkout es solo confirmarla. Esto reduce la fricción en el funnel medio.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- MIDDLE OF FUNNEL -->
+  <div class="section">
+    <div class="stage-header">
+      <span class="stage-dot mof-dot"></span>
+      <div>
+        <div class="stage-title" style="color:var(--mof);">Middle of funnel — Consideración y confianza</div>
+        <div class="stage-desc">Objetivo: responder objeciones, construir confianza, generar deseo informado. Métricas clave: tiempo en sitio, add to cart, inicio de checkout. Este es el hueco más grande de tu funnel actual.</div>
+      </div>
+    </div>
+
+    <div class="alert alert-danger">
+      <span class="alert-icon">⚠</span>
+      <div>
+        <strong>El hueco crítico del funnel:</strong> No tenés ningún creativo que opere en MOF. Tus ads van de awareness directo a conversión sin un puente de confianza. En productos de ropa, la compra online requiere resolver 3 objeciones básicas: (1) ¿cómo queda puesto?, (2) ¿es de buena calidad?, (3) ¿puedo confiar en esta tienda? Ninguno de tus ads actuales responde las tres. El resultado es el 98.5% de abandono de carrito.
+      </div>
+    </div>
+
+    <!-- VIDEO C — TRY ON -->
+    <div class="card card-featured">
+      <div class="card-badges">
+        <span class="badge badge-urgent">Prioridad #1 absoluta</span>
+        <span class="badge badge-new">Producir esta semana</span>
+        <span class="badge badge-mof">MOF</span>
+      </div>
+      <div class="card-title">Video C — Try-on con calidad sensorial en voz</div>
+      <div class="card-subtitle">El creativo de mayor ROI potencial de toda la lista. Resuelve las 3 objeciones del MOF en 15-20 segundos.</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Duración</td><td>15–20 segundos — no más, no menos</td></tr>
+        <tr><td>Formato</td><td>1080×1920 vertical</td></tr>
+        <tr><td>Luz</td><td>Natural — ventana o exterior. Nunca iluminación de estudio</td></tr>
+        <tr><td>Persona</td><td>Real, con voz — no voiceover de IA ni subtítulos solos</td></tr>
+        <tr><td>Ángulo creativo</td><td>Calidad sensorial + fit + confianza</td></tr>
+        <tr><td>Edición</td><td>Mínima — cortes simples, sin efectos. La autenticidad es el valor</td></tr>
+      </table>
+
+      <div class="hook hook-mof" style="margin-top:16px;">
+        <div class="hook-label">Estructura narrativa segundo a segundo</div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-time">0 – 3s</div>
+            <div class="timeline-content">
+              <strong>Hook visual + acción:</strong> La persona sostiene el Vienne o se lo está poniendo. Sin texto, sin intro. El primer frame tiene que mostrar el sweater en las manos o puesto.
+              <div class="timeline-rationale">Meta analiza retención en los primeros 3 segundos. Si el producto no aparece en ese window, el ad se clasifica como bajo engagement y recibe menos distribución.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">3 – 10s</div>
+            <div class="timeline-content">
+              <strong>Calidad sensorial en voz directa:</strong> "Es increíblemente suave, no pica nada — lo tengo puesto desde que llegó y no me lo quiero sacar. Y abriga de verdad, para el frío de verdad."
+              <div class="timeline-rationale">Las palabras "suave", "no pica" y "abriga de verdad" responden las 3 preguntas inconscientes que tiene cualquier persona antes de comprar un sweater online. Son palabras de textura y sensación que la imagen sola no puede transmitir.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">10 – 15s</div>
+            <div class="timeline-content">
+              <strong>Evidencia visual:</strong> Zoom lento en la textura del tejido — que se vea la fibra. Luego plano completo mostrando cómo cae el sweater en el cuerpo, de frente y de costado.
+              <div class="timeline-rationale">El zoom en textura activa el sistema háptico del cerebro — el espectador "siente" la tela a través de la imagen. Es el equivalente visual al tacto en tienda física.</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-time">15 – 20s</div>
+            <div class="timeline-content">
+              <strong>CTA soft + colores:</strong> "Está disponible en 4 colores — natural, bordó, chocolate y crema. Link en el bio o buscá Miss Roure."
+              <div class="timeline-rationale">CTA oral es más efectivo que texto superpuesto porque aprovecha el mismo canal (audio) que ya activó la atención. No mencionar precio — el MOF no cierra ventas, construye intención.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>Filmar en una sola toma sin cortes en la parte de voz — la naturalidad genera confianza</div>
+            <div class="checklist-rationale">El cerebro detecta edición excesiva como señal de que algo fue ocultado o fabricado — baja la credibilidad</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>La persona tiene que estar usando el Vienne, no simplemente mostrándolo</div>
+            <div class="checklist-rationale">El mirror neuron system del espectador se activa cuando ve a alguien usando el producto — se imagina a sí mismo usándolo. Si solo se muestra el producto flat, ese proceso no ocurre.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Sin filtros de belleza ni corrección exagerada de piel</div>
+            <div class="checklist-rationale">Los filtros reducen la credibilidad del MOF. La confianza requiere autenticidad visual.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No mencionar precio en este ad</div>
+            <div class="checklist-rationale">El precio activa evaluación racional. En MOF queremos mantener el estado de deseo emocional — el BOF cierra con precio.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Subtítulos en el video para visualización sin audio (60% del consumo de Reels es sin sonido)</div>
+            <div class="checklist-rationale">Sin subtítulos perdés más de la mitad del alcance efectivo del video</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="insight">
+        <strong>Por qué es el creativo más importante que podés producir:</strong> Tus ads actuales llevan a la gente al carrito (277 ATC) pero el 98.5% no compra. Parte de esa fuga es checkout y pixel roto, pero una parte significativa es MOF vacío — la persona añade al carrito "para no perderlo" pero no tiene suficiente confianza para pagar. Este video responde esa brecha. En e-commerce de moda, un MOF fuerte sube la tasa de checkout-to-purchase entre 15 y 30 puntos porcentuales según benchmarks de Meta.
+      </div>
+    </div>
+
+    <!-- ESTÁTICA D — OUTFIT -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-new">Producir semana 2</span>
+        <span class="badge badge-mof">MOF</span>
+      </div>
+      <div class="card-title">Estática D — Outfit completo / styling aspiracional</div>
+      <div class="card-subtitle">La persona se imagina a sí misma usando el Vienne. Activa el mecanismo de identidad — "yo podría ser esa persona".</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Formato</td><td>1080×1350 (portrait 4:5 — mayor real estate en feed)</td></tr>
+        <tr><td>Composición</td><td>Plano completo — de pies a cabeza o de cintura a cabeza</td></tr>
+        <tr><td>Locación</td><td>Exterior con luz natural o interior con ventana grande — no fondo blanco</td></tr>
+        <tr><td>Outfit</td><td>El Vienne combinado con pantalón o falda invernal — outfit completo, no solo el sweater</td></tr>
+        <tr><td>Copy en imagen</td><td>Ninguno — el silencio visual es el mensaje</td></tr>
+        <tr><td>Producir</td><td>Una foto por color — empezar por el color que más se vendió</td></tr>
+      </table>
+
+      <div class="hook hook-mof">
+        <div class="hook-label">Copy del ad (en el texto, no en la imagen)</div>
+        <div class="hook-text">
+          "El outfit de invierno que no tenés que pensar. El Sweater Vienne — oversize, off-shoulder, 4 colores. El que más se va cada temporada 🤍"
+        </div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>La persona mira a cámara en al menos una de las fotos — genera conexión directa</div>
+            <div class="checklist-rationale">El contacto visual en publicidad aumenta el recall de marca hasta 40% según estudios de eye-tracking (Nielsen)</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Fondo que aporte contexto de vida — café, calle, parque — no estudio</div>
+            <div class="checklist-rationale">El contexto de uso activa la proyección identitaria: "yo en esa situación, con esa ropa"</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>El Vienne tiene que ser el protagonista visual — el resto del outfit en tonos neutros</div>
+            <div class="checklist-rationale">Si el outfit compite visualmente con el sweater, el producto se diluye y el ad pierde efectividad de marca</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ESTÁTICA E — SOCIAL PROOF -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-new">Producir cuando tengas capturas</span>
+        <span class="badge badge-mof">MOF</span>
+      </div>
+      <div class="card-title">Estática E — Social proof stack con capturas reales</div>
+      <div class="card-subtitle">El creativo de mayor confianza para audiencia tibia. Las palabras de una clienta real valen más que cualquier copy.</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Formato</td><td>1080×1920 (vertical) o 1080×1350 (portrait)</td></tr>
+        <tr><td>Composición</td><td>Product shot arriba 40% + 2–3 capturas de mensajes apiladas abajo 60%</td></tr>
+        <tr><td>Fuentes</td><td>WhatsApp, DMs de Instagram, comentarios del feed</td></tr>
+        <tr><td>Capturas mínimas</td><td>2 — si tenés una sola muy buena, usá esa con el producto</td></tr>
+        <tr><td>Texto de cierre</td><td>Pequeño, al pie: "Más de X clientas ya lo tienen 🤍"</td></tr>
+      </table>
+
+      <div class="hook hook-mof">
+        <div class="hook-label">Qué buscar en las capturas</div>
+        <div class="hook-text">
+          Palabras clave de alto impacto en reviews de moda: <strong>"suave"</strong>, <strong>"abriga"</strong>, <strong>"increíble"</strong>, <strong>"llegó en tiempo y forma"</strong>, <strong>"mejor de lo que esperaba"</strong>, <strong>"ya compré otro color"</strong>. Una sola captura que tenga "ya compré el segundo" vale más que diez reviews genéricas.
+        </div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>Pedir permiso explícito a la clienta antes de usar su mensaje en un ad</div>
+            <div class="checklist-rationale">Legalmente necesario + protege la relación + en muchos casos la clienta lo comparte en sus stories generando UGC orgánico</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Mostrar el nombre real (solo el primero) — no "cliente anónimo"</div>
+            <div class="checklist-rationale">El anonimato reduce la credibilidad a cero. Un nombre real, aunque sea solo el primero, hace la review auténtica.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No editar ni modificar el texto de la captura — ni ortografía ni puntuación</div>
+            <div class="checklist-rationale">Los errores tipográficos en una review la hacen más creíble, no menos. La perfección es sospechosa.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Si no tenés suficientes capturas todavía: empezar a pedirlas activamente después de cada entrega</div>
+            <div class="checklist-rationale">Un mensaje simple post-entrega: "¿Cómo llegó el Vienne? Nos encantaría saber 🤍" tiene tasa de respuesta del 30-40% en marcas pequeñas donde hay relación personal</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="insight">
+        <strong>Framework Cialdini — Prueba Social:</strong> El social proof es el principio de influencia más efectivo en e-commerce de moda porque elimina el riesgo percibido. "Otras personas como yo ya compraron y están contentas" reduce la incertidumbre de compra online donde no se puede tocar el producto. En categorías de ropa, los UGC y reviews aumentan la tasa de conversión entre 15-25% vs ads sin social proof (Bazaarvoice, 2024).
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- BOTTOM OF FUNNEL -->
+  <div class="section">
+    <div class="stage-header">
+      <span class="stage-dot bof-dot"></span>
+      <div>
+        <div class="stage-title" style="color:var(--bof);">Bottom of funnel — Conversión y cierre</div>
+        <div class="stage-desc">Objetivo: eliminar fricción de compra, resolver la última objeción, generar la transacción. Métricas clave: ROAS, CPA, tasa de checkout-to-purchase.</div>
+      </div>
+    </div>
+
+    <!-- AD 2 EXISTENTE -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-exist">Activo</span>
+        <span class="badge badge-bof">BOF</span>
+      </div>
+      <div class="card-title">Ad 2 UGC Voiceover — Copia (el ganador real)</div>
+      <div class="card-subtitle">ROAS 14.34x — el conversor más eficiente del funnel. Recibía solo el 17% del presupuesto total.</div>
+
+      <div class="metrics" style="margin-top:16px;">
+        <div class="metric"><div class="metric-label">ROAS</div><div class="metric-value green">14.34x</div><div class="metric-sub">Ganador claro</div></div>
+        <div class="metric"><div class="metric-label">Gasto</div><div class="metric-value">$8.874</div><div class="metric-sub">ARS — subalimentado</div></div>
+        <div class="metric"><div class="metric-label">CTR</div><div class="metric-value amber">4.35%</div></div>
+        <div class="metric"><div class="metric-label">Compras</div><div class="metric-value green">2</div><div class="metric-sub">= que Ad1 con 3x menos gasto</div></div>
+      </div>
+
+      <div class="alert alert-warn">
+        <span class="alert-icon">!</span>
+        <div>
+          <strong>El problema de distribución del ASC:</strong> En Advantage+ Shopping, el algoritmo distribuye presupuesto por señales de engagement (CTR y VTR), no por ROAS. El Ad 1 tiene CTR 7.64% vs 4.35% del Ad 2, por eso recibe 3x más presupuesto. Con el pixel roto (0% coverage de email en Purchase), Meta no puede ver que el Ad 2 tiene ROAS 14.34x y sigue distribuyendo por CTR. <strong>Arreglar el CAPI es el cambio de mayor impacto que podés hacer ahora mismo</strong> — más que cualquier creativo nuevo.
+        </div>
+      </div>
+    </div>
+
+    <!-- ESTÁTICA F — PRECIO -->
+    <div class="card">
+      <div class="card-badges">
+        <span class="badge badge-new">Producir al subir a $7k</span>
+        <span class="badge badge-bof">BOF</span>
+      </div>
+      <div class="card-title">Estática F — Precio visible + CTA directo</div>
+      <div class="card-subtitle">El creativo que le falta al BOF. Elimina la fricción de descubrir el precio en la tienda. Filtra tráfico no calificado y califica el que sí puede pagar.</div>
+
+      <table class="spec-table" style="margin-top:16px;">
+        <tr><td>Formato</td><td>1080×1080 (cuadrado — máxima versatilidad de placement)</td></tr>
+        <tr><td>Composición</td><td>Product shot limpio 70% + texto con precio 30%</td></tr>
+        <tr><td>Precio</td><td>$37.500 ARS visible y legible — tipografía grande</td></tr>
+        <tr><td>CTA</td><td>"Comprá ahora →" o "Ver en tienda →"</td></tr>
+        <tr><td>Envío</td><td>Mencionar si aplicable — "Envío a todo el país 📦"</td></tr>
+        <tr><td>Uso recomendado</td><td>Retargeting de visitantes + BOF del ASC</td></tr>
+      </table>
+
+      <div class="hook hook-bof">
+        <div class="hook-label">Copy del ad (texto del post — no en la imagen)</div>
+        <div class="hook-text">
+          A: "Sweater Vienne — $37.500 ARS. Oversize off-shoulder, 4 colores, talle único S/M/L. Envío a todo el país. El que más volvemos a pedir 🤍 [link]"<br><br>
+          B: "¿Lo seguís mirando? El Sweater Vienne te espera — $37.500, stock limitado, envío incluido. Hoy puede ser el día 🧶 [link]"
+        </div>
+      </div>
+
+      <ul class="checklist" style="margin-top:16px;">
+        <li>
+          <div>
+            <div>Mostrar el precio en la imagen, no solo en el copy del texto</div>
+            <div class="checklist-rationale">El precio en imagen se procesa en el mismo momento que el producto — elimina el paso cognitivo de buscarlo. Estudios de eye-tracking muestran que el precio en imagen aumenta la tasa de click calificado.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>El link del ad tiene que ir directo a la página del Sweater Vienne, no a la home</div>
+            <div class="checklist-rationale">Cada clic extra en el camino hacia el producto es una oportunidad de abandono. El BOF no puede tener fricción de navegación.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>No usar este ad como primer contacto — solo para retargeting o BOF confirmado</div>
+            <div class="checklist-rationale">Mostrar precio a audiencia completamente fría activa evaluación racional antes de generar deseo emocional. Orden incorrecto = venta perdida.</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div>Si tenés métodos de pago o cuotas, mencionarlos</div>
+            <div class="checklist-rationale">En Argentina, la disponibilidad de cuotas es un factor de conversión crítico — puede ser la diferencia entre comprar y no comprar</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="insight">
+        <strong>Teoría del Precio Visible en Meta Ads:</strong> Incluir el precio en el ad tiene dos efectos simultáneos: (1) filtra tráfico no calificado — las personas que no pueden pagarlo no hacen click, bajando el CPC desperdiciado; (2) pre-califica a quienes sí hacen click — llegan a la tienda sabiendo el precio y con intención de compra, no de curiosidad. El resultado neto es mayor ROAS aunque el CTR baje. Es el creativo correcto para BOF y retargeting.
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- FRAMEWORKS APLICADOS -->
+  <div class="section">
+    <div class="section-eyebrow">Fundamentos teóricos</div>
+    <h2 class="section-title">Frameworks de growth aplicados</h2>
+    <p class="section-desc">Los principios que explican por qué cada creativo está diseñado de la manera que está.</p>
+
+    <div class="framework-box">
+      <div class="framework-name">1. Pattern Interrupt — Cialdini / Kahneman</div>
+      <div class="framework-desc">En un feed de 300 contenidos diarios, el cerebro opera en modo automático (Sistema 1 de Kahneman). Para detener ese modo necesitás una interrupción visual o emocional. El Ad 1 lo logra con estética limpia en un feed caótico. Los nuevos estáticos de colores lo logran con contraste de simplicidad.</div>
+    </div>
+
+    <div class="framework-box">
+      <div class="framework-name">2. Jobs To Be Done — Christensen</div>
+      <div class="framework-desc">La persona no compra un sweater — contrata una solución para un trabajo: "quiero estar abrigada y sentirme bien vestida en invierno sin gastar una fortuna". El Video C (MOF) responde ese trabajo en voz: "te hace sentir abrigada, cómoda, y se ve bien". Cada creativo debe responder al trabajo que la persona quiere que el producto haga.</div>
+    </div>
+
+    <div class="framework-box">
+      <div class="framework-name">3. Loss Aversion — Kahneman & Tversky</div>
+      <div class="framework-desc">El miedo a perder algo es 2x más motivador que el deseo de ganarlo. La Estática B de escasez ("stock limitado") activa loss aversion genuina: "si no compro ahora, puede no estar mañana". Funciona porque es real — efectivamente se agotó. La escasez fabricada que el usuario puede verificar que es falsa destruye la confianza de marca.</div>
+    </div>
+
+    <div class="framework-box">
+      <div class="framework-name">4. Social Proof — Cialdini</div>
+      <div class="framework-desc">En condiciones de incertidumbre, las personas copian el comportamiento de otros similares. Para e-commerce de ropa, "otras personas como yo compraron esto y están contentas" reduce el riesgo percibido de compra online. La Estática E (social proof) es el creativo más efectivo para MOF porque transforma la incertidumbre en evidencia social.</div>
+    </div>
+
+    <div class="framework-box">
+      <div class="framework-name">5. Embodied Cognition — Neuroscience of touch</div>
+      <div class="framework-desc">El cerebro procesa el tacto de forma vicaria al ver imágenes de texturas. Un zoom lento en el tejido del Vienne activa el sistema háptico del espectador — "siente" la tela a través de la imagen. Es el equivalente neurológico a tocar el producto en tienda física. Por eso el Video C tiene que incluir un plano cercano de la textura del sweater.</div>
+    </div>
+
+    <div class="framework-box">
+      <div class="framework-name">6. Choice Architecture — Thaler & Sunstein</div>
+      <div class="framework-desc">La forma en que se presentan las opciones determina cuál se elige. Mostrar los 4 colores del Vienne en un grid (Estática A) activa el proceso de selección antes de que el usuario llegue a la tienda — cuando llega, ya tomó la decisión de cuál color quiere. Solo necesita confirmarla. Esto reduce la fricción en el punto de compra.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ROADMAP -->
+  <div class="section">
+    <div class="section-eyebrow">Plan de ejecución</div>
+    <h2 class="section-title">Roadmap de producción por prioridad de ROI</h2>
+    <p class="section-desc">Ordenado por impacto esperado en conversión vs esfuerzo de producción. Hacer primero lo que más impacto genera con menos esfuerzo.</p>
+
+    <div class="roadmap">
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-red"></span>
+        <div class="roadmap-week">Esta semana</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Estática B — Escasez sobre frame Ad 1</div>
+          <div class="roadmap-desc">30–45 min en Canva. Tomar el mejor frame del Ad 1 y agregar copy de escasez. Testear 2–3 variaciones de copy. Sin costo de producción extra.</div>
+          <div class="roadmap-impact">Esfuerzo: Muy bajo — Impacto: Alto</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-red"></span>
+        <div class="roadmap-week">Esta semana</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Video C — Try-on con calidad sensorial</div>
+          <div class="roadmap-desc">Filmar con teléfono en luz natural. 15–20 segundos. Edición mínima. Este video resuelve el hueco de MOF que está causando el 98.5% de abandono de carrito. Es el creativo de mayor ROI potencial de toda la lista.</div>
+          <div class="roadmap-impact">Esfuerzo: Bajo — Impacto: Muy alto</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-amber"></span>
+        <div class="roadmap-week">Al subir a $7k (días 3–4)</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Estática A — Grid de 4 colores</div>
+          <div class="roadmap-desc">Fotografiar los 4 colores del Vienne en el mismo ángulo. Armar grid en Canva. Activar como TOF para audiencia que aún no conoce el catálogo completo.</div>
+          <div class="roadmap-impact">Esfuerzo: Bajo — Impacto: Medio-Alto</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-amber"></span>
+        <div class="roadmap-week">Al subir a $7k (días 3–4)</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Estática F — Precio visible + CTA</div>
+          <div class="roadmap-desc">Product shot limpio con precio y envío. Activar en retargeting de visitantes del sitio que no compraron. El BOF más directo posible.</div>
+          <div class="roadmap-impact">Esfuerzo: Muy bajo — Impacto: Alto (en retargeting)</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-green"></span>
+        <div class="roadmap-week">Semanas 2–3</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Estática D — Outfit completo aspiracional</div>
+          <div class="roadmap-desc">Sesión de fotos corta con el Vienne en uso real. Una foto por color prioritario. MOF de identidad — "me imagino siendo esa persona".</div>
+          <div class="roadmap-impact">Esfuerzo: Medio — Impacto: Medio</div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <span class="roadmap-dot dot-green"></span>
+        <div class="roadmap-week">Semanas 2–3</div>
+        <div class="roadmap-content">
+          <div class="roadmap-title">Estática E — Social proof stack</div>
+          <div class="roadmap-desc">Empezar a recolectar capturas de mensajes de clientas ahora. Armar el ad cuando tengas 2–3 capturas potentes. El creativo más efectivo para MOF pero requiere material real.</div>
+          <div class="roadmap-impact">Esfuerzo: Bajo (cuando tenés material) — Impacto: Muy alto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- AD 3 DIAGNÓSTICO -->
+  <div class="section">
+    <div class="section-eyebrow">Diagnóstico específico</div>
+    <h2 class="section-title">Por qué falló el Ad 3 — Pack With Me</h2>
+    <p class="section-desc">CTR 7.74% (el más alto) pero 0 compras con $12.163 ARS de gasto. Análisis frame a frame.</p>
+
+    <div class="card">
+      <div class="card-title">Autopsia del Ad 3</div>
+
+      <div class="timeline" style="margin-top:16px;">
+        <div class="timeline-item">
+          <div class="timeline-time">Frame 1</div>
+          <div class="timeline-content">
+            <strong>Hook fuerte — persona real sosteniendo los sweaters en percha.</strong> CTR alto tiene sentido — buen primer frame, hay persona, hay producto, hay acción.
+            <div class="timeline-rationale">El hook funciona porque la persona y la acción son el tipo de contenido que Meta favorece en distribución orgánica.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Frame 4</div>
+          <div class="timeline-content">
+            <strong style="color:var(--danger);">Error crítico: screenshot de orden de $83.000 ARS.</strong> Aparece una pantalla de Tienda Negocio con una compra de 3 productos por $83.000 total. Para audiencia fría que nunca vio la marca, ese número es el precio que asocia al producto. Sale.
+            <div class="timeline-rationale">El precio del Vienne solo ($37.500) nunca aparece claro. El cerebro ancla en el número más visible — $83.000. Efecto anchoring (Kahneman) en contra del ad.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Frames 8–12</div>
+          <div class="timeline-content">
+            <strong>Packaging y moños — contenido de post-compra para audiencia de pre-compra.</strong> Este contenido es relevante para retargeting de clientes que ya compraron (genera loyalty y contenido aspiracional de "así llega tu pedido"). Para frío es irrelevante.
+            <div class="timeline-rationale">El contenido de packaging responde la pregunta "¿cómo llega?" — esa pregunta solo se hace alguien que ya decidió comprar. Audiencia fría no llegó a esa etapa.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">Frame 15</div>
+          <div class="timeline-content">
+            <strong>Logo Miss Roure — cierre de branding sin CTA.</strong> No hay llamado a la acción, no hay precio, no hay razón para hacer click.
+            <div class="timeline-rationale">Un ad sin CTA explícito depende de que el usuario tome la iniciativa. En Meta, la fricción de tener que buscar cómo comprar mata la conversión.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-danger" style="margin-top:16px;">
+        <span class="alert-icon">⚠</span>
+        <div>
+          <strong>Diagnóstico final Ad 3:</strong> Es un ad de MOF tardío/BOF (packaging, proceso de compra) enviado a audiencia TOF (fría, primer contacto). El funnel stage del creativo y el funnel stage de la audiencia no coinciden. El resultado es CTR alto (buen hook de TOF) + 0 conversiones (el resto del video no convierte a quien lo vio por primera vez).
+        </div>
+      </div>
+
+      <div class="insight">
+        <strong>Cómo rescatar el Ad 3:</strong> Tiene dos partes salvables — el hook inicial (persona con sweaters en percha) y el packaging (como creativo de retargeting para clientes). La solución es dividirlo en dos ads diferentes: (1) tomar solo el hook + cortar el video a 8 segundos + agregar CTA directo → usar en TOF; (2) usar el segmento de packaging como ad de retargeting para clientes que ya compraron, para generar recompra o recomendación.
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="footer-note">Miss Roure — Agencia de IA · Estrategia creativa Sweater Vienne · Junio 2026</p>
+    <p class="footer-note" style="margin-top:6px;">Documento generado para uso interno. Basado en data real de la campaña ASC activa (ID: 120246835752560118) y benchmarks de Meta Ads para e-commerce fashion Argentina.</p>
+  </div>
+
+</div>
+</body>
+</html>

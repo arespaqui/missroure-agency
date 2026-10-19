@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kosmos — Análisis Ad Library</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --card: #1a1a26;
+    --border: #2a2a3e;
+    --accent: #7c3aed;
+    --accent2: #a855f7;
+    --accent3: #c084fc;
+    --gold: #f59e0b;
+    --green: #10b981;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --soft: #64748b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a0a2e 50%, #0a0a0f 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -150px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(168,85,247,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 900px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(124,58,237,0.2);
+    border: 1px solid rgba(124,58,237,0.4);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    color: var(--accent3);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+  .hero h1 span { color: var(--accent2); }
+  .hero-meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .hero-meta strong { color: var(--text); }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+  .section { padding: 50px 0; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  /* STAT GRID */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .stat-value {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #fff, var(--accent3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  .stat-sub {
+    font-size: 11px;
+    color: var(--soft);
+    margin-top: 2px;
+  }
+
+  /* CHARTS */
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px; }
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .chart-card.full { grid-column: 1 / -1; }
+  .chart-title { font-size: 14px; font-weight: 600; margin-bottom: 20px; color: var(--text); }
+  .chart-wrap { position: relative; height: 200px; }
+  .chart-wrap.tall { height: 260px; }
+
+  /* MESSAGE CLUSTERS */
+  .cluster-list { display: flex; flex-direction: column; gap: 10px; }
+  .cluster-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cluster-bar-wrap { flex: 1; }
+  .cluster-label { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .cluster-bar-bg {
+    background: var(--border);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+  }
+  .cluster-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .cluster-count {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent3);
+    min-width: 32px;
+    text-align: right;
+  }
+  .cluster-pct {
+    font-size: 11px;
+    color: var(--muted);
+    min-width: 36px;
+    text-align: right;
+  }
+
+  /* AD CARDS */
+  .ads-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .ad-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: border-color 0.2s;
+  }
+  .ad-card:hover { border-color: rgba(124,58,237,0.4); }
+  .ad-rank {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px;
+    flex-shrink: 0;
+  }
+  .ad-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .ad-body { font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .ad-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .tag {
+    background: rgba(124,58,237,0.15);
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 11px;
+    color: var(--accent3);
+    font-weight: 500;
+  }
+  .tag.green { background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.3); color: #34d399; }
+  .tag.gold { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.3); color: #fbbf24; }
+  .ad-link {
+    font-size: 11px;
+    color: var(--accent3);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 12px;
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .ad-link:hover { background: rgba(124,58,237,0.15); }
+
+  /* INSIGHTS */
+  .insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .insight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .insight-icon { font-size: 24px; margin-bottom: 12px; }
+  .insight-title { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+  .insight-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .insight-card.highlight {
+    border-color: rgba(124,58,237,0.4);
+    background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, var(--card) 100%);
+  }
+
+  /* VELOCITY */
+  .velocity-timeline { display: flex; flex-direction: column; gap: 8px; }
+  .velocity-day {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .v-date { font-size: 12px; color: var(--muted); min-width: 80px; font-variant-numeric: tabular-nums; }
+  .v-bar-bg { flex: 1; background: var(--border); border-radius: 4px; height: 8px; overflow: hidden; }
+  .v-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 0.3s; }
+  .v-count { font-size: 13px; font-weight: 700; color: var(--text); min-width: 30px; text-align: right; }
+  .v-spike { font-size: 11px; color: var(--gold); font-weight: 600; }
+
+  /* OPPORTUNITIES */
+  .opp-list { display: flex; flex-direction: column; gap: 12px; }
+  .opp-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .opp-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .opp-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .opp-body { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* SUMMARY */
+  .summary-box {
+    background: linear-gradient(135deg, rgba(124,58,237,0.1) 0%, rgba(168,85,247,0.05) 100%);
+    border: 1px solid rgba(124,58,237,0.3);
+    border-radius: 16px;
+    padding: 32px;
+  }
+  .summary-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+  /* FOOTER */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--soft);
+  }
+
+  @media (max-width: 700px) {
+    .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    .chart-grid { grid-template-columns: 1fr; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .hero { padding: 40px 20px; }
+    .container { padding: 0 20px; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="badge">🔍 Espionaje Competitivo</div>
+    <h1>Análisis Ad Library<br><span>Kosmos Skincare</span></h1>
+    <p class="hero-meta">
+      <strong>63 ads estimados</strong> · 50 analizados en profundidad ·
+      Período: <strong>18 – 24 junio 2026</strong> · Generado el 25 junio 2026
+    </p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Vista General</div>
+    <div class="section-title">Lo que encontramos</div>
+    <p class="section-sub">63 anuncios activos o recientes. Foco absoluto en performance directa — ningún ad de branding puro.</p>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value">63</div>
+        <div class="stat-label">Ads estimados totales</div>
+        <div class="stat-sub">50 analizados en detalle</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">~11</div>
+        <div class="stat-label">Ads por día (pico)</div>
+        <div class="stat-sub">34 subidos en un solo día</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">64%</div>
+        <div class="stat-label">Carrusel / catálogo dinámico</div>
+        <div class="stat-sub">Formato dominante</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">5</div>
+        <div class="stat-label">Mensajes clave distintos</div>
+        <div class="stat-sub">Alta concentración temática</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIENCIA -->
+  <div class="section">
+    <div class="section-label">01 · Audiencia</div>
+    <div class="section-title">¿A quién le están hablando?</div>
+    <p class="section-sub">Inferido a partir del copy, tono, ofertas y naming de productos.</p>
+
+    <div class="insight-grid">
+      <div class="insight-card highlight">
+        <div class="insight-icon">👩‍💻</div>
+        <div class="insight-title">Perfil A — La Iniciada en Skincare (25–35)</div>
+        <div class="insight-body">Mujer urbana que sabe que <em>debería</em> tener una rutina pero no la tiene consolidada. Le hablan de "primera rutina" como primer paso, le regalan $5.000 para que el riesgo sea cero. Sensible al precio, motivada por la promesa de transformación visible ("tu piel, pero renovada").</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">✨</div>
+        <div class="insight-title">Perfil B — La Glowy Girl (22–30)</div>
+        <div class="insight-body">Aspira a la "glass skin" y el "glow". Consume contenido estético. Responde a lanzamientos ("NEW IN"), terminología en inglés mezclada con castellano, y el universo visual de la piel brillante y saludable. Para ella: Glass Skin Kit, Bronzing Drops, Brightening Drops.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">⏰</div>
+        <div class="insight-title">Perfil C — La Abandonadora del Carrito (retargeting)</div>
+        <div class="insight-body">Visitó el sitio o agregó al carrito pero no compró. A ella le disparan: "🧨 ¡Solo por hoy! ENVIO GRATIS", "🔟% descuento en todo – ¡Reactivá tu compra!" y "💜 ¡Tenemos un regalo para vos!". Urgencia + incentivo económico para destrabar la compra.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🧴</div>
+        <div class="insight-title">Perfil D — La Clienta Activa (upsell)</div>
+        <div class="insight-body">Ya compró. Le muestran catálogo dinámico con sets de productos: Set Antioxidante, Hydra Glow Set, Golden Set. El objetivo es aumentar el ticket o llevarla a una segunda compra. Ads de producto puro, sin oferta explícita.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENSAJES -->
+  <div class="section">
+    <div class="section-label">02 · Mensajes</div>
+    <div class="section-title">Qué repiten una y otra vez</div>
+    <p class="section-sub">5 clusters de mensajes cubren el 90% del volumen de ads. Sin variación creativa en el copy — apuestan a variación de audiencia/placement, no de mensaje.</p>
+
+    <div class="cluster-list">
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">🧨 "Solo por hoy — ENVIO GRATIS"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="cluster-count">10</div>
+        <div class="cluster-pct">20%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">🛍 Catálogo dinámico de productos (sin copy)</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:100%"></div></div>
+        </div>
+        <div class="cluster-count">11</div>
+        <div class="cluster-pct">22%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">🎁 "Te regalamos $5000"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:75%"></div></div>
+        </div>
+        <div class="cluster-count">8</div>
+        <div class="cluster-pct">16%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">🚚 "Envío Gratis en tu primera rutina"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:65%"></div></div>
+        </div>
+        <div class="cluster-count">7</div>
+        <div class="cluster-pct">14%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">✨ "NEW IN: Glass skin kit — 25% OFF"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:45%"></div></div>
+        </div>
+        <div class="cluster-count">5</div>
+        <div class="cluster-pct">10%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">💜 "¡Tenemos un regalo para vos!"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:28%"></div></div>
+        </div>
+        <div class="cluster-count">3</div>
+        <div class="cluster-pct">6%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">💆 Educativo / editorial (cómo cuidar, renovar, limpiar)</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:38%"></div></div>
+        </div>
+        <div class="cluster-count">4</div>
+        <div class="cluster-pct">8%</div>
+      </div>
+      <div class="cluster-item">
+        <div class="cluster-bar-wrap">
+          <div class="cluster-label">🔢 "% descuento — ¡Reactivá tu compra!"</div>
+          <div class="cluster-bar-bg"><div class="cluster-bar-fill" style="width:19%"></div></div>
+        </div>
+        <div class="cluster-count">2</div>
+        <div class="cluster-pct">4%</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px;">
+      <div style="font-size: 13px; font-weight: 700; margin-bottom: 10px; color: var(--accent3);">💡 Qué quieren que les quede grabado</div>
+      <div style="font-size: 14px; color: var(--muted); line-height: 1.7;">
+        <strong style="color: var(--text);">1. Entrada sin riesgo:</strong> el envío gratis en la primera compra es su gancho de adquisición principal. Lo repiten en múltiples variantes porque ese freno (costo de envío) es su mayor objeción.<br>
+        <strong style="color: var(--text);">2. Urgencia + regalo:</strong> "$5000 de regalo" y "solo por hoy" crean un estado emocional de oportunidad que no se puede dejar pasar. No venden el producto — venden el deal.<br>
+        <strong style="color: var(--text);">3. Glass skin como aspiración:</strong> "Tu piel, pero renovada", "Glass skin kit" — la promesa estética de transformación visible es el motor emocional de fondo.
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP 10 ADS -->
+  <div class="section">
+    <div class="section-label">03 · Top Ads</div>
+    <div class="section-title">Los 10 ads más estratégicos</div>
+    <p class="section-sub">Rankeados por longevidad, volumen de variantes y posición en el funnel. Sin datos de impresiones públicos — inferencia estratégica.</p>
+
+    <div class="ads-grid">
+
+      <div class="ad-card">
+        <div class="ad-rank">1</div>
+        <div>
+          <div class="ad-title">🧨 "¡Solo por hoy! ENVIO GRATIS"</div>
+          <div class="ad-body">El mensaje más repetido: 10 variantes distintas. Carrusel con múltiples SKUs. Urgencia máxima ("solo por hoy") + incentivo económico. Apunta a retargeting de visitantes que no compraron. La cantidad de variantes sugiere que es el ad con más gasto y el que mejor convierte en su segmento.</div>
+          <div class="ad-tags">
+            <span class="tag">Retargeting</span>
+            <span class="tag">Carrusel</span>
+            <span class="tag green">10 variantes</span>
+            <span class="tag gold">Mayor volumen</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=2562920997462954" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">2</div>
+        <div>
+          <div class="ad-title">🎁 "Te regalamos $5000"</div>
+          <div class="ad-body">8 variantes del mismo mensaje. El ángulo de "regalo" es psicológicamente más potente que "descuento" — no sentís que estás comprando, sentís que estás recibiendo. El monto fijo ($5.000) hace la oferta concreta y tangible. Probablemente es un cupón de bienvenida para nuevos clientes o cold traffic.</div>
+          <div class="ad-tags">
+            <span class="tag">Adquisición</span>
+            <span class="tag">Cold traffic</span>
+            <span class="tag green">8 variantes</span>
+            <span class="tag">Cupón</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1546371033740148" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">3</div>
+        <div>
+          <div class="ad-title">🚚 "Envío Gratis en tu primera rutina Kosmos"</div>
+          <div class="ad-body">7 variantes. Enfocado en primer purchase. El framing "primera rutina" es inteligente — no dice "primera compra" (transaccional), dice "primera rutina" (aspiracional). Mezcla beneficio funcional (envío gratis) con identidad ("tu rutina Kosmos"). Carrusel que probablemente muestra el paso a paso o los productos incluidos.</div>
+          <div class="ad-tags">
+            <span class="tag">Adquisición</span>
+            <span class="tag">Carrusel</span>
+            <span class="tag green">7 variantes</span>
+            <span class="tag gold">Primer purchase</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1321999496734931" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">4</div>
+        <div>
+          <div class="ad-title">✨ "NEW IN: Glass skin kit — 25% OFF"</div>
+          <div class="ad-body">5 variantes. El único ad de lanzamiento de producto de la muestra. "NEW IN" importado del fashion (fast fashion lo usa mucho) aplicado a skincare — genera sensación de colección nueva y FOMO. El 25% OFF es sólido en un lanzamiento para drive initial adoption. Probablemente el de mayor potencial aspiracional.</div>
+          <div class="ad-tags">
+            <span class="tag">Lanzamiento</span>
+            <span class="tag gold">25% OFF</span>
+            <span class="tag">Single + Carrusel</span>
+            <span class="tag">Glass skin</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=878465471387848" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">5</div>
+        <div>
+          <div class="ad-title">🛍 Catálogo dinámico multi-producto (Sets)</div>
+          <div class="ad-body">11 variantes del catálogo dinámico. Set Antioxidante, Hydra Glow, Golden Set, Hydra Bronze — nomenclatura aspiracional con ingrediente activo en el nombre. Probablemente alimentado por el pixel — muestra los sets que el usuario vio pero no compró. Alta eficiencia de producción (cero copy que escribir).</div>
+          <div class="ad-tags">
+            <span class="tag">Catálogo dinámico</span>
+            <span class="tag">Retargeting</span>
+            <span class="tag green">11 variantes</span>
+            <span class="tag">Upsell</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=2157217291841987" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">6</div>
+        <div>
+          <div class="ad-title">💆 "¿Cómo cuidar tu piel? / ¿Cómo limpiar tu rostro?"</div>
+          <div class="ad-body">4 ads educativos/editoriales. Son los únicos que no empujan una oferta directa — el objetivo es generar engagement y cookear audiencia. Copy tipo pregunta + flecha (👉) para generar curiosidad. "Cleasing Duo" y "Tu piel, pero renovada ✨" son los únicos con nombre de producto explícito. Buen TOFU content para cold audiences.</div>
+          <div class="ad-tags">
+            <span class="tag">Educativo</span>
+            <span class="tag">TOFU</span>
+            <span class="tag">Cold traffic</span>
+            <span class="tag gold">Menor volumen</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1019269017418052" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">7</div>
+        <div>
+          <div class="ad-title">💜 "¡Tenemos un regalo para vos!"</div>
+          <div class="ad-body">3 variantes. Tono más cálido y personal que los demás. El corazón lila (💜) es el único emoji de marca consistente. Probablemente es una variante creativa del ad de cupón/regalo para ver qué framing convierte mejor. Carrusel. Interesante para A/B test vs "Te regalamos $5000".</div>
+          <div class="ad-tags">
+            <span class="tag">A/B test</span>
+            <span class="tag">Carrusel</span>
+            <span class="tag">Regalo / cupón</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1195832132672439" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">8</div>
+        <div>
+          <div class="ad-title">🔢 "% de descuento — ¡Reactivá tu compra!"</div>
+          <div class="ad-body">2 variantes. El único ad con terminología de retargeting explícita ("reactivá tu compra"). El porcentaje de descuento aparece con emoji de números (🔟%) — posiblemente fill dinámico o testing. Claramente apunta a quien ya inició una compra. Honesto y directo, sin disfrazar la intención.</div>
+          <div class="ad-tags">
+            <span class="tag">Retargeting explícito</span>
+            <span class="tag gold">Descuento</span>
+            <span class="tag">Carrito abandonado</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1726822295143916" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">9</div>
+        <div>
+          <div class="ad-title">🧪 "Cleasing Duo Kosmos"</div>
+          <div class="ad-body">1 variante. El único ad de producto singular con nombre de producto en el título. Probable creative de hero product — si tiene un buen RPM, está testando si el producto solo puede cargar solo una campaña. Es el ad que más nos dice sobre sus apuestas de producto.</div>
+          <div class="ad-tags">
+            <span class="tag">Hero product</span>
+            <span class="tag gold">1 sola variante</span>
+            <span class="tag">Test</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1559912039022537" target="_blank">Ver ad →</a>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-rank">10</div>
+        <div>
+          <div class="ad-title">✨ "Tu piel, pero renovada"</div>
+          <div class="ad-body">1 variante. El copy más aspiracional de todos. Sin oferta, sin urgencia — solo el beneficio emocional de la transformación. Es el ad que más podría funcionar en branding awareness o como primer touchpoint de una audiencia que ni sabe lo que quiere. También el que más diferencia a Kosmos si lo escalaran.</div>
+          <div class="ad-tags">
+            <span class="tag">Branding</span>
+            <span class="tag gold">Copy aspiracional</span>
+            <span class="tag">TOFU</span>
+          </div>
+        </div>
+        <a class="ad-link" href="https://www.facebook.com/ads/library/?id=1008733838224608" target="_blank">Ver ad →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LONGEVIDAD -->
+  <div class="section">
+    <div class="section-label">04 · Longevidad</div>
+    <div class="section-title">Los ads más longevos</div>
+    <p class="section-sub">Ads que llevan más tiempo activos = probablemente convirtiendo. Si no estuvieran funcionando, los habrían apagado.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div class="insight-card highlight">
+        <div class="insight-icon">👑</div>
+        <div class="insight-title">Catálogo dinámico multi-producto — 7 días activo</div>
+        <div class="insight-body">Creado el 18 junio, sigue activo al 25. El más longevo de la muestra. Los catálogos dinámicos suelen correr indefinidamente con buen ROAS porque el algoritmo decide qué producto mostrar a quién. Señal de que el catálogo está performando.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🥈</div>
+        <div class="insight-title">Sets de productos Kosmos — 6 días activo</div>
+        <div class="insight-body">Creado el 19 junio. Segundo más longevo. Refuerza que el catálogo dinámico de sets es su mejor asset de performance. El delay entre creation y start (376 seg promedio) sugiere revisión manual antes de publicar.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🥉</div>
+        <div class="insight-title">"NEW IN: Glass skin kit 25% OFF" — 5 días</div>
+        <div class="insight-body">Lanzado el 20 junio, sigue activo. Para ser un ad de lanzamiento, 5 días es señal positiva. El 25% de descuento lo está sosteniendo. Si lo apagan en los próximos días, el descuento fue solo de lanzamiento.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">📊</div>
+        <div class="insight-title">"Reactivá tu compra" — activo desde el 24</div>
+        <div class="insight-body">Delay de start_time de ~29 horas respecto al creation — el más largo de la muestra. Probablemente esperan acumular suficiente audiencia de retargeting antes de activarlo. Señal de una estrategia de audiencia bien segmentada.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VELOCIDAD CREATIVA -->
+  <div class="section">
+    <div class="section-label">05 · Velocidad Creativa</div>
+    <div class="section-title">Con qué frecuencia suben ads</div>
+    <p class="section-sub">En 7 días: 63 ads estimados. El 54% apareció en un solo día (24 de junio).</p>
+
+    <div style="background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 20px;">
+      <div class="chart-title">Ads lanzados por día</div>
+      <div class="velocity-timeline">
+        <div class="velocity-day">
+          <div class="v-date">18 jun</div>
+          <div class="v-bar-bg"><div class="v-bar-fill" style="width: 18%"></div></div>
+          <div class="v-count">6</div>
+        </div>
+        <div class="velocity-day">
+          <div class="v-date">19 jun</div>
+          <div class="v-bar-bg"><div class="v-bar-fill" style="width: 12%"></div></div>
+          <div class="v-count">4</div>
+        </div>
+        <div class="velocity-day">
+          <div class="v-date">20 jun</div>
+          <div class="v-bar-bg"><div class="v-bar-fill" style="width: 12%"></div></div>
+          <div class="v-count">4</div>
+        </div>
+        <div class="velocity-day">
+          <div class="v-date">22 jun</div>
+          <div class="v-bar-bg"><div class="v-bar-fill" style="width: 6%"></div></div>
+          <div class="v-count">2</div>
+        </div>
+        <div class="velocity-day">
+          <div class="v-date">24 jun <span class="v-spike">⚡ PICO</span></div>
+          <div class="v-bar-bg"><div class="v-bar-fill" style="width: 100%"></div></div>
+          <div class="v-count">34</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-icon">⚡</div>
+        <div class="insight-title">Qué pasó el 24 de junio</div>
+        <div class="insight-body">34 ads en un solo día es una campaña de lanzamiento masivo. El 24 de junio es un martes — día con buenos CPMs históricamente. Probablemente coincide con el lanzamiento del Glass skin kit + activación de toda la secuencia de retargeting. Estrategia de "todo el funnel encendido al mismo tiempo".</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎯</div>
+        <div class="insight-title">¿Testean mucho o apuestan a pocos creativos?</div>
+        <div class="insight-body">Testean <em>variantes de audiencia/placement, no de mensaje</em>. El mismo copy aparece en 8–10 ads distintos → mismo creativo, distintos ad sets. No tienen la filosofía de "creative testing" — tienen una oferta que funciona y la escalan horizontal.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMATOS -->
+  <div class="section">
+    <div class="section-label">06 · Formatos</div>
+    <div class="section-title">Qué formatos están usando</div>
+    <p class="section-sub">Dominio absoluto del carrusel y catálogo dinámico. Cero video UGC visible en la muestra.</p>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Distribución de formatos</div>
+        <div class="chart-wrap">
+          <canvas id="formatChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Distribución de mensajes</div>
+        <div class="chart-wrap">
+          <canvas id="messageChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="insight-icon">📱</div>
+        <div class="insight-title">Carrusel — el workhorse</div>
+        <div class="insight-body">~45% del inventario. Usan carruseles con el mismo título repetido en cada frame (ej: "Te regalamos $5000 | Te regalamos $5000 | Te regalamos $5000") — esto es probable que sean variantes multi-ad dentro de un mismo ad set, no carruseles de verdad de múltiples productos. Señal de estructura ASC o CBO muy agresiva.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🗂</div>
+        <div class="insight-title">Catálogo dinámico — la eficiencia</div>
+        <div class="insight-body">~22% del inventario. Ads con "Kosmos | | |" en el título son catálogos dinámicos donde el nombre del producto se injerta dinámicamente. Cero esfuerzo creativo, máxima personalización algorítmica. Es su capa de retargeting más eficiente.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🎬</div>
+        <div class="insight-title">Video / UGC — ausente</div>
+        <div class="insight-body">No se detecta ningún ad con creator partnership ("with @handle") ni video UGC en la muestra. Esto es una <strong style="color: #f59e0b;">brecha muy grande</strong>. El skincare en Argentina/LATAM está siendo ganado por marcas que usan micro-influencers y UGC auténtico.</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-icon">🖼</div>
+        <div class="insight-title">Imagen estática — minoritaria</div>
+        <div class="insight-body">~33% single ads, probablemente imágenes estáticas de producto o lifestyle. "Tu piel, pero renovada ✨" y "Cleasing Duo" son los únicos que sugieren una imagen de producto singular con buen arte. El ratio imagen:carrusel sugiere que están testando si el single image puede competir.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSIÓN -->
+  <div class="section">
+    <div class="section-label">07 · Conclusión Estratégica</div>
+    <div class="section-title">Lo que están haciendo bien y los gaps</div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px;">
+      <div style="background: rgba(16,185,129,0.07); border: 1px solid rgba(16,185,129,0.25); border-radius: 12px; padding: 22px;">
+        <div style="font-size: 15px; font-weight: 700; color: #34d399; margin-bottom: 14px;">✅ Lo que hacen bien</div>
+        <div style="font-size: 13px; color: var(--muted); line-height: 1.8;">
+          • <strong style="color:var(--text)">Funnel completo en simultáneo:</strong> adquisición, retargeting y upsell corriendo a la vez<br>
+          • <strong style="color:var(--text)">Oferta clara y directa:</strong> envío gratis, regalo de $5000, descuento — zero ambigüedad<br>
+          • <strong style="color:var(--text)">Catálogo dinámico bien ejecutado:</strong> eficiencia creativa alta, baja fricción<br>
+          • <strong style="color:var(--text)">Naming aspiracional:</strong> Glass skin, Bronzing, Brightening — el vocabulario construye marca<br>
+          • <strong style="color:var(--text)">Velocidad de lanzamiento:</strong> 34 ads en 24h demuestra capacidad operativa
+        </div>
+      </div>
+      <div style="background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; padding: 22px;">
+        <div style="font-size: 15px; font-weight: 700; color: #f87171; margin-bottom: 14px;">❌ Los gaps</div>
+        <div style="font-size: 13px; color: var(--muted); line-height: 1.8;">
+          • <strong style="color:var(--text)">Cero UGC / creators:</strong> sin voces humanas, sin prueba social, sin autenticidad<br>
+          • <strong style="color:var(--text)">Copy repetitivo sin variación creativa:</strong> el mismo mensaje en 10 ads distintos agota la audiencia<br>
+          • <strong style="color:var(--text)">Sin storytelling de marca:</strong> no construyen por qué Kosmos, solo qué hay de gratis<br>
+          • <strong style="color:var(--text)">Sin video:</strong> el formato de mayor reach y engagement en Meta está ausente<br>
+          • <strong style="color:var(--text)">Fragilidad: si la oferta deja de funcionar, no tienen branding de respaldo
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom: 12px;">🚀 Oportunidades para diferenciarse</div>
+    <div class="opp-list">
+      <div class="opp-item">
+        <div class="opp-icon" style="background: rgba(124,58,237,0.15);">🎥</div>
+        <div>
+          <div class="opp-title">Apostar fuerte al UGC y video</div>
+          <div class="opp-body">Kosmos no tiene video visible. Una marca que entre con testimonios reales, rutinas filmadas desde el baño, y micro-influencers auténticos rompe la fatiga visual de los estáticos. En skincare, el video que muestra la textura del producto y la piel brillante convierte mucho más que cualquier imagen.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon" style="background: rgba(245,158,11,0.15);">💬</div>
+        <div>
+          <div class="opp-title">Copy con punto de vista, no solo oferta</div>
+          <div class="opp-body">Todos sus ads son transaccionales. Un ad que hable de <em>por qué</em> importa tener una rutina, que muestre una transformación emocional, o que tome posición sobre algo ("la piel no necesita 10 pasos, necesita los correctos") sería completamente diferente en el feed.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon" style="background: rgba(16,185,129,0.15);">🧬</div>
+        <div>
+          <div class="opp-title">Educación de ingredientes como diferenciador</div>
+          <div class="opp-body">Tienen "Brightening Drops (VitC)", "Aqua Potion", "Beta Glow Oil" — ingredientes aspiracionales. Pero en sus ads no explican nada. Un carrusel educativo de "¿qué hace la VitC en tu piel?" construye autoridad y trust que la oferta de $5000 jamás va a construir.</div>
+        </div>
+      </div>
+      <div class="opp-item">
+        <div class="opp-icon" style="background: rgba(239,68,68,0.15);">🏆</div>
+        <div>
+          <div class="opp-title">Posicionarse como "la rutina que sí funciona"</div>
+          <div class="opp-body">Kosmos no tiene un claim de posicionamiento visible. El gap de "marca con punto de vista claro" está disponible. "Tu primera y única rutina" o "skincare que entiende la piel argentina" son territorios que nadie está ocupando. El que llega primero con un claim fuerte es el que queda.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY BOX -->
+  <div class="section" style="border: none; padding-bottom: 60px;">
+    <div class="summary-box">
+      <div class="summary-title">🎯 La lectura rápida para Miss Roure</div>
+      <div style="font-size: 14px; color: var(--muted); line-height: 1.8;">
+        Kosmos es una marca que sabe hacer performance. Tienen el funnel armado, el catálogo dinámico corriendo, la oferta clara y la velocidad operativa. <strong style="color: var(--text);">No son amateurs.</strong><br><br>
+        Pero están jugando al juego del descuento perpetuo — y ese juego tiene techo. Cuando el mercado se satura de "envío gratis" y "$5000 de regalo", la que gana no es la que más descuenta sino la que tiene <strong style="color: var(--accent3);">una historia que vale la pena seguir.</strong><br><br>
+        Miss Roure puede diferenciarse siendo la marca que tiene <strong style="color: var(--accent3);">voz, estética y autoridad</strong> — no solo ofertas. El video, el UGC real, el copy con punto de vista y la educación de producto son los territorios que Kosmos está dejando libres.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Generado por Miss Roure Agency · Análisis Ad Library Kosmos · Junio 2026<br>
+  Datos extraídos de la Meta Ad Library oficial · Page ID: 110072135176409
+</footer>
+
+<script>
+// Formato chart
+const fmtCtx = document.getElementById('formatChart').getContext('2d');
+new Chart(fmtCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Carrusel', 'Catálogo dinámico', 'Imagen/video single'],
+    datasets: [{
+      data: [22, 11, 17],
+      backgroundColor: ['#7c3aed', '#a855f7', '#c084fc'],
+      borderColor: '#1a1a26',
+      borderWidth: 3,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { color: '#94a3b8', font: { size: 12 }, padding: 12, boxWidth: 12 }
+      }
+    },
+    cutout: '65%'
+  }
+});
+
+// Message chart
+const msgCtx = document.getElementById('messageChart').getContext('2d');
+new Chart(msgCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Solo por hoy', 'Catálogo', '$5000', 'Envío Gratis', 'Glass kit', 'Editorial', 'Regalo', 'Descuento'],
+    datasets: [{
+      data: [10, 11, 8, 7, 5, 4, 3, 2],
+      backgroundColor: [
+        '#7c3aed','#8b3cf7','#9333ea','#a21caf',
+        '#c026d3','#d946ef','#e879f9','#f0abfc'
+      ],
+      borderRadius: 6,
+      borderWidth: 0,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: {
+        grid: { color: '#2a2a3e' },
+        ticks: { color: '#94a3b8', font: { size: 11 } }
+      },
+      y: {
+        grid: { display: false },
+        ticks: { color: '#94a3b8', font: { size: 11 } }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

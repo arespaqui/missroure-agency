@@ -32,6 +32,22 @@ El sistema aprende de sus propios resultados y se retroalimenta con el tiempo.
 | Growth Analyst | `skills/growth-analyst.md` | KPIs, experimentos, A/B testing, métricas |
 | Community Manager | `skills/community-manager.md` | UGC, respuestas, dinámicas, comunidad, DMs |
 | Editorial Calendar | `skills/editorial-calendar.md` | Planificación semanal y mensual de contenido |
+| **META ADS TEAM** | | |
+| Meta Ads Campaign Builder | `skills/meta-ads-campaign-builder.md` | **Leer primero al crear cualquier campaña** — playbook paso a paso completo |
+| Meta Ads Strategist | `skills/meta-ads-strategist.md` | Estructura de campañas, full funnel, budget, calendario |
+| Meta Ads Creative | `skills/meta-ads-creative.md` | Briefs de creatividades, copy de ads, A/B testing |
+| Meta Ads Audience | `skills/meta-ads-audience.md` | Segmentación, lookalikes, retargeting, custom audiences |
+| Meta Ads Analyst | `skills/meta-ads-analyst.md` | ROAS, KPIs, reglas de optimización, mecánica del sistema (Breakdown Effect, Auction Overlap), reportes |
+| **META ADS MÓDULO** | | |
+| 3Qs Analyst | `metads/SKILL.md` | Metodología 3Qs con datos reales de CSV — analizar campañas |
+| Audience Library | `metads/audiences/audience-library.md` | IDs de todas las audiencias activas TOFU/MOFU/BOFU |
+| Ad Brief Template | `metads/templates/ad-brief-template.md` | Completar antes de producir cualquier creative |
+| Creative Test Log | `metads/templates/creative-test-log.md` | Registro de A/B tests activos y cerrados |
+| Pre-Launch Checklist | `metads/checklists/pre-launch.md` | Verificar antes de publicar cualquier campaña |
+| Landing QA | `metads/checklists/landing-qa.md` | Diagnosticar cuando CTR es bueno pero ROAS es malo |
+| UTM Convention | `metads/setup/utm-convention.md` | Parámetros de tracking para todo tráfico pago |
+| **ECOMMERCE BI** | | |
+| eCommerce BI Analyst | `ecommerce-bi/SKILL.md` | RFM, cohortes, CLV, churn, Market Basket y 39 análisis sobre CSV de órdenes reales — requiere `pip install pandas numpy` y mapeo manual de columnas de Tienda Negocio (ver nota en el SKILL.md) |
 
 ---
 
@@ -86,9 +102,11 @@ El sistema aprende de sus propios resultados y se retroalimenta con el tiempo.
 ### TikTok @missroure
 - ✅ Close-up de producto con múltiples colores en un solo video
 - ✅ Formato "percha → modelo" con transición suave (mayor guardado y shares)
-- ✅ CTA: número de WhatsApp directamente en el caption
+- ✅ CTA PRIMARIO: roure.tiendanegocio.com en el caption
 - ✅ Oferta explícita en caption (ej: "3 x $24.000")
-- ❌ "Link en bio" como CTA — no convierte en TikTok
+- ✅ WhatsApp (1153837478) solo como canal secundario — consultas o asistencia de compra
+- ❌ WhatsApp como CTA principal — la tienda es el destino de conversión
+- ❌ "Link en bio" como CTA único — no convierte en TikTok
 - ❌ Collages estáticos — generan menos views que videos dinámicos
 
 ### Instagram @missroure
@@ -104,7 +122,7 @@ El sistema aprende de sus propios resultados y se retroalimenta con el tiempo.
 ## Descuentos Activos (siempre mencionar en contenido de producto)
 
 - **20% OFF** pagando con transferencia bancaria ← driver clave de conversión
-- **Envío gratis** en compras desde $100.000 ARS
+- **Envío gratis** en compras desde $80.000 ARS
 - **5% OFF** comprando 2+ unidades de Paris Collection
 
 ---
@@ -125,3 +143,7 @@ chore(template):  Actualización de templates
 > Este sistema aprende con cada ciclo.
 > Lo que funciona, se repite. Lo que no, se evita.
 > El agente que lee esto tiene acceso a todo el conocimiento acumulado de Roure.
+
+## Imported Claude Cowork project instructions
+
+Agencia de IA optimizado para meta adas de MISS ROURE

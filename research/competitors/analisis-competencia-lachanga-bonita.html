@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Análisis Ad Library — La Changa Bonita · Para Miss Roure</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #c8a96e;
+    --accent2: #e8c99a;
+    --pink: #e8748a;
+    --green: #5ecba1;
+    --blue: #6eb4e8;
+    --purple: #a88de8;
+    --text: #f0ece4;
+    --muted: #888;
+    --danger: #e87474;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 15px; line-height: 1.65; }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #111 0%, #1a1208 50%, #111 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,169,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag { font-size: 11px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 18px; }
+  .hero h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 12px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 16px; max-width: 560px; margin: 0 auto 28px; }
+  .hero-meta { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; flex-direction: column; align-items: center; }
+  .hero-meta-item strong { font-size: 26px; font-weight: 800; color: var(--accent); }
+  .hero-meta-item span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+
+  /* LAYOUT */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+  .section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.2; }
+  .section-sub { color: var(--muted); font-size: 15px; max-width: 680px; margin-bottom: 40px; }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media(max-width:768px){ .grid-2,.grid-3,.grid-4{ grid-template-columns:1fr; } }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .card-sm { padding: 20px; }
+  .card h3 { font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+  /* STAT CARDS */
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat-card .label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+  .stat-card .value { font-size: 32px; font-weight: 800; line-height: 1; }
+  .stat-card .desc { font-size: 12px; color: var(--muted); }
+  .accent-gold { color: var(--accent); }
+  .accent-pink { color: var(--pink); }
+  .accent-green { color: var(--green); }
+  .accent-blue { color: var(--blue); }
+  .accent-purple { color: var(--purple); }
+
+  /* CHART WRAPPER */
+  .chart-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+  }
+  .chart-wrap h3 { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 20px; }
+  .chart-container { position: relative; }
+
+  /* FORMAT PILLS */
+  .format-item { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .format-item:last-child { border-bottom: none; }
+  .format-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .format-details { flex: 1; }
+  .format-details strong { display: block; font-size: 14px; color: #fff; margin-bottom: 3px; }
+  .format-details span { font-size: 12px; color: var(--muted); }
+  .format-bar-wrap { width: 100px; }
+  .format-bar { height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; margin-bottom: 4px; }
+  .format-bar-fill { height: 100%; border-radius: 3px; }
+  .format-pct { font-size: 12px; font-weight: 700; text-align: right; }
+
+  /* MESSAGE TAGS */
+  .msg-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .msg-tag {
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid;
+    cursor: default;
+    transition: transform 0.2s;
+  }
+  .msg-tag:hover { transform: translateY(-2px); }
+  .tag-xl { font-size: 16px; padding: 10px 20px; }
+  .tag-lg { font-size: 14px; padding: 9px 18px; }
+  .tag-md { font-size: 13px; }
+  .tag-sm { font-size: 11px; padding: 6px 14px; }
+  .tag-urgency { background: rgba(232,116,116,0.12); border-color: rgba(232,116,116,0.4); color: #e87474; }
+  .tag-argentina { background: rgba(94,203,161,0.12); border-color: rgba(94,203,161,0.4); color: #5ecba1; }
+  .tag-outfit { background: rgba(110,180,232,0.12); border-color: rgba(110,180,232,0.4); color: #6eb4e8; }
+  .tag-precio { background: rgba(200,169,110,0.12); border-color: rgba(200,169,110,0.4); color: var(--accent); }
+  .tag-female { background: rgba(232,116,138,0.12); border-color: rgba(232,116,138,0.4); color: var(--pink); }
+
+  /* PERSONA CARDS */
+  .persona-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .persona-avatar { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 14px; }
+  .persona-card h4 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .persona-card .persona-type { font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .persona-card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .persona-traits { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .persona-trait { padding: 4px 10px; border-radius: 100px; font-size: 11px; background: rgba(255,255,255,0.06); color: var(--muted); }
+
+  /* TOP ADS */
+  .ad-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ad-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 14px 14px 0 0;
+  }
+  .ad-rank { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: 1px; margin-bottom: 12px; text-transform: uppercase; }
+  .ad-copy { font-size: 15px; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 10px; border-left: 3px solid var(--accent); padding-left: 14px; font-style: italic; }
+  .ad-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+  .ad-badge {
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .badge-video { background: rgba(232,116,138,0.2); color: var(--pink); }
+  .badge-carousel { background: rgba(110,180,232,0.2); color: var(--blue); }
+  .badge-image { background: rgba(94,203,161,0.2); color: var(--green); }
+  .badge-catalog { background: rgba(168,141,232,0.2); color: var(--purple); }
+  .badge-active { background: rgba(94,203,161,0.15); color: var(--green); }
+  .ad-analysis { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .ad-analysis strong { color: var(--text); }
+  .why-label { font-size: 10px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-top: 12px; margin-bottom: 4px; display: block; }
+
+  /* LONGEVITY */
+  .longevity-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .longevity-bar:last-child { border-bottom: none; }
+  .lon-copy { flex: 1; font-size: 13px; color: var(--text); font-weight: 500; }
+  .lon-date { font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .lon-days { font-size: 13px; font-weight: 800; color: var(--accent); min-width: 60px; text-align: right; }
+  .lon-track { width: 200px; }
+  .lon-track-bar { height: 6px; border-radius: 3px; background: var(--border); }
+  .lon-track-fill { height: 100%; border-radius: 3px; background: linear-gradient(to right, var(--accent), var(--accent2)); }
+  @media(max-width:768px){ .lon-track{display:none} }
+
+  /* STRATEGIC CONCLUSION */
+  .insight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+  }
+  .insight-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+  .insight-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .insight-list li { display: flex; gap: 10px; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .insight-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; font-weight: 700; }
+  .insight-list li strong { color: var(--text); }
+
+  /* OPPORTUNITY CALLOUT */
+  .opp-callout {
+    background: linear-gradient(135deg, rgba(200,169,110,0.08) 0%, rgba(232,116,138,0.05) 100%);
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 14px;
+    padding: 32px;
+    margin-top: 40px;
+  }
+  .opp-callout h3 { color: var(--accent); font-size: 18px; margin-bottom: 20px; }
+  .opp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:600px){ .opp-grid{grid-template-columns:1fr} }
+  .opp-item { display: flex; gap: 12px; }
+  .opp-num { font-size: 28px; font-weight: 800; color: rgba(200,169,110,0.25); flex-shrink: 0; line-height: 1; }
+  .opp-text h5 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .opp-text p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* FOOTER */
+  .footer { padding: 40px; text-align: center; border-top: 1px solid var(--border); color: var(--muted); font-size: 12px; }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  /* HIGHLIGHT BOX */
+  .highlight-box {
+    background: rgba(200,169,110,0.07);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+    margin-top: 20px;
+  }
+  .highlight-box strong { color: var(--accent); }
+
+  /* TOP AD grid */
+  .ads-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media(max-width:768px){ .ads-grid{grid-template-columns:1fr} }
+
+  .color-1::before { background: linear-gradient(to right, #e87474, #e8a074); }
+  .color-2::before { background: linear-gradient(to right, #e8c074, #c8a96e); }
+  .color-3::before { background: linear-gradient(to right, #74e8c8, #5ecba1); }
+  .color-4::before { background: linear-gradient(to right, #74a8e8, #6eb4e8); }
+  .color-5::before { background: linear-gradient(to right, #a874e8, #a88de8); }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Análisis Competitivo · Ad Library Meta</div>
+  <h1>La Changa Bonita<br><span>37 anuncios activos · Argentina</span></h1>
+  <p>Inteligencia competitiva para <strong>Miss Roure</strong> — qué está haciendo la competencia y dónde están las oportunidades.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><strong>37</strong><span>Ads activos</span></div>
+    <div class="hero-meta-item"><strong>~2.5M</strong><span>Alcance est.</span></div>
+    <div class="hero-meta-item"><strong>75 días</strong><span>Ad más longevo</span></div>
+    <div class="hero-meta-item"><strong>Abr–Jun 2026</strong><span>Período analizado</span></div>
+    <div class="hero-meta-item"><strong>lachangaok.com</strong><span>Sitio web</span></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1: FORMATOS -->
+  <div class="section">
+    <div class="section-tag">01 / Formatos</div>
+    <div class="section-title">Video domina la estrategia creativa</div>
+    <div class="section-sub">La Changa Bonita apuesta casi todo a video. El contenido en movimiento aparece en ~75% de sus anuncios activos, seguido por carruseles de catálogo y en menor medida imágenes estáticas.</div>
+
+    <div class="grid-2">
+      <div class="chart-wrap">
+        <h3>Distribución de formatos</h3>
+        <div class="chart-container" style="height:240px">
+          <canvas id="formatChart"></canvas>
+        </div>
+      </div>
+
+      <div class="chart-wrap">
+        <h3>Detalle por formato</h3>
+        <div class="format-item">
+          <div class="format-icon" style="background:rgba(232,116,138,0.15)">🎬</div>
+          <div class="format-details">
+            <strong>Video (UGC + Lifestyle)</strong>
+            <span>Clips cortos, tono de creadora de contenido, autofilmados</span>
+          </div>
+          <div class="format-bar-wrap">
+            <div class="format-bar"><div class="format-bar-fill" style="width:75%;background:var(--pink)"></div></div>
+            <div class="format-pct" style="color:var(--pink)">75%</div>
+          </div>
+        </div>
+        <div class="format-item">
+          <div class="format-icon" style="background:rgba(110,180,232,0.15)">🛍️</div>
+          <div class="format-details">
+            <strong>Carrusel / Catálogo dinámico</strong>
+            <span>Múltiples productos por ad, nombres y precios visibles</span>
+          </div>
+          <div class="format-bar-wrap">
+            <div class="format-bar"><div class="format-bar-fill" style="width:14%;background:var(--blue)"></div></div>
+            <div class="format-pct" style="color:var(--blue)">14%</div>
+          </div>
+        </div>
+        <div class="format-item">
+          <div class="format-icon" style="background:rgba(94,203,161,0.15)">🖼️</div>
+          <div class="format-details">
+            <strong>Imagen estática</strong>
+            <span>Fotos de producto o lookbook, texto superpuesto</span>
+          </div>
+          <div class="format-bar-wrap">
+            <div class="format-bar"><div class="format-bar-fill" style="width:11%;background:var(--green)"></div></div>
+            <div class="format-pct" style="color:var(--green)">11%</div>
+          </div>
+        </div>
+        <div class="highlight-box" style="margin-top:16px">
+          <strong>Nota clave:</strong> el CTA "Shop Now" aparece en los ads de catálogo apuntando directo a colecciones. El CTA "Comprar" aparece en ads de producto único. No se detectan colecciones de Instant Experience (Canvas).
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-4" style="margin-top:24px">
+      <div class="stat-card">
+        <div class="label">Plataformas</div>
+        <div class="value accent-pink">Meta</div>
+        <div class="desc">Facebook + Instagram. Sin evidencia de TikTok o YouTube.</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">CTA principal</div>
+        <div class="value accent-blue" style="font-size:22px">Shop Now</div>
+        <div class="desc">Todos los ads apuntan a lachangaok.com</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Estilo visual</div>
+        <div class="value accent-green" style="font-size:20px">UGC Raw</div>
+        <div class="desc">Videos autofilmados, cámara de frente, sin producción alta</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Duración video</div>
+        <div class="value accent-gold" style="font-size:22px">&lt;30s</div>
+        <div class="desc">Clips cortos optimizados para Reels/Stories</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: PARTNERSHIPS -->
+  <div class="section">
+    <div class="section-tag">02 / Partnerships vs Brand Ads</div>
+    <div class="section-title">100% brand-owned. Cero creadores.</div>
+    <div class="section-sub">De los 37 anuncios activos, ninguno muestra la etiqueta "Paid partnership with" ni menciona handles de creadores externos. Todo el contenido es producido y publicado desde la propia página de La Changa Bonita.</div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>🏷️ Anuncios propios (brand ads)</h3>
+        <p style="font-size:32px;font-weight:800;color:var(--green);margin:12px 0">37 / 37</p>
+        <p>La totalidad de los anuncios corre bajo el nombre de la página <strong style="color:var(--text)">La Changa Bonita</strong>. El contenido de video tiene estética UGC pero es producido internamente — no hay colaboraciones pagas visibles con micro o macro influencers.</p>
+        <div class="highlight-box">
+          <strong>Qué implica:</strong> están apostando a escalar sin creator marketing. Producen volumen alto de creativos en-house con una estética "auténtica" simulada.
+        </div>
+      </div>
+      <div class="card">
+        <h3>🤝 Partnerships detectados</h3>
+        <p style="font-size:32px;font-weight:800;color:var(--danger);margin:12px 0">0 / 37</p>
+        <p>Ningún anuncio usa colaboraciones pagadas o menciones de creadores de contenido. El tono coloquial y el estilo de video busca <strong style="color:var(--text)">imitar contenido orgánico</strong> sin contratar influencers externos.</p>
+        <div class="highlight-box" style="border-color:rgba(232,116,116,0.25);background:rgba(232,116,116,0.05)">
+          <strong>Gap de competencia:</strong> este es un espacio que Miss Roure puede capitalizar. Los ads de creator partnership tienen CTR entre 20-40% más alto en moda femenina.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: MENSAJES -->
+  <div class="section">
+    <div class="section-tag">03 / Mensajes que repiten</div>
+    <div class="section-title">5 pilares que quieren que queden grabados</div>
+    <div class="section-sub">Analizando el copy de todos los anuncios activos, emergen cinco clusters de mensajes con alta frecuencia. No es casualidad: estos son los mensajes que testaron y que están convirtiendo.</div>
+
+    <div class="grid-2" style="margin-bottom:32px">
+      <div class="chart-wrap">
+        <h3>Frecuencia de mensajes por categoría</h3>
+        <div class="chart-container" style="height:280px">
+          <canvas id="messageChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Copy literal más frecuente</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(232,116,116,0.08);border-radius:8px;border-left:3px solid var(--danger)">
+            <span style="font-size:13px;color:var(--text)">"Últimos / Últimas / Último stock"</span>
+            <span style="font-weight:800;color:var(--danger);font-size:15px">14×</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(94,203,161,0.08);border-radius:8px;border-left:3px solid var(--green)">
+            <span style="font-size:13px;color:var(--text)">🇦🇷 (bandera argentina)</span>
+            <span style="font-weight:800;color:var(--green);font-size:15px">12×</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(232,116,138,0.08);border-radius:8px;border-left:3px solid var(--pink)">
+            <span style="font-size:13px;color:var(--text)">"corran / corraaaaan / corran ya"</span>
+            <span style="font-weight:800;color:var(--pink);font-size:15px">11×</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(200,169,110,0.08);border-radius:8px;border-left:3px solid var(--accent)">
+            <span style="font-size:13px;color:var(--text)">"cábala / nueva cábala"</span>
+            <span style="font-weight:800;color:var(--accent);font-size:15px">8×</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(110,180,232,0.08);border-radius:8px;border-left:3px solid var(--blue)">
+            <span style="font-size:13px;color:var(--text)">"te salva / te resuelve el outfit"</span>
+            <span style="font-weight:800;color:var(--blue);font-size:15px">6×</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(168,141,232,0.08);border-radius:8px;border-left:3px solid var(--purple)">
+            <span style="font-size:13px;color:var(--text)">"amiga / amigas"</span>
+            <span style="font-weight:800;color:var(--purple);font-size:15px">9×</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px">Nube de mensajes por peso</p>
+    <div class="msg-tags">
+      <span class="msg-tag tag-urgency tag-xl">⚡ ÚLTIMO STOCK</span>
+      <span class="msg-tag tag-argentina tag-xl">🇦🇷 Argentina</span>
+      <span class="msg-tag tag-urgency tag-lg">corraaaaan</span>
+      <span class="msg-tag tag-female tag-lg">amiga / amigas</span>
+      <span class="msg-tag tag-argentina tag-lg">cábala</span>
+      <span class="msg-tag tag-outfit tag-lg">te salva cuando no sabés qué ponerte</span>
+      <span class="msg-tag tag-precio tag-md">10% OFF x transfe</span>
+      <span class="msg-tag tag-precio tag-md">cuotas sin interés</span>
+      <span class="msg-tag tag-urgency tag-md">edición limitadísima</span>
+      <span class="msg-tag tag-argentina tag-md">CAPSULA ARGENTINA</span>
+      <span class="msg-tag tag-argentina tag-md">SWEATERS ARGENTINA</span>
+      <span class="msg-tag tag-outfit tag-md">cómoda y ondera</span>
+      <span class="msg-tag tag-urgency tag-sm">se agota</span>
+      <span class="msg-tag tag-precio tag-sm">ENVÍO GRATIS</span>
+      <span class="msg-tag tag-precio tag-sm">envíos a todo el país</span>
+      <span class="msg-tag tag-outfit tag-sm">linda, cómoda y ondera</span>
+      <span class="msg-tag tag-urgency tag-sm">apúrate amiga</span>
+      <span class="msg-tag tag-female tag-sm">Ok amigas</span>
+      <span class="msg-tag tag-argentina tag-sm">correo arg</span>
+      <span class="msg-tag tag-outfit tag-sm">te resuelve el outfit sin pensar</span>
+    </div>
+
+    <div class="grid-3" style="margin-top:32px">
+      <div class="card card-sm" style="border-left:3px solid var(--danger)">
+        <h3>🔥 Pilar 1: Urgencia / FOMO</h3>
+        <p>"Últimos", "edición limitada", "corran ya", "se agota", "apúrate", "último día de stock". El 80% de sus ads tiene al menos una señal de escasez. Es el motor principal de conversión.</p>
+      </div>
+      <div class="card card-sm" style="border-left:3px solid var(--green)">
+        <h3>🇦🇷 Pilar 2: Identidad argentina</h3>
+        <p>La bandera 🇦🇷 aparece en casi todos los ads. "Cábala" (concepto cultural argentino de la buena suerte), "SWEATERS ARGENTINA", "CAPSULA ARGENTINA". Apuestan a que la compradora se identifique con la marca como algo propio.</p>
+      </div>
+      <div class="card card-sm" style="border-left:3px solid var(--blue)">
+        <h3>👗 Pilar 3: Outfit problem solver</h3>
+        <p>"El sweater que te salva cuando no sabés qué ponerte", "te resuelve el outfit sin pensar". Posicionan el producto como solución práctica al dilema diario de vestirse, no como aspiración.</p>
+      </div>
+      <div class="card card-sm" style="border-left:3px solid var(--accent)">
+        <h3>💰 Pilar 4: Accesibilidad económica</h3>
+        <p>Cuotas sin interés, 10-15% OFF por transferencia, ENVÍO GRATIS. Todo el pricing es accesible. Desde $59,500 ARS. La barrera de entrada es baja y la repiten constantemente.</p>
+      </div>
+      <div class="card card-sm" style="border-left:3px solid var(--pink)">
+        <h3>💖 Pilar 5: Comunidad femenina</h3>
+        <p>"Amiga", "amigas", "Ok amigas", "La calza que todas están eligiendo". Lenguaje de amigas, no de marca. Crean una sensación de tribu y pertenencia femenina argentina.</p>
+      </div>
+      <div class="card card-sm" style="border-left:3px solid var(--purple)">
+        <h3>✨ Mensaje implícito</h3>
+        <p>"Todo el mundo lo quiere y se agota rápido" — la combinación de urgencia + identidad + comunidad crea una narrativa de que si no comprás ya, te quedás afuera de algo popular.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: AUDIENCIA -->
+  <div class="section">
+    <div class="section-tag">04 / A quién le hablan</div>
+    <div class="section-title">Tres perfiles detectados en el copy y el tono</div>
+    <div class="section-sub">Inferido del lenguaje, los productos mencionados, los precios y el tipo de beneficios comunicados. No hay datos demográficos directos visibles, pero el copy es muy revelador.</div>
+
+    <div class="grid-3">
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:rgba(232,116,138,0.15)">🛍️</div>
+        <div class="persona-type">Perfil principal</div>
+        <h4>La compradora impulsiva</h4>
+        <p>Mujeres de 22-35 años, activas en Instagram, sensibles al FOMO. Compran cuando ven urgencia y un precio razonable. Se identifican con el lenguaje coloquial porteño/argentino. Toman decisiones rápidas.</p>
+        <div class="persona-traits">
+          <span class="persona-trait">Instagram nativa</span>
+          <span class="persona-trait">22-35 años</span>
+          <span class="persona-trait">Argentinas</span>
+          <span class="persona-trait">FOMO</span>
+          <span class="persona-trait">Precio-sensible</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:rgba(94,203,161,0.15)">⭐️</div>
+        <div class="persona-type">Perfil secundario</div>
+        <h4>La fashionista accesible</h4>
+        <p>Quiere estar "ondera" (a la moda) sin gastar una fortuna. Busca ropa que la haga sentir bien armada sin pensar mucho. "Cómoda y ondera" es exactamente su mantra. El sweater que "te salva siempre" habla directo a ella.</p>
+        <div class="persona-traits">
+          <span class="persona-trait">Fashion-forward</span>
+          <span class="persona-trait">Budget-conscious</span>
+          <span class="persona-trait">25-40 años</span>
+          <span class="persona-trait">Prácticas</span>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar" style="background:rgba(200,169,110,0.15)">🇦🇷</div>
+        <div class="persona-type">Perfil de nicho</div>
+        <h4>La hincha / la de la cábala</h4>
+        <p>Mujer que se identifica fuertemente con la identidad argentina. La "CAPSULA ARGENTINA" y el concepto de "cábala" la captura durante eventos deportivos o momentos de orgullo nacional. Compra como acto de pertenencia.</p>
+        <div class="persona-traits">
+          <span class="persona-trait">Identidad argentina</span>
+          <span class="persona-trait">Estacional</span>
+          <span class="persona-trait">18-45 años</span>
+          <span class="persona-trait">Comunidad</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:24px">
+      <strong>Audiencia excluida:</strong> no hay messaging dirigido a mujeres de 40+ años, segmento premium, clientas de regalo, ni turistas. El lenguaje es 100% informal-porteño y apunta a un rango socioeconómico medio-bajo a medio. Hay un gap claro en el segmento aspiracional.
+    </div>
+  </div>
+
+  <!-- SECTION 5: TOP 10 ADS -->
+  <div class="section">
+    <div class="section-tag">05 / Top 10 Ads más estratégicos</div>
+    <div class="section-title">Los ads que más impressions tienen (ordenados por Meta)</div>
+    <div class="section-sub">La Ad Library los muestra ordenados por total de impresiones. Los primeros en la lista son los que más plata están recibiendo y mejor están funcionando.</div>
+
+    <div class="ads-grid">
+
+      <div class="ad-card color-1">
+        <div class="ad-rank">#1 · Mayor impacto</div>
+        <div class="ad-copy">"NUEVOS BUSITOS 🇦🇷 corran ya al shop! stock super limitado!! 🥹⭐️⭐️⭐️"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 16 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> lanzamiento de un nuevo producto ("busito" = buzo corto/femenino). 3 versiones del mismo contenido corriendo simultáneamente.
+          <span class="why-label">Por qué funciona</span>
+          Combina novedad ("NUEVOS"), urgencia ("corran ya"), escasez ("stock super limitado") e identidad nacional (🇦🇷) en una sola línea. Es el toolkit completo de La Changa Bonita comprimido al máximo.
+        </div>
+      </div>
+
+      <div class="ad-card color-2">
+        <div class="ad-rank">#2 · Evergreen de urgencia</div>
+        <div class="ad-copy">"Cargue el ÚLTIMO STOCK!! corraaaaan + ENVÍO GRATIS ⭐️⭐️⭐️ 🇦🇷 🥹"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 3 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> liquidación o últimas unidades de un producto existente. El verbo "cargue" (en imperativo voseante argentino) es muy cercano y directo.
+          <span class="why-label">Por qué funciona</span>
+          La grafía extendida "corraaaaan" simula la voz de una amiga hablando, no de una marca. El ENVÍO GRATIS en el hook inicial elimina una objeción de compra de frente.
+        </div>
+      </div>
+
+      <div class="ad-card color-3">
+        <div class="ad-rank">#3 · Producto estrella: Calza LIT</div>
+        <div class="ad-copy">"La calza que te salva siempre 💖 ÚLTIMAS! están volando las últimas que nos quedan!! apúrate amiga!"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · Jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> la calza "LIT" — tiro alto, medio o bajo, cintura sin elástico pero elastizada. Producto con largo copy explicativo que detalla características técnicas.
+          <span class="why-label">Por qué funciona</span>
+          El copy largo justifica la compra ("ok amigas la calza más suaveee, elastizada y cómoda"). La descripción sensorial ("suaveee") y el detalle técnico construyen deseo antes de mostrar urgencia con "ÚLTIMAS".
+        </div>
+      </div>
+
+      <div class="ad-card color-4">
+        <div class="ad-rank">#4 · Lanzamiento con cábala</div>
+        <div class="ad-copy">"NEW BUSITOS! 🇦🇷 ya dispo corran stock limitadísimo! la nueva cabalaaa 💖 ⭐️⭐️⭐️"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 16 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> variante del mismo lanzamiento de busitos, con un ángulo diferente: "la nueva cábala" conecta el producto con suerte y rituales de la cultura popular argentina.
+          <span class="why-label">Por qué funciona</span>
+          "Cábala" es un concepto emocional profundo en la cultura argentina. Posicionar ropa como "tu cábala" es una estrategia brillante: le da al producto una función emocional más allá de la estética.
+        </div>
+      </div>
+
+      <div class="ad-card color-5">
+        <div class="ad-rank">#5 · Catálogo dinámico</div>
+        <div class="ad-copy">"El sweater que usas todo el año y te salva cuando no sabés qué ponerte! / Sweater Rebecca | Últimos En Stock"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-carousel">Carrusel / Catálogo</span>
+          <span class="ad-badge badge-active">Activo · May 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> carrusel con múltiples sweaters (Rebecca, Under, Tuli, Milo Washed). Cada slide es un producto diferente con su nombre y stock limitado.
+          <span class="why-label">Por qué funciona</span>
+          El catálogo dinámico maximiza la exposición de múltiples SKUs en un solo ad. "Todo el año" ataca la objeción de estacionalidad. Excelente para retargeting.
+        </div>
+      </div>
+
+      <div class="ad-card color-1">
+        <div class="ad-rank">#6 · Urgencia pura + envío</div>
+        <div class="ad-copy">"SE ESTÁN TERMINANDO / Busquen el suyo yaaa!!!! ENVÍO GRATIS a cualquier sucu de correo arg! ⭐️🫰🏽🇦🇷"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 9 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> SWEATERS ARGENTINA collection, productos desde $59,500 ARS. El "sucu de correo arg" (sucursal de correo argentino) hace el delivery muy concreto y accesible.
+          <span class="why-label">Por qué funciona</span>
+          "SE ESTÁN TERMINANDO" en mayúsculas + versiones múltiples del mismo ad = señal de que está convirtiendo. El ENVÍO GRATIS a correo argentino elimina la barrera de envío para clientes del interior.
+        </div>
+      </div>
+
+      <div class="ad-card color-2">
+        <div class="ad-rank">#7 · El ad más longevo (75 días activo)</div>
+        <div class="ad-copy">"Te salva cuando no sabés qué ponerte 💖 / 10%OFF x transfe | 3 & 6 cuotas sin interés"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 17 abr 2026 · ⏱ 75 días</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> el ad más antiguo todavía corriendo, desde el inicio de su estrategia Meta. Si lleva 75 días activo, es porque está convirtiendo de forma constante.
+          <span class="why-label">Por qué funciona</span>
+          El "outfit problem solver" es evergreen — no depende de stock ni de urgencia, sino de una verdad universal: "no sé qué ponerme". El 10% OFF + cuotas lo hace fácil de cerrar. Este es su mensaje de fondo más sólido.
+        </div>
+      </div>
+
+      <div class="ad-card color-3">
+        <div class="ad-rank">#8 · Cápsula Argentina con finanzas</div>
+        <div class="ad-copy">"tu nueva cábala llegó 🇦🇷 HASTA 6 CUOTAS / 15%OFF X TRANSFE 🫰🏽 ⭐️⭐️⭐️"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 18 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> CAPSULA ARGENTINA collection — sweater arg #02, sweater mortales natural. El mayor descuento por transferencia detectado en todos sus ads (15%).
+          <span class="why-label">Por qué funciona</span>
+          6 cuotas sin interés + 15% OFF es una propuesta financiera muy poderosa en el contexto económico argentino. Combina identidad nacional + accesibilidad económica = doble gancho.
+        </div>
+      </div>
+
+      <div class="ad-card color-4">
+        <div class="ad-rank">#9 · Urgencia emocional</div>
+        <div class="ad-copy">"Ustedes agotando todo 😮‍💨 💖 🇦🇷 corran porque último día de stock / 10%OFF x transfe | 3 & 6 cuotas sin interés"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 22 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> ad con copy largo detallando las características del sweater ("mega cómodo, abrigado, tiene detalles que vas a amar... súper ondero").
+          <span class="why-label">Por qué funciona</span>
+          "Ustedes agotando todo" le pone la agencia en la audiencia — son ellas las que hacen que se agote, no la marca. Es una forma de hacer social proof sin datos reales. El "último día" crea deadline concreto.
+        </div>
+      </div>
+
+      <div class="ad-card color-5">
+        <div class="ad-rank">#10 · Lanzamiento de nueva colección</div>
+        <div class="ad-copy">"claramente, las nuevas cábalas 🥹🫢😮‍💨🇦🇷🫰🏽⭐️⭐️⭐️"</div>
+        <div class="ad-meta">
+          <span class="ad-badge badge-video">Video</span>
+          <span class="ad-badge badge-active">Activo · 17 jun 2026</span>
+        </div>
+        <div class="ad-analysis">
+          <strong>Contexto:</strong> variante de CAPSULA ARGENTINA. Copy ultra-minimalista, todo el mensaje en una sola frase más emojis. El emoji 🥹 (cara de emoción) es omnipresente en su comunicación.
+          <span class="why-label">Por qué funciona</span>
+          A veces el minimalismo gana. Una frase + muchos emojis emocionales puede funcionar igual que copy largo en video. Están testeando cuánto contexto necesitan dar para convertir.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 6: LONGEVIDAD -->
+  <div class="section">
+    <div class="section-tag">06 / Anuncios más longevos</div>
+    <div class="section-title">Lo que lleva meses corriendo, convierte</div>
+    <div class="section-sub">Si un ad sigue activo después de 30+ días, Meta le está dando performance. Estos son los creativos que más confianza genera La Changa Bonita para dejar corriendo.</div>
+
+    <div class="chart-wrap">
+      <h3>Días activos por ad (al 1° julio 2026)</h3>
+      <div class="chart-container" style="height:300px">
+        <canvas id="longevityChart"></canvas>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3 style="margin-bottom:20px">Top ads por antigüedad</h3>
+      <div class="longevity-bar">
+        <div class="lon-copy">"Te salva cuando no sabés qué ponerte" · <span style="color:var(--muted);font-weight:400">Evergreen sweater</span></div>
+        <div class="lon-date">17 abr 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:100%"></div></div></div>
+        <div class="lon-days">75 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">Video sweater / lookbook · <span style="color:var(--muted);font-weight:400">Colección general</span></div>
+        <div class="lon-date">18 abr 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:97%"></div></div></div>
+        <div class="lon-days">74 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">Video colección general · <span style="color:var(--muted);font-weight:400">Segundo lookbook</span></div>
+        <div class="lon-date">18 abr 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:97%"></div></div></div>
+        <div class="lon-days">74 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">Video colección · <span style="color:var(--muted);font-weight:400">Sweater lifestyle</span></div>
+        <div class="lon-date">28 abr 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:84%"></div></div></div>
+        <div class="lon-days">64 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">Carrusel Sweater Rebecca · <span style="color:var(--muted);font-weight:400">Catálogo múltiples SKUs</span></div>
+        <div class="lon-date">18 may 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:57%"></div></div></div>
+        <div class="lon-days">44 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">"SE ESTÁN TERMINANDO" · <span style="color:var(--muted);font-weight:400">SWEATERS ARGENTINA</span></div>
+        <div class="lon-date">9 jun 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:29%"></div></div></div>
+        <div class="lon-days">22 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">"Cargue el ÚLTIMO STOCK" · <span style="color:var(--muted);font-weight:400">Video urgencia</span></div>
+        <div class="lon-date">3 jun 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:37%"></div></div></div>
+        <div class="lon-days">28 días</div>
+      </div>
+      <div class="longevity-bar">
+        <div class="lon-copy">Batch Busitos (8 ads) · <span style="color:var(--muted);font-weight:400">Nuevo lanzamiento</span></div>
+        <div class="lon-date">22-23 jun 2026</div>
+        <div class="lon-track"><div class="lon-track-bar"><div class="lon-track-fill" style="width:12%"></div></div></div>
+        <div class="lon-days">9 días</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:24px">
+      <strong>Insight clave:</strong> el mensaje "te salva cuando no sabés qué ponerte" lleva <strong>75 días activo</strong> — casi toda la historia de la cuenta. No es urgencia ni escasez: es un mensaje de utilidad cotidiana. Es su activo creativo más valioso y probablemente su mejor performer en costo por resultado.
+    </div>
+  </div>
+
+  <!-- SECTION 7: VELOCIDAD CREATIVA -->
+  <div class="section">
+    <div class="section-tag">07 / Velocidad creativa</div>
+    <div class="section-title">Lanzamientos en batch masivo, sin continuidad</div>
+    <div class="section-sub">Producen y publican muchos creativos de golpe cuando lanzan un producto nuevo, luego hay periodos de baja actividad. Es una estrategia de testing por saturación, no de optimización continua.</div>
+
+    <div class="chart-wrap" style="margin-bottom:24px">
+      <h3>Anuncios nuevos por semana</h3>
+      <div class="chart-container" style="height:260px">
+        <canvas id="velocityChart"></canvas>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="stat-card">
+        <div class="label">Mayor batch detectado</div>
+        <div class="value accent-pink">8 ads</div>
+        <div class="desc">22-23 jun 2026 · Lanzamiento Busitos en 1 día</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Segundo batch</div>
+        <div class="value accent-gold">7 ads</div>
+        <div class="desc">16 jun 2026 · Lanzamiento inicial Busitos</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Promedio semanal</div>
+        <div class="value accent-blue">~3.5</div>
+        <div class="desc">ads/semana desde abril 2026</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3 style="margin-bottom:16px">Patrón de publicación detectado</h3>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--danger);flex-shrink:0;margin-top:5px"></div>
+          <div><strong style="color:var(--text)">Semana de lanzamiento:</strong> <span style="color:var(--muted)">7-8 ads el mismo día o en 48hs. Todos con ángulos levemente distintos del mismo copy central. Testean cuál versión despega.</span></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px"></div>
+          <div><strong style="color:var(--text)">Semanas siguientes:</strong> <span style="color:var(--muted)">2-3 ads nuevos con urgencia aumentada ("últimas", "se agota"). Recargan el mismo mensaje con variaciones de copy a medida que el stock baja.</span></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px"></div>
+          <div><strong style="color:var(--text)">Ads evergreen:</strong> <span style="color:var(--muted)">1-3 ads de colección general corren de fondo en paralelo. El "te salva cuando no sabés qué ponerte" no se apaga.</span></div>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <div style="width:10px;height:10px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:5px"></div>
+          <div><strong style="color:var(--text)">Períodos de silencio:</strong> <span style="color:var(--muted)">Mayo tuvo muy poca actividad (solo 2 ads en todo el mes). Probablemente coincidió con problemas de stock o falta de nuevos productos.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: CONCLUSIÓN ESTRATÉGICA -->
+  <div class="section">
+    <div class="section-tag">08 / Conclusión estratégica</div>
+    <div class="section-title">Qué están haciendo bien y dónde están los gaps</div>
+    <div class="section-sub">Un análisis honesto de sus fortalezas, sus debilidades y las oportunidades concretas para que Miss Roure se diferencie.</div>
+
+    <div class="grid-2" style="margin-bottom:32px">
+      <div class="insight-card" style="border-color:rgba(94,203,161,0.25)">
+        <h4 style="color:var(--green)">✅ Qué están haciendo bien</h4>
+        <ul class="insight-list">
+          <li><strong>Urgencia como sistema:</strong> no es un truco ocasional, es el hilo conductor de toda su comunicación. Cada ad tiene al menos una señal de escasez.</li>
+          <li><strong>Identidad cultural profunda:</strong> el concepto de "cábala" y el uso consistente de 🇦🇷 los diferencia de cualquier marca genérica. Es un posicionamiento real.</li>
+          <li><strong>Video UGC de bajo costo:</strong> producen muchísimo contenido sin requerir producción cara. La autenticidad del formato construye confianza.</li>
+          <li><strong>Lanzamientos en batch:</strong> testear 7-8 versiones del mismo producto de golpe les permite identificar qué copy convierte más rápido.</li>
+          <li><strong>Evergreen paralelo:</strong> mientras corren urgencias estacionales, mantienen ads de largo plazo que siguen convirtiendo.</li>
+          <li><strong>Fricción financiera reducida:</strong> cuotas sin interés + descuento x transferencia + envío gratis eliminan las 3 principales objeciones de compra.</li>
+        </ul>
+      </div>
+      <div class="insight-card" style="border-color:rgba(232,116,116,0.25)">
+        <h4 style="color:var(--danger)">❌ Gaps detectados</h4>
+        <ul class="insight-list">
+          <li><strong>Sin creator partnerships:</strong> no hay colaboraciones con influencers ni creadores. Dejan free el canal de branded content / UGC externo.</li>
+          <li><strong>Sin storytelling aspiracional:</strong> todo el copy es práctico y urgente. Falta construcción de marca a largo plazo, deseo por encima del precio.</li>
+          <li><strong>Posicionamiento único débil:</strong> "te salva cuando no sabés qué ponerte" puede aplicar a cualquier marca de ropa. No hay diferenciación real de producto.</li>
+          <li><strong>Sin segmentación visible:</strong> todos los ads hablan igual a todos los segmentos. No hay versiones para distintas audiencias o etapas del funnel.</li>
+          <li><strong>Retargeting no visible:</strong> no se detectan ads de carritos abandonados, remarketing o fases de consideración. Solo TOFU y urgencia.</li>
+          <li><strong>Precio como único differentiator:</strong> cuando el diferencial principal es "cuotas sin interés y 10% OFF", el margen se come la rentabilidad a largo plazo.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="opp-callout">
+      <h3>🎯 Oportunidades concretas para Miss Roure</h3>
+      <div class="opp-grid">
+        <div class="opp-item">
+          <div class="opp-num">01</div>
+          <div class="opp-text">
+            <h5>Creator partnerships como ventaja competitiva</h5>
+            <p>La Changa Bonita no hace influencer marketing. Miss Roure puede dominar ese espacio con 3-5 creadoras estratégicas en Instagram/TikTok. Los ads con "Paid Partnership" tienen más credibilidad percibida.</p>
+          </div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">02</div>
+          <div class="opp-text">
+            <h5>Posicionamiento aspiracional vs. accesible</h5>
+            <p>La Changa habla de "resolución de outfits". Miss Roure puede hablar de identidad, estilo personal, la mujer que sos cuando te ponés esta ropa. Menos urgencia, más deseo construido.</p>
+          </div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">03</div>
+          <div class="opp-text">
+            <h5>Retargeting estructurado</h5>
+            <p>Ninguno de sus ads visibles apunta a retargeting. Una secuencia de ads de consideración → intención → conversión puede capturar a la clienta que vio pero no compró.</p>
+          </div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">04</div>
+          <div class="opp-text">
+            <h5>Segmento premium desatendido</h5>
+            <p>La Changa se fue hacia el volumen y el precio accesible. El segmento de mujeres 30-50 con mayor poder adquisitivo y búsqueda de calidad está libre para Miss Roure.</p>
+          </div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">05</div>
+          <div class="opp-text">
+            <h5>Storytelling de producto diferenciado</h5>
+            <p>¿Qué hace especial al tejido, al diseño, al proceso? La Changa vende "comodidad". Miss Roure puede vender la historia detrás de cada prenda — artesanía, diseño propio, durabilidad.</p>
+          </div>
+        </div>
+        <div class="opp-item">
+          <div class="opp-num">06</div>
+          <div class="opp-text">
+            <h5>Evergreen de marca (no solo de producto)</h5>
+            <p>Su único evergreen es un mensaje de producto ("te salva"). Miss Roure puede construir un ad evergreen de marca que genere brand equity mientras los de producto convierten a corto plazo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  Análisis generado para <strong>Miss Roure</strong> · Fuente: Meta Ad Library · Página analizada: La Changa Bonita (ID: 109450361362696) · Julio 2026
+</div>
+
+<script>
+// ===== CHART 1: FORMATO =====
+new Chart(document.getElementById('formatChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Video UGC', 'Carrusel / Catálogo', 'Imagen estática'],
+    datasets: [{
+      data: [28, 5, 4],
+      backgroundColor: ['rgba(232,116,138,0.85)', 'rgba(110,180,232,0.85)', 'rgba(94,203,161,0.85)'],
+      borderColor: ['#1e1e1e'],
+      borderWidth: 3,
+      hoverOffset: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    cutout: '65%',
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#888',
+          font: { size: 12 },
+          padding: 16,
+          boxWidth: 12,
+          boxHeight: 12
+        }
+      },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.label}: ${ctx.parsed} ads (${Math.round(ctx.parsed/37*100)}%)`
+        }
+      }
+    }
+  }
+});
+
+// ===== CHART 2: MENSAJES =====
+new Chart(document.getElementById('messageChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Urgencia / FOMO', 'Identidad 🇦🇷', 'Comunidad femme', 'Outfit solver', 'Accesibilidad $', 'Envío gratuito'],
+    datasets: [{
+      label: 'Frecuencia en ads',
+      data: [32, 27, 21, 18, 15, 10],
+      backgroundColor: [
+        'rgba(232,116,116,0.75)',
+        'rgba(94,203,161,0.75)',
+        'rgba(232,116,138,0.75)',
+        'rgba(110,180,232,0.75)',
+        'rgba(200,169,110,0.75)',
+        'rgba(168,141,232,0.75)'
+      ],
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.parsed.x} menciones`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        ticks: { color: '#888', font: { size: 11 } },
+        border: { color: '#2a2a2a' }
+      },
+      y: {
+        grid: { display: false },
+        ticks: { color: '#ccc', font: { size: 12 } },
+        border: { color: '#2a2a2a' }
+      }
+    }
+  }
+});
+
+// ===== CHART 3: LONGEVIDAD =====
+new Chart(document.getElementById('longevityChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Evergreen sweater\n(abr 17)', 'Lookbook 1\n(abr 18)', 'Lookbook 2\n(abr 18)', 'Lifestyle\n(abr 28)', 'Carrusel Rebecca\n(may 18)', 'Último stock\n(may 25)', 'ÚLTIMO STOCK\n(jun 3)', 'SE TERMINANDO\n(jun 9)', 'Batch Busitos\n(jun 22)'],
+    datasets: [{
+      label: 'Días activos',
+      data: [75, 74, 74, 64, 44, 37, 28, 22, 9],
+      backgroundColor: (ctx) => {
+        const v = ctx.parsed.y;
+        if (v >= 60) return 'rgba(200,169,110,0.85)';
+        if (v >= 30) return 'rgba(232,116,138,0.75)';
+        return 'rgba(110,180,232,0.65)';
+      },
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.parsed.y} días activo`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { color: '#666', font: { size: 10 } },
+        border: { color: '#2a2a2a' }
+      },
+      y: {
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        ticks: {
+          color: '#888',
+          font: { size: 11 },
+          callback: (v) => v + 'd'
+        },
+        border: { color: '#2a2a2a' }
+      }
+    }
+  }
+});
+
+// ===== CHART 4: VELOCIDAD CREATIVA =====
+new Chart(document.getElementById('velocityChart'), {
+  type: 'bar',
+  data: {
+    labels: ['14-20 abr', '21-27 abr', '28 abr-4 may', '5-11 may', '12-18 may', '19-25 may', '26 may-1 jun', '2-8 jun', '9-15 jun', '16-22 jun', '23-29 jun'],
+    datasets: [{
+      label: 'Ads nuevos',
+      data: [3, 0, 1, 0, 1, 1, 0, 2, 6, 13, 8],
+      backgroundColor: (ctx) => {
+        const v = ctx.parsed.y;
+        if (v >= 10) return 'rgba(232,116,116,0.9)';
+        if (v >= 5) return 'rgba(232,169,74,0.8)';
+        if (v >= 2) return 'rgba(200,169,110,0.7)';
+        return 'rgba(110,180,232,0.5)';
+      },
+      borderRadius: 6,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: (ctx) => ` ${ctx.parsed.y} ads nuevos esa semana`
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { color: '#666', font: { size: 10 }, maxRotation: 30 },
+        border: { color: '#2a2a2a' }
+      },
+      y: {
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        ticks: { color: '#888', font: { size: 11 }, stepSize: 2 },
+        border: { color: '#2a2a2a' }
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>

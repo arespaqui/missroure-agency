@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweater Vienne — Campaña ASC — Miss Roure</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+    :root {
+      --rose:      #c8788a;
+      --rose-light: #f5dde3;
+      --rose-pale:  #fdf0f3;
+      --rose-dark:  #9e4f62;
+      --charcoal:  #2c2c2c;
+      --gray:      #6b6b6b;
+      --gray-light: #f4f4f4;
+      --white:     #ffffff;
+      --green:     #3d8b6e;
+      --green-light: #e8f5ef;
+      --amber:     #c47c2b;
+      --amber-light: #fdf3e3;
+      --red:       #c0392b;
+      --red-light: #fdecea;
+      --border:    #e8d0d5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f3f5;
+      color: var(--charcoal);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: linear-gradient(135deg, #2c1a20 0%, #5a2d3a 50%, #9e4f62 100%);
+      color: white;
+      padding: 72px 60px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: rgba(200,120,138,.18);
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(200,120,138,.12);
+    }
+    .cover-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #f5dde3;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .cover-sub {
+      font-size: 18px;
+      color: #f5dde3;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cover-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .cover-meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: rgba(255,255,255,.5);
+      font-weight: 500;
+    }
+    .cover-meta-value {
+      font-size: 15px;
+      color: #fff;
+      font-weight: 500;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #3d8b6e;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .status-badge::before { content: '●'; font-size: 8px; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 32px 80px;
+    }
+
+    /* ── SECTION ── */
+    .section {
+      margin-top: 56px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--rose-light);
+    }
+    .section-number {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--rose);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--rose-dark);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--rose);
+      margin-bottom: 12px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+    /* ── PRODUCT CARD ── */
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .product-emoji { font-size: 56px; }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 6px;
+    }
+    .product-prices { display: flex; align-items: center; gap: 16px; margin-bottom: 10px; }
+    .price-original { font-size: 15px; color: var(--gray); text-decoration: line-through; }
+    .price-transfer { font-size: 24px; font-weight: 700; color: var(--rose-dark); }
+    .price-badge {
+      background: var(--rose);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .color-dots { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+    .color-dot {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+    }
+    .color-label { font-size: 13px; color: var(--gray); margin-left: 4px; }
+    .stock-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+
+    /* ── CONCEPT ── */
+    .concept-quote {
+      background: linear-gradient(135deg, var(--rose-pale), var(--rose-light));
+      border-left: 4px solid var(--rose);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--rose-dark);
+      margin-bottom: 20px;
+    }
+
+    /* ── TECH CONFIG ── */
+    .config-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .config-row:last-child { border-bottom: none; }
+    .config-label {
+      min-width: 180px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .config-value {
+      font-size: 14px;
+      color: var(--charcoal);
+      font-weight: 500;
+    }
+    .config-value code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      background: var(--gray-light);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--rose-dark);
+    }
+
+    /* ── AD CARDS ── */
+    .ad-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .ad-header {
+      background: linear-gradient(90deg, var(--rose-pale), white);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ad-number {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--rose);
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ad-title { font-weight: 600; font-size: 16px; color: var(--charcoal); }
+    .ad-subtitle { font-size: 12px; color: var(--gray); }
+    .ad-body { padding: 20px 24px; }
+    .copy-block {
+      background: var(--rose-pale);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+    .copy-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--rose);
+      margin-bottom: 6px;
+    }
+    .headline-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+    .headline-chip {
+      background: var(--charcoal);
+      color: white;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 6px;
+    }
+    .cta-chip {
+      display: inline-block;
+      background: #1877F2;
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 6px;
+      margin-top: 8px;
+    }
+    .format-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--amber-light);
+      color: var(--amber);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-left: 8px;
+    }
+
+    /* ── PHASES ── */
+    .phase-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .phase-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 4px;
+    }
+    .phase-header {
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      cursor: default;
+    }
+    .phase-1 .phase-header { background: linear-gradient(90deg, #e8f5ef, white); }
+    .phase-2 .phase-header { background: linear-gradient(90deg, #fdf3e3, white); }
+    .phase-3 .phase-header { background: linear-gradient(90deg, var(--rose-pale), white); }
+    .phase-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .phase-1 .phase-icon { background: var(--green-light); }
+    .phase-2 .phase-icon { background: var(--amber-light); }
+    .phase-3 .phase-icon { background: var(--rose-light); }
+    .phase-meta { flex: 1; }
+    .phase-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--charcoal);
+    }
+    .phase-dates { font-size: 13px; color: var(--gray); }
+    .phase-budget {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--rose-dark);
+    }
+    .phase-body { padding: 20px 24px; border-top: 1px solid var(--gray-light); }
+    .phase-rule {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .phase-rule::before { content: '›'; color: var(--rose); font-weight: 700; font-size: 18px; margin-top: -2px; }
+
+    /* ── ALARM TABLE ── */
+    .alarm-header {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      background: var(--gray-light);
+      padding: 10px 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-radius: 8px 8px 0 0;
+    }
+    .alarm-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 10px 14px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--gray-light);
+    }
+    .alarm-row:last-child { border-bottom: none; }
+    .alarm-wrap { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-top: 12px; }
+    .alarm-value { font-weight: 700; color: var(--red); }
+
+    /* ── DECISION TREE ── */
+    .decision-tree {
+      background: var(--gray-light);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+    .decision-root {
+      background: var(--charcoal);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .decision-branches {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .decision-branch {
+      border-radius: 10px;
+      padding: 16px;
+      border: 2px solid transparent;
+    }
+    .branch-a { background: var(--green-light); border-color: var(--green); }
+    .branch-b { background: var(--amber-light); border-color: var(--amber); }
+    .branch-c { background: var(--red-light); border-color: var(--red); }
+    .branch-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .branch-a .branch-label { color: var(--green); }
+    .branch-b .branch-label { color: var(--amber); }
+    .branch-c .branch-label { color: var(--red); }
+    .branch-condition { font-size: 13px; font-weight: 600; color: var(--charcoal); margin-bottom: 8px; }
+    .branch-action { font-size: 13px; color: var(--gray); }
+
+    .scale-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .scale-table th {
+      background: var(--charcoal);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .scale-table td {
+      padding: 10px 14px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .scale-table tr:last-child td { border-bottom: none; }
+    .scale-table tr:nth-child(even) td { background: var(--gray-light); }
+    .scale-pct { font-weight: 700; color: var(--green); }
+    .scale-budget { font-weight: 700; color: var(--rose-dark); }
+
+    /* ── KPI TABLE ── */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .kpi-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .kpi-metric { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-bottom: 8px; }
+    .kpi-target { font-size: 22px; font-weight: 700; color: var(--rose-dark); margin-bottom: 4px; }
+    .kpi-min { font-size: 12px; color: var(--gray); }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--rose-light);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -26px;
+      top: 4px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--rose);
+    }
+    .timeline-date {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .timeline-event { font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 4px; }
+    .timeline-detail { font-size: 13px; color: var(--gray); }
+
+    /* ── DON'T LIST ── */
+    .dont-list { list-style: none; }
+    .dont-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--gray-light);
+      font-size: 14px;
+      color: var(--charcoal);
+    }
+    .dont-list li:last-child { border-bottom: none; }
+    .dont-icon { color: var(--red); font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+    /* ── DIAG TABLE ── */
+    .diag-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .diag-table th {
+      background: var(--charcoal);
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .diag-table td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--border); }
+    .diag-table tr:last-child td { border-bottom: none; }
+    .diag-table tr:nth-child(even) td { background: var(--gray-light); }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+      margin-top: 60px;
+    }
+    .footer strong { color: white; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      .cover { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <div class="cover">
+    <div class="cover-badge">Miss Roure — Roure Essentials</div>
+    <h1>Sweater Vienne</h1>
+    <p class="cover-sub">Campaña Meta Ads — Advantage+ Shopping (ASC)</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Lanzamiento</span>
+        <span class="cover-meta-value">5 de junio, 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Evaluación</span>
+        <span class="cover-meta-value">19 de junio, 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Presupuesto inicial</span>
+        <span class="cover-meta-value">$5.000 ARS / día</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Estado</span>
+        <span class="status-badge">Aprobado — Listo para lanzar</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- 1. PRODUCTO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div class="section-title">Producto</div>
+      </div>
+      <div class="product-card">
+        <div class="product-emoji">🧸</div>
+        <div>
+          <div class="product-name">Sweater Vienne (Cuello Bote)</div>
+          <div class="product-prices">
+            <span class="price-original">$37.500 ARS</span>
+            <span class="price-transfer">$30.000 ARS</span>
+            <span class="price-badge">20% OFF transferencia</span>
+          </div>
+          <div class="color-dots">
+            <div class="color-dot" style="background:#6b2737;" title="Bordo"></div>
+            <div class="color-dot" style="background:#1a1a1a;" title="Negro"></div>
+            <div class="color-dot" style="background:#f2ead8;" title="Crema"></div>
+            <div class="color-dot" style="background:#4a2e1e;" title="Chocolate"></div>
+            <span class="color-label">Bordo · Negro · Crema · Chocolate</span>
+          </div>
+          <div class="stock-tag">✓ En stock</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. NARRATIVA -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div class="section-title">Narrativa de Campaña</div>
+      </div>
+      <div class="concept-quote">"Cozy pero sexy: el sweater que vas a querer usar siempre 🧸"</div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">Historia emocional</div>
+          Para esos días de frío donde querés sentirte abrigada, cómoda y súper sexy al mismo tiempo. Un abrigo suave como un abrazo que realza tu figura y te hace sentir arreglada sin esfuerzo.
+        </div>
+        <div class="card">
+          <div class="card-title">Tono de la campaña</div>
+          Cercano, cálido, de amiga a amiga (voseo). Apela al bienestar físico y la belleza natural del día a día. Sin sobre-vender, con autenticidad.
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. CONFIGURACIÓN TÉCNICA -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div class="section-title">Configuración Técnica en Ads Manager</div>
+      </div>
+      <div class="card">
+        <div class="config-row">
+          <span class="config-label">Tipo de campaña</span>
+          <span class="config-value">Advantage+ Shopping Campaign (ASC) — full-funnel automático</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Nombre de campaña</span>
+          <span class="config-value"><code>Sweater Vienne — ASC — 2026-06-05</code></span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Objetivo</span>
+          <span class="config-value">Ventas (Sales) → evento <strong>Purchase</strong></span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Pixel</span>
+          <span class="config-value">Pixel de Miss Roure — verificar en Events Manager que Purchase dispara correctamente</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Ventana de atribución</span>
+          <span class="config-value"><strong>7-day click + 1-day view</strong> — verificar que no quede en 1-day click por defecto</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">URL de destino</span>
+          <span class="config-value"><code>roure.tiendanegocio.com/productos/sweater-cuello-bote</code></span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Clientes existentes</span>
+          <span class="config-value">Límite: <strong>10%</strong> del presupuesto (Custom Audience: <code>Custom-Compradores-Historicos</code>)</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">Placements</span>
+          <span class="config-value">Automáticos — la ASC los optimiza sola. No configurar manualmente.</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label">UTMs dinámicos</span>
+          <span class="config-value"><code>utm_source={{site_source_name}}&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}</code></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. CREATIVOS -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div class="section-title">Creativos y Copies</div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-header">
+          <div class="ad-number">1</div>
+          <div>
+            <div class="ad-title">Showcase de Producto — Aesthetic <span class="format-tag">📱 9:16 vertical</span></div>
+            <div class="ad-subtitle">Ads 1.mp4 — variantes de color en percha y modelo</div>
+          </div>
+        </div>
+        <div class="ad-body">
+          <div class="copy-label">Copy 1 — Emocional</div>
+          <div class="copy-block">🌷 Lindas, miren lo que es el Sweater Vienne. Es acanalado, súper comfy y con un cuello bote caído que queda hermoso y súper fino. ¿Cuál es tu color favorito? ✨</div>
+          <div class="copy-label">Copy 2 — Racional</div>
+          <div class="copy-block">El off-shoulder perfecto para este invierno. Sweater Vienne disponible en 4 colores. 20% OFF pagando con transferencia ($30.000) y envíos gratis desde $80.000 ARS. 🧸</div>
+          <div class="copy-label">Headlines</div>
+          <div class="headline-row">
+            <span class="headline-chip">Sweater Vienne — $30.000 🌷</span>
+            <span class="headline-chip">Llevátelo con 20% OFF ✨</span>
+          </div>
+          <div class="cta-chip">Comprar ahora</div>
+        </div>
+      </div>
+
+      <div class="ad-card">
+        <div class="ad-header">
+          <div class="ad-number">2</div>
+          <div>
+            <div class="ad-title">UGC / Voiceover — Conversión <span class="format-tag">📱 9:16 vertical</span></div>
+            <div class="ad-subtitle">ads2.mp4 — locución "cozy pero sexy" con el Vienne negro</div>
+          </div>
+        </div>
+        <div class="ad-body">
+          <div class="copy-label">Copy 1 — Emocional</div>
+          <div class="copy-block">🌷 ¿Buscando el sweater perfecto para los días fríos? El Vienne es súper suavecito y cómodo, ideal para tus outfits diarios sin perder ese toque sexy. Bye, lindas. 🌷</div>
+          <div class="copy-label">Copy 2 — Racional</div>
+          <div class="copy-block">Cozy, sexy y muy suave. Conseguí tu Sweater Vienne con 20% OFF transferencia por solo $30.000 ARS. Envíos gratis desde $80.000 ARS a todo el país. 🚚</div>
+          <div class="copy-label">Headlines</div>
+          <div class="headline-row">
+            <span class="headline-chip">Sweater Vienne — $30.000 🌷</span>
+            <span class="headline-chip">Cozy &amp; Sexy para invierno 🧸</span>
+          </div>
+          <div class="cta-chip">Comprar ahora</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ESTRATEGIA DE PRESUPUESTO -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div class="section-title">Estrategia de Presupuesto por Fases</div>
+      </div>
+
+      <!-- FASE 1 -->
+      <div class="phase-card phase-1">
+        <div class="phase-header">
+          <div class="phase-icon">🌱</div>
+          <div class="phase-meta">
+            <div class="phase-name">Fase 1 — Aprendizaje</div>
+            <div class="phase-dates">Días 1 al 7 · 5 jun → 12 jun</div>
+          </div>
+          <div class="phase-budget">$5.000 ARS/día</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-rule">Regla de oro: <strong>NO tocar nada</strong> — ni presupuesto, ni creativos, ni configuración. Meta necesita acumular datos para optimizar la entrega.</div>
+          <div class="phase-rule">Cualquier cambio en esta fase puede resetear el algoritmo y desperdiciar los datos acumulados.</div>
+
+          <div style="margin-top: 16px; font-weight: 600; font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px;">
+            Lectura diagnóstica — Día 3 (8 de junio) — solo mirar
+          </div>
+          <div class="alarm-wrap">
+            <div class="alarm-header">
+              <span>Señal de alarma</span>
+              <span>Métrica</span>
+              <span>Umbral crítico</span>
+            </div>
+            <div class="alarm-row">
+              <span>Creativos no funcionan</span>
+              <span>Hook Rate</span>
+              <span class="alarm-value">&lt; 20% en ambos ads</span>
+            </div>
+            <div class="alarm-row">
+              <span>Nadie llega al producto</span>
+              <span>CTR</span>
+              <span class="alarm-value">&lt; 0.5%</span>
+            </div>
+            <div class="alarm-row">
+              <span>CPM anómalo</span>
+              <span>CPM</span>
+              <span class="alarm-value">&gt; $6.000 ARS</span>
+            </div>
+            <div class="alarm-row">
+              <span>Pixel sin datos</span>
+              <span>Compras registradas</span>
+              <span class="alarm-value">0 con tráfico real</span>
+            </div>
+          </div>
+          <div style="margin-top: 12px; font-size: 13px; color: var(--gray);">
+            ⚠ Si se dispara una alarma → pausar y revisar. Si todo está en rango → cerrar el dashboard y no volver hasta el Día 7.
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="phase-card phase-2" style="margin-top: 4px;">
+        <div class="phase-header">
+          <div class="phase-icon">📊</div>
+          <div class="phase-meta">
+            <div class="phase-name">Fase 2 — Evaluación y Decisión</div>
+            <div class="phase-dates">Día 7 · 12 de junio</div>
+          </div>
+          <div class="phase-budget" style="color: var(--amber);">Decisión de escala</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-rule">Con 7 días de datos se toma la <strong>primera decisión real</strong> de presupuesto.</div>
+
+          <div class="decision-tree">
+            <div class="decision-root">¿CPP ≤ $10.000 ARS y ROAS ≥ 3x?</div>
+            <div class="decision-branches">
+              <div class="decision-branch branch-a">
+                <div class="branch-label">Escenario A</div>
+                <div class="branch-condition">✓ CPP ≤ $10k + ROAS ≥ 3x</div>
+                <div class="branch-action">Escalar presupuesto según tabla de ROAS</div>
+              </div>
+              <div class="decision-branch branch-b">
+                <div class="branch-label">Escenario B</div>
+                <div class="branch-condition">~ CPP $10k–$15k + ROAS ≥ 2x</div>
+                <div class="branch-action">Mantener $5.000/día por 7 días más</div>
+              </div>
+              <div class="decision-branch branch-c">
+                <div class="branch-label">Escenario C</div>
+                <div class="branch-condition">✗ CPP &gt; $15k o ROAS &lt; 2x</div>
+                <div class="branch-action">Pausar y diagnosticar el problema</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; font-weight: 600; font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+            Escenario A — Tabla de escalado
+          </div>
+          <table class="scale-table">
+            <thead>
+              <tr><th>ROAS obtenido</th><th>Incremento</th><th>Budget nuevo / día</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>3x – 4x</td><td class="scale-pct">+20%</td><td class="scale-budget">$6.000 ARS</td></tr>
+              <tr><td>4x – 5x</td><td class="scale-pct">+40%</td><td class="scale-budget">$7.000 ARS</td></tr>
+              <tr><td>&gt; 5x</td><td class="scale-pct">+60%</td><td class="scale-budget">$8.000 ARS</td></tr>
+            </tbody>
+          </table>
+          <div style="margin-top: 10px; font-size: 13px; color: var(--gray);">
+            ⚠ Esperar al menos 3 días entre cada cambio de presupuesto. Aumentos superiores al 50% en un solo paso pueden resetear la entrega.
+          </div>
+
+          <div style="margin-top: 20px; font-weight: 600; font-size: 13px; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">
+            Escenario C — Diagnóstico de problemas
+          </div>
+          <table class="diag-table">
+            <thead>
+              <tr><th>Síntoma</th><th>Diagnóstico probable</th><th>Acción</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hook Rate &lt; 20%</td>
+                <td>El primer segundo no engancha</td>
+                <td>Nuevo creativo con hook más directo</td>
+              </tr>
+              <tr>
+                <td>CTR &lt; 0.8%</td>
+                <td>Copy o precio no convencen</td>
+                <td>Agregar precio visible en el visual</td>
+              </tr>
+              <tr>
+                <td>CTR alto pero CPP alto</td>
+                <td>La landing no convierte</td>
+                <td>Revisar URL, precio visible, proceso de compra</td>
+              </tr>
+              <tr>
+                <td>CPM &gt; $6.000</td>
+                <td>Audiencia saturada o competencia</td>
+                <td>Revisar otras campañas activas simultáneas</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="phase-card phase-3" style="margin-top: 4px;">
+        <div class="phase-header">
+          <div class="phase-icon">🚀</div>
+          <div class="phase-meta">
+            <div class="phase-name">Fase 3 — Consolidación</div>
+            <div class="phase-dates">Día 14 en adelante · 19 de junio</div>
+          </div>
+          <div class="phase-budget" style="color: var(--rose);">Escala o nueva ASC</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-rule">Evaluar si escalar más presupuesto o abrir una segunda ASC con creativos frescos.</div>
+          <div class="phase-rule">Si el ROAS es alto, subir el límite de clientes existentes de <strong>10% → 20-25%</strong> para aprovechar más el remarketing automático.</div>
+          <div class="phase-rule"><strong>No crear una campaña de retargeting separada</strong> — Meta lo maneja dentro de la ASC via el cap de clientes existentes. Una campaña separada generaría overlap de audiencia y fragmentaría el aprendizaje.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. KPIs -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div class="section-title">KPIs de Éxito — Evaluación en 7 días</div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-metric">Hook Rate</div>
+          <div class="kpi-target">≥ 35%</div>
+          <div class="kpi-min">Mínimo aceptable: ≥ 25%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">Hold Rate</div>
+          <div class="kpi-target">≥ 15%</div>
+          <div class="kpi-min">Mínimo aceptable: ≥ 10%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">CTR</div>
+          <div class="kpi-target">&gt; 1.2%</div>
+          <div class="kpi-min">Mínimo aceptable: &gt; 0.8%</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">CPM</div>
+          <div class="kpi-target">&lt; $4.500 ARS</div>
+          <div class="kpi-min">Máximo tolerable: $6.000 ARS</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">CPP (Costo por Compra)</div>
+          <div class="kpi-target">≤ $10.000 ARS</div>
+          <div class="kpi-min">Máximo tolerable: $15.000 ARS</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-metric">ROAS</div>
+          <div class="kpi-target">≥ 3x</div>
+          <div class="kpi-min">Mínimo aceptable: ≥ 2x</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. TIMELINE -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div class="section-title">Timeline</div>
+      </div>
+      <div class="card">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">5 de junio — Día 1</div>
+            <div class="timeline-event">Lanzamiento de campaña</div>
+            <div class="timeline-detail">Activar en Meta Ads Manager. Verificar en Events Manager que el pixel registra Purchase.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">8 de junio — Día 3</div>
+            <div class="timeline-event">Lectura diagnóstica</div>
+            <div class="timeline-detail">Solo mirar métricas de alarma. No tocar nada salvo que se active una señal crítica.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">12 de junio — Día 7</div>
+            <div class="timeline-event">Evaluación completa y decisión de escala</div>
+            <div class="timeline-detail">Aplicar árbol de decisión con KPIs completos. Ajustar presupuesto según Escenario A, B o C.</div>
+          </div>
+          <div class="timeline-item" style="margin-bottom: 0;">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">19 de junio — Día 14</div>
+            <div class="timeline-event">Consolidación</div>
+            <div class="timeline-detail">Segunda evaluación. Decidir si escalar, abrir segunda ASC con creativos frescos, o ajustar cap de clientes existentes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. LO QUE NO HACER -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div class="section-title">Lo que NO hacer</div>
+      </div>
+      <div class="card">
+        <ul class="dont-list">
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Cambiar el presupuesto antes del Día 7</strong> — salvo alarma crítica en Día 3. Meta necesita los 7 días completos para aprender.</span>
+          </li>
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Crear una campaña de retargeting separada</strong> — genera overlap de audiencia, te competís con vos misma en el auction y fragmentás el aprendizaje.</span>
+          </li>
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Pausar y reactivar la campaña</strong> — resetea el aprendizaje completamente. Si hay que pausar, aceptar que el algoritmo vuelve a cero.</span>
+          </li>
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Editar creativos o copy durante Fase 1</strong> — Meta vuelve a empezar el proceso de optimización de placements y audiencias.</span>
+          </li>
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Configurar placements manualmente</strong> — la ASC los optimiza sola. Intervenir reduce la superficie de optimización.</span>
+          </li>
+          <li>
+            <span class="dont-icon">✗</span>
+            <span><strong>Escalar el presupuesto más de un 50% de una sola vez</strong> — Meta puede interpretar el aumento como una nueva campaña y resetear la entrega.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <div class="footer">
+    <strong>Miss Roure — Agencia de IA</strong> &nbsp;·&nbsp; Sweater Vienne ASC — Junio 2026 &nbsp;·&nbsp; Documento interno confidencial
+  </div>
+
+</body>
+</html>
